@@ -3,106 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTL Internal Tools</title>
+    <title>Be Top Local — Internal Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --gold: #C5A028;
+            --gold-bright: #E2BC2E;
+            --gold-deep: #9A7B10;
+            --gold-glow: rgba(212,175,55,0.2);
+            --gold-subtle: #FAF6E8;
+            --ink: #111111;
+            --ink-soft: #2A2A2A;
+            --ink-mid: #555555;
+            --ink-muted: #888888;
+            --surface: #FFFFFF;
+            --surface-warm: #FDFBF6;
+            --border: #E5E5E3;
+            --border-light: #F0F0EE;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
+            font-family: 'Outfit', sans-serif;
+            background: var(--surface-warm);
+            color: var(--ink-soft);
+            -webkit-font-smoothing: antialiased;
             min-height: 100vh;
-            padding: 40px 20px;
         }
-        .container {
-            max-width: 700px;
+
+        .header {
+            background: var(--ink);
+            padding: 56px 0 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 20% 30%, rgba(197,160,40,0.1), transparent),
+                radial-gradient(ellipse 60% 80% at 80% 70%, rgba(197,160,40,0.06), transparent);
+            pointer-events: none;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+        }
+        .header-eyebrow {
+            font-size: 11px; font-weight: 700; letter-spacing: 6px;
+            text-transform: uppercase; color: var(--gold-bright);
+            margin-bottom: 16px; position: relative;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px; font-weight: 800; color: #fff;
+            line-height: 1.1; margin-bottom: 12px; position: relative;
+        }
+        .header p {
+            font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.45);
+            position: relative;
+        }
+
+        .content {
+            max-width: 680px;
             margin: 0 auto;
+            padding: 48px 28px 80px;
         }
-        h1 {
-            font-size: 28px;
+
+        .section-label {
+            font-size: 11px;
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--gold);
+            margin-bottom: 16px;
+            padding-top: 40px;
         }
-        .subtitle {
-            color: #888;
-            font-size: 15px;
-            margin-bottom: 40px;
+        .section-label:first-child {
+            padding-top: 0;
         }
+
         .card {
-            background: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 10px;
-            padding: 20px 24px;
-            margin-bottom: 12px;
-            text-decoration: none;
             display: block;
-            transition: border-color 0.2s, background 0.2s;
+            text-decoration: none;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 22px 28px;
+            margin-bottom: 12px;
+            transition: border-color 0.25s, box-shadow 0.25s;
+            position: relative;
         }
         .card:hover {
-            border-color: #4a9eff;
-            background: #1a1a2e;
+            border-color: var(--gold);
+            box-shadow: 0 4px 24px rgba(197,160,40,0.1);
         }
-        .card h2 {
-            font-size: 17px;
-            font-weight: 600;
-            color: #fff;
+        .card:hover .card-title {
+            color: var(--ink);
+        }
+        .card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(0) translateY(-50%);
+        }
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink-soft);
             margin-bottom: 4px;
+            transition: color 0.25s;
         }
-        .card p {
-            font-size: 13px;
-            color: #888;
+        .card-desc {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--ink-muted);
+            line-height: 1.5;
         }
-        .section-label {
+        .card-arrow {
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateX(-6px) translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.25s, transform 0.25s;
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .footer-text {
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 500;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #4a9eff;
-            margin-bottom: 12px;
-            margin-top: 32px;
+            color: var(--ink-muted);
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="header">
+        <div class="header-eyebrow">Internal Tools</div>
         <h1>Be Top Local</h1>
-        <p class="subtitle">Internal tools and resources</p>
+        <p>Team resources and reference documents</p>
+    </div>
 
+    <div class="content">
         <div class="section-label">Sales & Marketing</div>
 
         <a href="btl-master-marketing-doc.html" class="card">
-            <h2>Master Marketing Doc</h2>
-            <p>Core marketing messaging and strategy document</p>
+            <div class="card-title">Master Marketing Doc</div>
+            <div class="card-desc">Core marketing messaging and strategy document</div>
+            <span class="card-arrow">&#10132;</span>
         </a>
 
         <a href="btl-deck.html" class="card">
-            <h2>BTL Pitch Deck</h2>
-            <p>Full standalone presentation deck</p>
+            <div class="card-title">BTL Pitch Deck</div>
+            <div class="card-desc">Full standalone presentation deck</div>
+            <span class="card-arrow">&#10132;</span>
         </a>
 
         <a href="btl-deck-index.html" class="card">
-            <h2>Pitch Deck (Slide Navigation)</h2>
-            <p>Interactive slide-by-slide version</p>
+            <div class="card-title">Pitch Deck (Slide Navigation)</div>
+            <div class="card-desc">Interactive slide-by-slide version</div>
+            <span class="card-arrow">&#10132;</span>
         </a>
 
         <div class="section-label">Brand</div>
 
         <a href="btl-brand-style-guide.html" class="card">
-            <h2>Brand Style Guide</h2>
-            <p>Colors, typography, logo usage, and brand standards</p>
+            <div class="card-title">Brand Style Guide</div>
+            <div class="card-desc">Colors, typography, logo usage, and brand standards</div>
+            <span class="card-arrow">&#10132;</span>
         </a>
 
         <div class="section-label">AI Agent</div>
 
         <a href="ai-coordinator-landing-v4.html" class="card">
-            <h2>AI Coordinator Landing Page (v4)</h2>
-            <p>Latest version of the AI coordinator landing page</p>
+            <div class="card-title">AI Coordinator Landing Page (v4)</div>
+            <div class="card-desc">Latest version of the AI coordinator landing page</div>
+            <span class="card-arrow">&#10132;</span>
         </a>
 
         <a href="ai-coordinator-landing-v3.html" class="card">
-            <h2>AI Coordinator Landing Page (v3)</h2>
-            <p>Previous version</p>
+            <div class="card-title">AI Coordinator Landing Page (v3)</div>
+            <div class="card-desc">Previous version</div>
+            <span class="card-arrow">&#10132;</span>
         </a>
+
+        <div class="footer">
+            <div class="footer-text">Be Top Local</div>
+        </div>
     </div>
 </body>
 </html>
