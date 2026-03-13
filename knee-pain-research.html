@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knee Pain — Condition Research | Be Top Local</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-glow: rgba(212,175,55,0.2);
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --ink-faint: #B8B8B8;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --surface-cool: #F7F7F5;
+    --border: #E5E5E3;
+    --border-light: #F0F0EE;
+    --red: #BE3A2A;
+    --green: #1B7D42;
+    --green-bg: #E8F5ED;
+    --red-bg: #FDECEB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink-soft);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Cover */
+  .cover {
+    background: var(--ink);
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 30%, rgba(197,160,40,0.1), transparent),
+      radial-gradient(ellipse 60% 80% at 80% 70%, rgba(197,160,40,0.06), transparent);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+  }
+  .cover-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--gold-bright);
+    margin-bottom: 20px; position: relative;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px; font-weight: 800; color: #fff;
+    line-height: 1.1; margin-bottom: 12px; position: relative;
+  }
+  .cover h1 em { font-style: italic; color: var(--gold-bright); }
+  .cover .subtitle {
+    font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.5);
+    position: relative; margin-bottom: 24px;
+  }
+  .cover-meta {
+    display: inline-flex; gap: 24px; position: relative;
+    font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.35);
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .cover-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* Nav */
+  .toc {
+    background: var(--surface-warm);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .toc-inner {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center;
+  }
+  .toc a {
+    font-size: 12px; font-weight: 600; color: var(--ink-mid);
+    text-decoration: none; padding: 6px 14px;
+    border-radius: 20px; border: 1px solid var(--border);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .toc a:hover {
+    background: var(--gold-subtle); border-color: var(--gold);
+    color: var(--gold-deep);
+  }
+
+  /* Sections */
+  .section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px; font-weight: 800; color: var(--gold);
+    margin-bottom: 6px; letter-spacing: 1px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 800; color: var(--ink);
+    line-height: 1.15; margin-bottom: 8px;
+  }
+  .section-desc {
+    font-size: 15px; font-weight: 300; color: var(--ink-muted);
+    margin-bottom: 32px; line-height: 1.7; max-width: 600px;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  h3:first-child { margin-top: 0; }
+
+  h4 {
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin: 24px 0 10px;
+  }
+
+  p { margin-bottom: 12px; font-size: 15px; line-height: 1.7; }
+  p.lead { font-size: 16px; font-weight: 300; color: var(--ink-mid); }
+
+  strong { font-weight: 700; color: var(--ink); }
+
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface-cool);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .card-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .card p { margin-bottom: 8px; font-size: 14px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .card-full {
+    background: var(--surface-cool);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin: 16px 0;
+  }
+
+  .card-dark {
+    background: var(--ink);
+    border: none;
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin: 16px 0;
+    color: rgba(255,255,255,0.7);
+  }
+  .card-dark .card-label { color: var(--gold-bright); }
+  .card-dark strong { color: #fff; }
+  .card-dark p { color: rgba(255,255,255,0.7); }
+
+  /* Stats */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .stat-card {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 800; color: var(--gold-bright);
+    line-height: 1.1; margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+  }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--ink);
+    color: #fff; font-weight: 600;
+    padding: 12px 16px; text-align: left;
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  thead th:first-child { border-radius: 12px 0 0 0; }
+  thead th:last-child { border-radius: 0 12px 0 0; }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--surface-cool); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    padding: 4px 10px; border-radius: 12px;
+    margin: 2px 2px;
+  }
+  .tag-gold { background: var(--gold-subtle); color: var(--gold-deep); border: 1px solid rgba(197,160,40,0.3); }
+  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-red { background: var(--red-bg); color: var(--red); }
+  .tag-gray { background: var(--surface-cool); color: var(--ink-mid); border: 1px solid var(--border); }
+
+  /* Callout boxes */
+  .callout {
+    border-left: 4px solid var(--gold);
+    background: var(--gold-subtle);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout-red {
+    border-left: 4px solid var(--red);
+    background: var(--red-bg);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout-red p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+
+  .callout-green {
+    border-left: 4px solid var(--green);
+    background: var(--green-bg);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout-green p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+
+  /* Lists */
+  ul.styled {
+    list-style: none; padding: 0; margin: 12px 0;
+  }
+  ul.styled li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  ul.styled li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 14px;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--ink);
+    padding: 40px 0;
+    text-align: center;
+    color: rgba(255,255,255,0.35);
+    font-size: 13px;
+  }
+  .footer strong { color: var(--gold-bright); }
+
+  /* Print */
+  @media print {
+    .toc { display: none; }
+    .cover { padding: 40px 0 30px; }
+    .section { padding: 30px 0; }
+    body { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="container">
+    <div class="cover-eyebrow">Condition Research</div>
+    <h1><em>Knee Pain</em></h1>
+    <p class="subtitle">Pre-Ad Research Brief for Functional &amp; Integrative Medicine Clinics</p>
+    <div class="cover-meta">
+      <span>Be Top Local</span>
+      <span>Copy Brain</span>
+      <span>March 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="toc">
+  <div class="container">
+    <div class="toc-inner">
+      <a href="#audience">Audience</a>
+      <a href="#symptoms">Symptoms</a>
+      <a href="#treatments">Treatments</a>
+      <a href="#competitors">Competitors</a>
+      <a href="#platform">Platform</a>
+      <a href="#stats">Stats</a>
+      <a href="#tone">Tone</a>
+      <a href="#hormozi">Hormozi Framework</a>
+      <a href="#offer">Offer</a>
+    </div>
+  </div>
+</div>
+
+<!-- 1. AUDIENCE -->
+<div class="section" id="audience">
+  <div class="container">
+    <div class="section-num">01</div>
+    <div class="section-title">Audience Profile</div>
+    <div class="section-desc">Who are these people, what have they tried, and where are they in their journey?</div>
+
+    <h3>Demographics</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Age</div>
+        <p><strong>Sweet spot: 45-75.</strong> 25% of adults over 45 report regular knee pain. Nearly 37% of adults 65+ report it. Don't sleep on the 45-64 range: more than half of symptomatic knee OA patients are under 65.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Gender</div>
+        <p><strong>Women are ~2x as likely</strong> to report knee pain (23% vs 18%). After age 45, OA is more common in women. Hormonal and biomechanical differences.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Income / Insurance</div>
+        <p>Broad range. Many on <strong>Medicare (65+)</strong> or employer insurance (45-64). Cost sensitivity is high because they've already spent money on treatments that didn't work. Many regen treatments are cash-pay.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Lifestyle</div>
+        <p>Mix of <strong>formerly active people</strong> (golf, tennis, hiking, grandkids) and <strong>sedentary/overweight</strong> individuals. Also anyone on their feet all day: nurses, teachers, retail, construction.</p>
+      </div>
+    </div>
+
+    <h3>Psychographics</h3>
+    <div class="card-full">
+      <div class="card-label">Where They Are In Their Journey</div>
+      <p>Most have been dealing with knee pain for <strong>months to years</strong>. They've tried OTC painkillers, maybe cortisone shots, possibly physical therapy. They're at the point where their doctor is suggesting surgery or they're "just living with it." They're not early in their journey. <strong>They're frustrated.</strong></p>
+    </div>
+
+    <h4>What They've Already Tried</h4>
+    <div style="margin: 8px 0 16px;">
+      <span class="tag tag-gray">Ibuprofen / Advil</span>
+      <span class="tag tag-gray">Ice & Rest</span>
+      <span class="tag tag-gray">Cortisone Injections</span>
+      <span class="tag tag-gray">Physical Therapy</span>
+      <span class="tag tag-gray">Knee Brace</span>
+      <span class="tag tag-gray">"Just Lose Weight"</span>
+    </div>
+
+    <h4>What They're Searching Online</h4>
+    <div style="margin: 8px 0 16px;">
+      <span class="tag tag-gold">knee pain relief without surgery</span>
+      <span class="tag tag-gold">alternative to knee replacement</span>
+      <span class="tag tag-gold">why does my knee hurt going down stairs</span>
+      <span class="tag tag-gold">knee pain treatment near me</span>
+      <span class="tag tag-gold">is there a shot for knee pain</span>
+    </div>
+
+    <h4>Who Influences Their Decisions</h4>
+    <p><strong>Spouse is #1</strong> (especially 55+ crowd). Adult children worried about mom/dad. Primary care doctor's opinion carries weight but they're open to alternatives since their doctor hasn't fixed it.</p>
+
+    <h4>Relationship With Medical System</h4>
+    <p><strong>Frustrated.</strong> They feel like they've been given a pill, a shot, or told to just deal with it. Many feel dismissed. They're skeptical of being "sold" another treatment but desperately want a solution.</p>
+  </div>
+</div>
+
+<!-- 2. SYMPTOMS -->
+<div class="section" id="symptoms">
+  <div class="container">
+    <div class="section-num">02</div>
+    <div class="section-title">Symptoms &amp; Pain Points</div>
+    <div class="section-desc">What they feel, how they describe it, and what it costs them beyond physical pain.</div>
+
+    <h3>Physical Symptoms (In Their Own Words)</h3>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"My knee <strong>aches all the time</strong>, especially when I first get up in the morning"</li>
+        <li>"It's <strong>stiff and swollen</strong>, especially after sitting for a while"</li>
+        <li>"I can't go <strong>up and down stairs</strong> without holding the railing"</li>
+        <li>"My knee <strong>gives out</strong> sometimes, like it's going to buckle"</li>
+        <li>"There's a <strong>grinding/crunching feeling</strong> when I bend it"</li>
+        <li>"It hurts to <strong>get in and out of the car</strong>"</li>
+        <li>"I <strong>can't kneel down</strong> anymore, or if I do, I can't get back up"</li>
+      </ul>
+    </div>
+
+    <h3>Emotional &amp; Lifestyle Impact</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Daily Life</div>
+        <p>Can't walk the dog. Can't keep up at the grocery store. Getting off the toilet is a struggle. Standing to cook dinner is painful. Can't get comfortable in bed.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Sleep</div>
+        <p>Pain wakes them up at night. Can't find a comfortable position. Stiffness when they get up in the morning.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Work / Income</div>
+        <p>Standing all day is brutal. Some have had to reduce hours or change roles. Missed workdays. Fear of not being able to work.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Family / Relationships</div>
+        <p>Can't play with grandkids on the floor. Spouse has to do things they used to do together. Feel like a burden. Missing family activities.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Social / Hobbies</div>
+        <p>Gave up golf, hiking, tennis, dancing, gardening. Stopped going to social events. Feel isolated.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Mental Health</div>
+        <p>Feel old before their time. Frustrated. Depressed about losing independence. Angry that nothing has worked. <strong>Scared that surgery is the only option left.</strong></p>
+      </div>
+    </div>
+
+    <h3>The Language They Use</h3>
+    <div class="callout">
+      <p><strong>Key phrases to use in ad copy:</strong> "Bone on bone." "My knee is shot." "It aches constantly." "I'm falling apart." "I feel like I'm 90." "My doctor says I need a new knee." "I've tried everything." "Nothing works." "I'm too young for this." "I just want to be able to walk without pain."</p>
+    </div>
+    <p><strong>Similar conditions to study lingo:</strong> Hip pain, back pain, neuropathy. Same "loss of mobility/independence" language. Same "I've tried everything" frustration. Same fear of surgery.</p>
+  </div>
+</div>
+
+<!-- 3. TREATMENTS -->
+<div class="section" id="treatments">
+  <div class="container">
+    <div class="section-num">03</div>
+    <div class="section-title">Treatment Landscape</div>
+    <div class="section-desc">What they've been offered, why it failed, and how our client's approach is different.</div>
+
+    <h3>Conventional Options</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Treatment</th>
+            <th>Patient Pros</th>
+            <th>Patient Cons</th>
+            <th>Why They Want to Avoid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>OTC Painkillers</strong><br>(Advil, Tylenol)</td>
+            <td>Easy, cheap, familiar</td>
+            <td>Only masks pain. Long-term use damages liver/kidneys.</td>
+            <td>They know it's a band-aid</td>
+          </tr>
+          <tr>
+            <td><strong>Cortisone Injections</strong></td>
+            <td>Quick relief, covered by insurance</td>
+            <td>Wears off in weeks/months. Repeated shots can degrade cartilage faster. Limited to 3-4/year.</td>
+            <td>Temporary fix that may make things worse</td>
+          </tr>
+          <tr>
+            <td><strong>Physical Therapy</strong></td>
+            <td>Non-invasive, can help some</td>
+            <td>Takes weeks/months. Doesn't address degeneration. Some plateau.</td>
+            <td>Slow, time-consuming, incomplete</td>
+          </tr>
+          <tr>
+            <td><strong>Gel Shots</strong><br>(Hyaluronic Acid)</td>
+            <td>Less invasive than surgery</td>
+            <td>Mixed results. Insurance varies. Multiple injections needed.</td>
+            <td>Expensive, uncertain results</td>
+          </tr>
+          <tr>
+            <td><strong>Knee Replacement</strong></td>
+            <td>"Definitive" fix for severe cases</td>
+            <td>6-12 month recovery. 38% still have pain 2+ years later. Infection, blood clots, nerve damage risk. May need revision.</td>
+            <td>Long recovery, scary risks, knee still won't be the same</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Our Client's Treatment (Regenerative Medicine)</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">What Is It</div>
+        <p>Regenerative knee treatments (PRP therapy, tissue-based injections, cold laser) designed to help the body <strong>repair damaged tissue</strong> rather than replacing the joint.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">How It Works</div>
+        <p>Blood is drawn, processed to concentrate healing platelets, then injected into the knee to <strong>stimulate tissue repair and reduce inflammation</strong>. Works with the body's natural healing process.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">The Process</div>
+        <p>Typically <strong>4-6 treatments over several weeks</strong>. Each visit 30-60 minutes. Minimal to no downtime. Most see improvement within the first few weeks.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Results</div>
+        <p>Reduced pain, improved mobility, decreased inflammation. Results can last <strong>1-3+ years</strong>. Not a guaranteed cure, but many avoid surgery.</p>
+      </div>
+    </div>
+
+    <h3>The "Bridge" (Why THIS After Everything Else Failed)</h3>
+    <div class="card-dark">
+      <div class="card-label">The Mechanism Story for Ads</div>
+      <p>"Most treatments just cover up knee pain. When the pill wears off, the pain comes back because <strong>nothing actually healed</strong>. Our approach works differently. We use your body's own healing factors to repair the damaged tissue in your knee. Instead of masking the problem, we help your body fix it."</p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. COMPETITORS -->
+<div class="section" id="competitors">
+  <div class="container">
+    <div class="section-num">04</div>
+    <div class="section-title">Competitive Ad Research</div>
+    <div class="section-desc">What's running in the Facebook Ad Library and where the gaps are.</div>
+
+    <h3>Common Patterns in Competitor Ads</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Pattern</th>
+            <th>What They Do</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Free Exam Offer</strong></td>
+            <td>"$49 Knee Pain Evaluation (reg. $250)"</td>
+            <td>Most common lead magnet. Everybody does this. Still works but not differentiated.</td>
+          </tr>
+          <tr>
+            <td><strong>"Avoid Surgery" Angle</strong></td>
+            <td>Lead with fear of knee replacement</td>
+            <td>Effective but getting saturated. Need fresh creative.</td>
+          </tr>
+          <tr>
+            <td><strong>Before/After Testimonials</strong></td>
+            <td>Patient telling their story on camera</td>
+            <td>Highest engagement format. UGC-style performs best.</td>
+          </tr>
+          <tr>
+            <td><strong>Doctor Talking Head</strong></td>
+            <td>Doctor explains treatment on camera</td>
+            <td>Good for credibility but can feel "salesy."</td>
+          </tr>
+          <tr>
+            <td><strong>Educational Content</strong></td>
+            <td>"3 signs your knee pain is getting worse"</td>
+            <td>Good for cold traffic. Positions doctor as authority.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Gaps &amp; Opportunities</h3>
+    <div class="callout-green">
+      <p><strong>Where we can win:</strong></p>
+      <p>Most ads are generic. Very few use hyper-local callouts (neighborhood names, landmarks). Almost nobody uses the "Who" perspective (spouse, grandkids). Very few address the emotional impact beyond physical pain. Ridiculous result callouts are rare. Very few use the "why everything else failed" mechanism story well.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. PLATFORM -->
+<div class="section" id="platform">
+  <div class="container">
+    <div class="section-num">05</div>
+    <div class="section-title">Platform Considerations</div>
+    <div class="section-desc">Facebook/Instagram policy, targeting options, and what to watch for.</div>
+
+    <h3>Facebook Policy Watch</h3>
+    <div class="card-grid">
+      <div class="card" style="border-color: var(--red); border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Can't Say</div>
+        <p>No "cure" or "guaranteed results." No implying you know someone's health status. No "we will fix your knee." Avoid "stem cell" (major rejection trigger).</p>
+      </div>
+      <div class="card" style="border-color: var(--red); border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Image / Video Rules</div>
+        <p>No graphic medical imagery. No before/after implying guaranteed results. No needles going into joints. No images exploiting pain/suffering. Include "results may vary" with testimonials.</p>
+      </div>
+      <div class="card" style="border-color: var(--gold); border-left: 4px solid var(--gold);">
+        <div class="card-label">2025-2026 Changes</div>
+        <p>Meta now restricts conversion optimization for health advertisers. May not be able to optimize for "appointment booked" events. Lead forms and landing page traffic may be the workaround.</p>
+      </div>
+      <div class="card" style="border-color: var(--green); border-left: 4px solid var(--green);">
+        <div class="card-label" style="color: var(--green);">Safe Words</div>
+        <p>"May help," "many patients report," "results vary," "non-surgical option," "FDA-cleared" (if true), "natural healing," "drug-free."</p>
+      </div>
+    </div>
+
+    <h3>Targeting Setup</h3>
+    <div class="card-full">
+      <h4>Interest Targeting</h4>
+      <div style="margin: 4px 0 12px;">
+        <span class="tag tag-gold">Health & Wellness</span>
+        <span class="tag tag-gold">Arthritis</span>
+        <span class="tag tag-gold">Physical Therapy</span>
+        <span class="tag tag-gold">Orthopedic Surgery</span>
+        <span class="tag tag-gold">Chiropractic</span>
+        <span class="tag tag-gold">Natural Medicine</span>
+        <span class="tag tag-gold">Golf</span>
+        <span class="tag tag-gold">Hiking</span>
+        <span class="tag tag-gold">Tennis</span>
+        <span class="tag tag-gold">Gardening</span>
+      </div>
+      <h4>Age / Location</h4>
+      <p><strong>Cold traffic:</strong> 45-65 in clinic's service radius (15-25 miles). <strong>Retargeting:</strong> Broaden to 40-70+.</p>
+      <h4>Custom Audiences</h4>
+      <p>Upload clinic's patient list for lookalike (even a small list helps). Retarget video viewers (50%+), website visitors, landing page visitors who didn't convert, page engagers.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 6. STATS -->
+<div class="section" id="stats">
+  <div class="container">
+    <div class="section-num">06</div>
+    <div class="section-title">Compelling Statistics</div>
+    <div class="section-desc">Scroll-stopping numbers for ad copy. All sourced from CDC, NIH, and peer-reviewed studies.</div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">1 in 4</div>
+        <div class="stat-label">Adults over 45 report regular knee pain</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">65%</div>
+        <div class="stat-label">Increase in knee pain prevalence in the last 20 years</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1M+</div>
+        <div class="stat-label">Knee replacements performed in the US annually</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">38%</div>
+        <div class="stat-label">Of knee replacement patients still have pain 2+ years after surgery</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">80%</div>
+        <div class="stat-label">Of osteoarthritis patients have movement limitations</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">45%</div>
+        <div class="stat-label">Lifetime risk of developing symptomatic knee OA</div>
+      </div>
+    </div>
+
+    <p style="font-size: 12px; color: var(--ink-muted); margin-top: 8px;"><strong>Sources:</strong> CDC Data Brief #518 (Nov 2024), Annals of Internal Medicine, PNAS, Osteoarthritis Action Alliance, Arthritis Foundation</p>
+  </div>
+</div>
+
+<!-- 7. TONE -->
+<div class="section" id="tone">
+  <div class="container">
+    <div class="section-num">07</div>
+    <div class="section-title">Tone &amp; Messaging</div>
+    <div class="section-desc">What to say, how to say it, and what to never say.</div>
+
+    <div class="card-grid">
+      <div class="card" style="border-left: 4px solid var(--green);">
+        <div class="card-label" style="color: var(--green);">Do's</div>
+        <ul class="styled">
+          <li>Use their language: "bone on bone," "my knee is shot," "I've tried everything"</li>
+          <li>Lead with the activity they've lost (grandkids, golf, walking the dog)</li>
+          <li>Use specific numbers, not "many patients"</li>
+          <li>Show the treatment process (demystify it)</li>
+          <li>Address "I've been burned before" skepticism head-on</li>
+          <li>Position as "try this first before surgery"</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Don'ts</div>
+        <ul class="styled">
+          <li>Don't say "cure" or "guaranteed"</li>
+          <li>Don't trash surgery completely (some people need it)</li>
+          <li>Don't use clinical jargon ("chondromalacia")</li>
+          <li>Don't make it sound too good to be true</li>
+          <li>Don't use stock photos of young, fit people</li>
+          <li>Don't fear-monger about surgery (feels manipulative)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Tone Sweet Spot</h3>
+    <div class="callout">
+      <p><strong>Confident, empathetic, direct.</strong> "We understand you've tried everything. Here's why this is different." Acknowledge their frustration. Don't talk down to them. Authenticity wins here. Real patients, real stories, real numbers. Most competitor ads feel like they came from a template. Be specific and human.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 8. HORMOZI FRAMEWORK -->
+<div class="section" id="hormozi">
+  <div class="container">
+    <div class="section-num">08</div>
+    <div class="section-title">Hormozi Framework Application</div>
+    <div class="section-desc">Pre-built callouts, value angles, and CTAs ready for ad copy.</div>
+
+    <h3>Callout Options (Test These First)</h3>
+
+    <h4>Labels</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"[City] residents over 50 with knee pain"</li>
+        <li>"Knee pain sufferers who've been told they need surgery"</li>
+        <li>"Active adults who've had to give up [golf/hiking/tennis]"</li>
+        <li>"[City] grandparents who can't get on the floor with their grandkids"</li>
+      </ul>
+    </div>
+
+    <h4>Yes-Questions</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"Does your knee ache every time you go up or down stairs?"</li>
+        <li>"Do you take Advil just to get through the day?"</li>
+        <li>"Have you been told the only option left is knee replacement?"</li>
+        <li>"Does knee pain wake you up at night?"</li>
+        <li>"Do you avoid activities you used to love because of your knees?"</li>
+      </ul>
+    </div>
+
+    <h4>If-Then Statements</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"If you've tried cortisone shots and the pain keeps coming back, there's a reason for that..."</li>
+        <li>"If your doctor has mentioned knee replacement but you're not ready, you need to see this."</li>
+        <li>"If you're over 50 in [city] and your knee pain is getting worse, pay attention."</li>
+      </ul>
+    </div>
+
+    <h4>Ridiculous Results</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"She was scheduled for knee replacement. 6 weeks later she canceled the surgery." <span class="tag tag-gray">needs real testimonial</span></li>
+        <li>"He couldn't walk to his mailbox. Now he's back on the golf course 3x a week."</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>What-Who-When Angles</h3>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Dream Outcome</div>
+        <p>Walking pain-free. Back to golf/hiking/gardening. Off painkillers. Sleeping through the night. Keeping your own knee.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Nightmare</div>
+        <p>Knee gets worse until surgery is the ONLY option. More cortisone that works less. Giving up more activities. Post-surgery: 6-12 month recovery and it still hurts.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Who Perspectives</div>
+        <p><strong>Self:</strong> "I feel like myself again."<br>
+        <strong>Spouse:</strong> "My wife doesn't have to do everything for me."<br>
+        <strong>Grandkids:</strong> "Grandpa can finally play catch again."<br>
+        <strong>Friends:</strong> "My foursome has their fourth back."</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Timeline</div>
+        <p><strong>Past:</strong> "I used to hike 5 miles without thinking twice."<br>
+        <strong>Present:</strong> "Right now I can barely make it to the end of my driveway."<br>
+        <strong>Future:</strong> "In 6 weeks I could be back doing what I love, or still on the couch popping Advil."</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>CTA Tiers</h3>
+    <div class="card-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Cold Traffic</div>
+        <p style="font-size: 13px;">"Watch this 2-minute video"<br>"Download our free Knee Pain Guide"</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Warm Traffic</div>
+        <p style="font-size: 13px;">"Take our 30-second Knee Pain Assessment"</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Hot Traffic</div>
+        <p style="font-size: 13px;">"Schedule your $49 Knee Evaluation"<br>"Book now, X spots left this month"</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 9. OFFER -->
+<div class="section" id="offer">
+  <div class="container">
+    <div class="section-num">09</div>
+    <div class="section-title">Offer Construction</div>
+    <div class="section-desc">What we're putting in front of them to get them in the door.</div>
+
+    <div class="card-dark">
+      <div class="card-label">Primary Offer</div>
+      <p style="font-size: 18px; color: #fff;"><strong>Discounted Knee Pain Evaluation: $49-$79</strong> (regularly $250+)</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Includes</div>
+        <p>One-on-one consultation with the doctor, knee examination, review of imaging (if they have it), personalized treatment recommendation. No obligation.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Risk Reversal</div>
+        <p>"If we can't help you, we'll tell you. No pressure, no BS."</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Scarcity (If Real)</div>
+        <p>"We can only see X new knee patients per month" (true capacity constraint). Or a genuine seasonal campaign with end date.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">The Catch</div>
+        <p>No commitment. Come in, get evaluated, hear your options. Position it as zero-risk information gathering for the patient.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="container">
+    <p><strong>Be Top Local</strong> | Copy Brain | Condition Research: Knee Pain</p>
+    <p style="margin-top: 8px;">Stats sourced from CDC, NIH, PNAS, Annals of Internal Medicine &bull; Framework based on $100M Leads by Alex Hormozi</p>
+    <p style="margin-top: 4px;">March 2026</p>
+  </div>
+</div>
+
+</body>
+</html>
