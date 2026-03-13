@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 14 — Pick Your Favorite</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --border: #E5E5E3;
+    --red: #BE3A2A;
+    --green: #1B7D42;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #f0efed;
+    -webkit-font-smoothing: antialiased;
+    padding: 40px 40px 80px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 800;
+    color: var(--ink); text-align: center;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    text-align: center; font-size: 16px; color: var(--ink-muted);
+    font-weight: 300; margin-bottom: 48px;
+  }
+
+  .option-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold-deep); margin-bottom: 16px;
+    text-align: center;
+  }
+
+  /* Each slide preview is a 16:9 box */
+  .slide-preview {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    aspect-ratio: 16 / 9;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+
+  .slide-preview .gold-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+  }
+  .slide-preview .footer-bar {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+    background: var(--ink); display: flex; align-items: center; justify-content: center;
+  }
+  .slide-preview .footer-bar span {
+    font-size: 10px; font-weight: 700; letter-spacing: 6px;
+    text-transform: uppercase; color: rgba(255,255,255,0.45);
+  }
+
+  .slide-inner {
+    width: 100%; height: 100%;
+    max-width: 1000px; margin: 0 auto;
+    display: flex; flex-direction: column;
+    padding: 28px 48px 52px;
+  }
+
+  /* ═══════════════════════════════════════════
+     OPTION A: 3-Word Columns
+  ═══════════════════════════════════════════ */
+  .opt-a-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center;
+  }
+  .opt-a-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 44px);
+    font-weight: 800; color: var(--ink);
+    line-height: 1.1; margin-bottom: 32px;
+  }
+  .opt-a-title em { color: var(--gold); font-style: italic; }
+
+  .opt-a-grid {
+    display: flex; gap: 0; margin-bottom: 28px;
+  }
+  .opt-a-col {
+    flex: 1; padding: 0 20px;
+  }
+  .opt-a-col:first-child { padding-left: 0; border-right: 1px solid var(--border); }
+  .opt-a-col:last-child { padding-right: 0; }
+  .opt-a-col-head {
+    font-size: clamp(9px, 0.8vw, 11px); font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .opt-a-col-head.them { color: var(--red); }
+  .opt-a-col-head.us { color: var(--gold-deep); }
+
+  .opt-a-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 0;
+  }
+  .opt-a-icon {
+    font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+  .opt-a-icon.x { color: var(--red); }
+  .opt-a-icon.check { color: var(--green); }
+  .opt-a-label {
+    font-size: clamp(14px, 1.4vw, 20px);
+    font-weight: 500; color: var(--ink-soft);
+  }
+
+  .opt-a-closer {
+    font-size: clamp(13px, 1.2vw, 18px);
+    font-weight: 600; color: var(--ink-soft);
+    line-height: 1.5;
+    border-left: 3px solid var(--gold); padding-left: 16px;
+  }
+
+  /* ═══════════════════════════════════════════
+     OPTION B: One Big Line
+  ═══════════════════════════════════════════ */
+  .opt-b-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 0 6%;
+  }
+  .opt-b-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4.5vw, 62px);
+    font-weight: 800; color: var(--ink);
+    line-height: 1.12;
+  }
+  .opt-b-headline em { color: var(--gold); font-style: italic; font-weight: 700; }
+
+  /* ═══════════════════════════════════════════
+     OPTION C: Brunson Before/After
+  ═══════════════════════════════════════════ */
+  .opt-c-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center;
+  }
+  .opt-c-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 44px);
+    font-weight: 800; color: var(--ink);
+    line-height: 1.1; margin-bottom: 32px;
+    text-align: center;
+  }
+  .opt-c-title em { color: var(--gold); font-style: italic; }
+
+  .opt-c-bridge {
+    display: flex; align-items: stretch; gap: 0;
+    max-width: 700px; margin: 0 auto 32px;
+    width: 100%;
+  }
+  .opt-c-side {
+    flex: 1; padding: 24px 28px;
+    display: flex; flex-direction: column; gap: 16px;
+    border-radius: 12px;
+  }
+  .opt-c-side.before {
+    background: rgba(190, 58, 42, 0.06);
+    border: 1.5px solid rgba(190, 58, 42, 0.15);
+    margin-right: 8px;
+  }
+  .opt-c-side.after {
+    background: rgba(27, 125, 66, 0.06);
+    border: 1.5px solid rgba(27, 125, 66, 0.15);
+    margin-left: 8px;
+  }
+  .opt-c-side-label {
+    font-size: clamp(9px, 0.8vw, 11px); font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .opt-c-side.before .opt-c-side-label { color: var(--red); }
+  .opt-c-side.after .opt-c-side-label { color: var(--green); }
+
+  .opt-c-arrow {
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; width: 36px;
+    color: var(--gold); font-size: 24px;
+  }
+
+  .opt-c-word {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.2vw, 32px);
+    font-weight: 700; line-height: 1;
+  }
+  .opt-c-side.before .opt-c-word { color: var(--red); }
+  .opt-c-side.after .opt-c-word { color: var(--green); }
+
+  .opt-c-closer {
+    font-size: clamp(13px, 1.2vw, 18px);
+    font-weight: 600; color: var(--ink-soft);
+    line-height: 1.5; text-align: center;
+    max-width: 600px; margin: 0 auto;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<h1>Pick Your Slide 14</h1>
+<p class="subtitle">Scroll down to see all three. Same message, three different energy levels.</p>
+
+<!-- ═══════════════════════════════════════════
+     OPTION A: 3-Word Columns
+═══════════════════════════════════════════ -->
+<p class="option-label">Option A — The 3-Word Columns</p>
+<div class="slide-preview">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="opt-a-wrap">
+      <div class="opt-a-title">What Your Last Agency<br><em>Didn't Tell You</em></div>
+      <div class="opt-a-grid">
+        <div class="opt-a-col">
+          <div class="opt-a-col-head them">Most Agencies</div>
+          <div class="opt-a-row"><span class="opt-a-icon x">&#10005;</span><span class="opt-a-label">Generic Targeting</span></div>
+          <div class="opt-a-row"><span class="opt-a-icon x">&#10005;</span><span class="opt-a-label">Your Homepage</span></div>
+          <div class="opt-a-row"><span class="opt-a-icon x">&#10005;</span><span class="opt-a-label">"Good Luck"</span></div>
+          <div class="opt-a-row"><span class="opt-a-icon x">&#10005;</span><span class="opt-a-label">Your Budget</span></div>
+        </div>
+        <div class="opt-a-col">
+          <div class="opt-a-col-head us">What We Do</div>
+          <div class="opt-a-row"><span class="opt-a-icon check">&#10003;</span><span class="opt-a-label">Trained Pixel</span></div>
+          <div class="opt-a-row"><span class="opt-a-icon check">&#10003;</span><span class="opt-a-label">Built to Convert</span></div>
+          <div class="opt-a-row"><span class="opt-a-icon check">&#10003;</span><span class="opt-a-label">Full System</span></div>
+          <div class="opt-a-row"><span class="opt-a-icon check">&#10003;</span><span class="opt-a-label">Proven Day 1</span></div>
+        </div>
+      </div>
+      <div class="opt-a-closer">Other agencies learn on your dime. We learned on our own — a decade ago.</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     OPTION B: One Big Line
+═══════════════════════════════════════════ -->
+<p class="option-label">Option B — The One Big Line</p>
+<div class="slide-preview">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="opt-b-wrap">
+      <div class="opt-b-headline">Other agencies learn<br>on <em>your</em> dime.<br><br>We already spent $10M<br>learning on <em>ours.</em></div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     OPTION C: Brunson Before/After Bridge
+═══════════════════════════════════════════ -->
+<p class="option-label">Option C — The Before / After Bridge</p>
+<div class="slide-preview">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="opt-c-wrap">
+      <div class="opt-c-title">What Your Last Agency<br><em>Didn't Tell You</em></div>
+      <div class="opt-c-bridge">
+        <div class="opt-c-side before">
+          <div class="opt-c-side-label">Most Agencies</div>
+          <div class="opt-c-word">Guessing</div>
+          <div class="opt-c-word">Generic</div>
+          <div class="opt-c-word">Hoping</div>
+        </div>
+        <div class="opt-c-arrow">&#10132;</div>
+        <div class="opt-c-side after">
+          <div class="opt-c-side-label">What We Do</div>
+          <div class="opt-c-word">Proven</div>
+          <div class="opt-c-word">Specialized</div>
+          <div class="opt-c-word">Systematic</div>
+        </div>
+      </div>
+      <div class="opt-c-closer">"You're getting the playbook that $10 million already paid for."</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+</body>
+</html>
