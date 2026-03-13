@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuropathy — Condition Research | Be Top Local</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-glow: rgba(212,175,55,0.2);
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --ink-faint: #B8B8B8;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --surface-cool: #F7F7F5;
+    --border: #E5E5E3;
+    --border-light: #F0F0EE;
+    --red: #BE3A2A;
+    --green: #1B7D42;
+    --green-bg: #E8F5ED;
+    --red-bg: #FDECEB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink-soft);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Cover */
+  .cover {
+    background: var(--ink);
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 30%, rgba(197,160,40,0.1), transparent),
+      radial-gradient(ellipse 60% 80% at 80% 70%, rgba(197,160,40,0.06), transparent);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+  }
+  .cover-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--gold-bright);
+    margin-bottom: 20px; position: relative;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px; font-weight: 800; color: #fff;
+    line-height: 1.1; margin-bottom: 12px; position: relative;
+  }
+  .cover h1 em { font-style: italic; color: var(--gold-bright); }
+  .cover .subtitle {
+    font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.5);
+    position: relative; margin-bottom: 24px;
+  }
+  .cover-meta {
+    display: inline-flex; gap: 24px; position: relative;
+    font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.35);
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .cover-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* Nav */
+  .toc {
+    background: var(--surface-warm);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .toc-inner {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center;
+  }
+  .toc a {
+    font-size: 12px; font-weight: 600; color: var(--ink-mid);
+    text-decoration: none; padding: 6px 14px;
+    border-radius: 20px; border: 1px solid var(--border);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .toc a:hover {
+    background: var(--gold-subtle); border-color: var(--gold);
+    color: var(--gold-deep);
+  }
+
+  /* Sections */
+  .section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px; font-weight: 800; color: var(--gold);
+    margin-bottom: 6px; letter-spacing: 1px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 800; color: var(--ink);
+    line-height: 1.15; margin-bottom: 8px;
+  }
+  .section-desc {
+    font-size: 15px; font-weight: 300; color: var(--ink-muted);
+    margin-bottom: 32px; line-height: 1.7; max-width: 600px;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  h3:first-child { margin-top: 0; }
+
+  h4 {
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin: 24px 0 10px;
+  }
+
+  p { margin-bottom: 12px; font-size: 15px; line-height: 1.7; }
+  p.lead { font-size: 16px; font-weight: 300; color: var(--ink-mid); }
+
+  strong { font-weight: 700; color: var(--ink); }
+
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface-cool);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .card-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .card p { margin-bottom: 8px; font-size: 14px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .card-full {
+    background: var(--surface-cool);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin: 16px 0;
+  }
+
+  .card-dark {
+    background: var(--ink);
+    border: none;
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin: 16px 0;
+    color: rgba(255,255,255,0.7);
+  }
+  .card-dark .card-label { color: var(--gold-bright); }
+  .card-dark strong { color: #fff; }
+  .card-dark p { color: rgba(255,255,255,0.7); }
+
+  /* Stats */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .stat-card {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 800; color: var(--gold-bright);
+    line-height: 1.1; margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+  }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--ink);
+    color: #fff; font-weight: 600;
+    padding: 12px 16px; text-align: left;
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  thead th:first-child { border-radius: 12px 0 0 0; }
+  thead th:last-child { border-radius: 0 12px 0 0; }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--surface-cool); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    padding: 4px 10px; border-radius: 12px;
+    margin: 2px 2px;
+  }
+  .tag-gold { background: var(--gold-subtle); color: var(--gold-deep); border: 1px solid rgba(197,160,40,0.3); }
+  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-red { background: var(--red-bg); color: var(--red); }
+  .tag-gray { background: var(--surface-cool); color: var(--ink-mid); border: 1px solid var(--border); }
+
+  /* Callout boxes */
+  .callout {
+    border-left: 4px solid var(--gold);
+    background: var(--gold-subtle);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout-red {
+    border-left: 4px solid var(--red);
+    background: var(--red-bg);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout-red p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+
+  .callout-green {
+    border-left: 4px solid var(--green);
+    background: var(--green-bg);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout-green p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+
+  /* Lists */
+  ul.styled {
+    list-style: none; padding: 0; margin: 12px 0;
+  }
+  ul.styled li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  ul.styled li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 14px;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--ink);
+    padding: 40px 0;
+    text-align: center;
+    color: rgba(255,255,255,0.35);
+    font-size: 13px;
+  }
+  .footer strong { color: var(--gold-bright); }
+
+  /* Print */
+  @media print {
+    .toc { display: none; }
+    .cover { padding: 40px 0 30px; }
+    .section { padding: 30px 0; }
+    body { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="container">
+    <div class="cover-eyebrow">Condition Research</div>
+    <h1><em>Neuropathy</em></h1>
+    <p class="subtitle">Pre-Ad Research Brief for Functional &amp; Integrative Medicine Clinics</p>
+    <div class="cover-meta">
+      <span>Be Top Local</span>
+      <span>Copy Brain</span>
+      <span>March 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="toc">
+  <div class="container">
+    <div class="toc-inner">
+      <a href="#audience">Audience</a>
+      <a href="#symptoms">Symptoms</a>
+      <a href="#treatments">Treatments</a>
+      <a href="#competitors">Competitors</a>
+      <a href="#platform">Platform</a>
+      <a href="#stats">Stats</a>
+      <a href="#tone">Tone</a>
+      <a href="#hormozi">Hormozi Framework</a>
+      <a href="#offer">Offer</a>
+    </div>
+  </div>
+</div>
+
+<!-- 1. AUDIENCE -->
+<div class="section" id="audience">
+  <div class="container">
+    <div class="section-num">01</div>
+    <div class="section-title">Audience Profile</div>
+    <div class="section-desc">Who are these people, what have they tried, and where are they in their journey?</div>
+
+    <h3>Demographics</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Age</div>
+        <p><strong>Sweet spot: 50-75.</strong> 10.4% of adults 40-69 have peripheral neuropathy. Prevalence jumps to 26.8% in adults 70+ and hits 62.4% in adults 78+. This is an age-driven condition that accelerates with every decade.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Gender</div>
+        <p>Men have slightly higher prevalence in the general population. In diabetic populations, women edge higher (29.5% vs 23.4%). For ad targeting, run both genders but expect slightly more female engagement (women act on health ads faster).</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Income / Insurance</div>
+        <p>Warrenton, MO is rural/suburban. Mix of Medicare (65+), employer insurance, and some uninsured. Cash-pay treatment packages ($3-5K+) are a significant commitment. Frame against lifetime medication costs and lost productivity.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Lifestyle</div>
+        <p>Many are diabetic or pre-diabetic. Former laborers, farmers, factory workers. Retired folks who want to stay active. Key activities lost: walking without pain, driving comfortably, sleeping through the night, playing with grandkids.</p>
+      </div>
+    </div>
+
+    <h3>Psychographics</h3>
+    <div class="card-full">
+      <div class="card-label">Where They Are In Their Journey</div>
+      <p>Most have been dealing with symptoms for <strong>months to years</strong>. They've been to their PCP, been put on gabapentin or Lyrica, told "you just have to manage it." Many are at the "I've tried everything and nothing works" stage. Some haven't been formally diagnosed and think their feet are "going bad." <strong>They're frustrated and skeptical.</strong></p>
+    </div>
+
+    <h4>What They've Already Tried</h4>
+    <div style="margin: 8px 0 16px;">
+      <span class="tag tag-gray">Gabapentin / Lyrica</span>
+      <span class="tag tag-gray">OTC Painkillers</span>
+      <span class="tag tag-gray">Compression Socks</span>
+      <span class="tag tag-gray">Soaking Feet</span>
+      <span class="tag tag-gray">Supplements (B12, ALA)</span>
+      <span class="tag tag-gray">Topical Creams</span>
+    </div>
+
+    <h4>What They're Searching Online</h4>
+    <div style="margin: 8px 0 16px;">
+      <span class="tag tag-gold">why are my feet numb</span>
+      <span class="tag tag-gold">burning feet at night</span>
+      <span class="tag tag-gold">neuropathy treatment near me</span>
+      <span class="tag tag-gold">natural neuropathy treatment</span>
+      <span class="tag tag-gold">gabapentin alternatives</span>
+      <span class="tag tag-gold">can neuropathy be reversed</span>
+    </div>
+
+    <h4>Who Influences Their Decisions</h4>
+    <p><strong>Spouse is #1</strong> (usually the one pushing them to act). Primary care doctor's opinion carries weight but patients are open to alternatives since their PCP hasn't fixed it. Adult children often worry and suggest trying something different.</p>
+
+    <h4>Relationship With Medical System</h4>
+    <p><strong>Frustrated and skeptical.</strong> They feel like their doctor just prescribes medication and sends them home. Many have lost faith that conventional medicine can help with neuropathy. This frustration is both an obstacle (they're skeptical of new claims) and an opportunity (they WANT someone to actually listen and offer a real solution).</p>
+  </div>
+</div>
+
+<!-- 2. SYMPTOMS -->
+<div class="section" id="symptoms">
+  <div class="container">
+    <div class="section-num">02</div>
+    <div class="section-title">Symptoms &amp; Pain Points</div>
+    <div class="section-desc">What they feel, how they describe it, and what it costs them beyond physical pain.</div>
+
+    <h3>Physical Symptoms (In Their Own Words)</h3>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"My feet are <strong>on fire</strong>, especially at night"</li>
+        <li>"I have constant <strong>burning and tingling</strong> that won't go away"</li>
+        <li>"My toes are <strong>numb</strong> and I can't feel the ground"</li>
+        <li>"It feels like <strong>pins and needles</strong> all the time"</li>
+        <li>"I get <strong>sharp stabbing pain</strong> out of nowhere, even in the middle of the night"</li>
+        <li>"My feet feel like they're in a <strong>block of ice</strong>, even when they're warm"</li>
+        <li>"I feel <strong>weakness in my legs</strong> and I'm unsteady on my feet"</li>
+        <li>"It feels like <strong>electric shocks</strong> running down my legs"</li>
+      </ul>
+    </div>
+
+    <h3>Emotional &amp; Lifestyle Impact</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Daily Life</div>
+        <p>Can't walk barefoot. Afraid of falling. Can't feel the gas/brake pedal well (terrifying). Dropping things because hands are numb. Standing in the kitchen is agony. Simple errands become exhausting.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Sleep (The #1 Issue)</div>
+        <p>Burning feet at night is the biggest complaint. They dread bedtime. Tossing, turning, hanging feet off the bed. Sleep deprivation cascades into everything else.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Work / Income</div>
+        <p>Standing jobs become impossible. Some forced into early retirement. Reduced hours. Disability claims. In Warrenton's blue-collar market, this hits hard financially.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Family / Relationships</div>
+        <p>Can't play with grandkids on the floor. Spouse has to drive. Feeling like a burden. Canceling plans because of a bad pain day. Spouse watches them suffer and feels helpless.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Social / Hobbies</div>
+        <p>Gave up walking, gardening, fishing, golf. Can't stand long enough to grill. Avoid church and events because of walking/standing. Isolation increases.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Mental Health</div>
+        <p>Depression, frustration, hopelessness. "This is just my life now." Fear of amputation (diabetics especially). Anxiety about falling. Feeling old before their time.</p>
+      </div>
+    </div>
+
+    <h3>The Language They Use</h3>
+    <div class="callout">
+      <p><strong>Key phrases to use in ad copy:</strong> "My feet are on fire." "Walking on glass." "Constant tingling." "Can't feel my toes." "Like wearing thick socks all the time." "The burning wakes me up every night." "I'm afraid I'm going to fall." "I've tried everything." "My doctor just keeps increasing my gabapentin." "The medicine makes me feel like a zombie." "Nobody takes this seriously." "I just want to sleep through the night."</p>
+    </div>
+    <p><strong>Similar conditions to study lingo:</strong> Diabetic foot pain, sciatica, fibromyalgia. Same "invisible condition" frustration where others can't see your pain. Same "I've tried everything" exhaustion.</p>
+  </div>
+</div>
+
+<!-- 3. TREATMENTS -->
+<div class="section" id="treatments">
+  <div class="container">
+    <div class="section-num">03</div>
+    <div class="section-title">Treatment Landscape</div>
+    <div class="section-desc">What they've been offered, why it failed, and how our client's approach is different.</div>
+
+    <h3>Conventional Options (What They've Already Tried)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Treatment</th>
+            <th>Patient Pros</th>
+            <th>Patient Cons</th>
+            <th>Why They Want Something Different</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Gabapentin / Lyrica</strong></td>
+            <td>Covered by insurance, doctor recommends it</td>
+            <td>60% report side effects: brain fog, dizziness, weight gain, fatigue. Many get no relief. Doesn't stop progression.</td>
+            <td>"The medicine makes me feel worse than the neuropathy"</td>
+          </tr>
+          <tr>
+            <td><strong>OTC Painkillers</strong><br>(Advil, Tylenol)</td>
+            <td>Easy, cheap, familiar</td>
+            <td>Doesn't touch nerve pain. Long-term use damages liver/kidneys. Not designed for neuropathy.</td>
+            <td>Doesn't work for nerve pain</td>
+          </tr>
+          <tr>
+            <td><strong>Antidepressants</strong><br>(Cymbalta, Amitriptyline)</td>
+            <td>Can help some nerve pain</td>
+            <td>Side effects: nausea, drowsiness, weight changes. Stigma of taking an antidepressant.</td>
+            <td>"I'm not depressed, my feet hurt"</td>
+          </tr>
+          <tr>
+            <td><strong>Topical Creams</strong><br>(Capsaicin, Lidocaine)</td>
+            <td>Easy to apply, few systemic side effects</td>
+            <td>Limited relief. Has to be reapplied constantly. Only works on surface.</td>
+            <td>Band-aid at best</td>
+          </tr>
+          <tr>
+            <td><strong>Opioids</strong></td>
+            <td>Strong pain relief</td>
+            <td>Addiction risk. Tolerance builds. Hard to get prescribed. Doesn't treat cause.</td>
+            <td>Doctors won't prescribe them, patients know the risks</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Our Client's Treatment</h3>
+
+    <div class="callout" style="border-left: 4px solid var(--gold); margin-bottom: 20px;">
+      <p style="font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Track A: Cash-Pay Clinics (This Client)</p>
+      <p style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px;">Cold Laser, Shockwave Therapy, Comprehensive Diagnostic Protocol</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">What They Offer</div>
+        <p>Multi-modal neuropathy protocol combining cold laser therapy, shockwave therapy, and possibly electrical nerve stimulation. Includes comprehensive 16-point sensory exam, thermography imaging to assess blood flow and inflammation, and X-rays. Designed to <strong>restore blood flow and stimulate nerve repair</strong> rather than just masking pain.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">How It Works</div>
+        <p>Cold laser delivers specific wavelengths of light energy into damaged nerve tissue, stimulating cellular repair and improving blood flow. Shockwave therapy uses acoustic waves to break up scar tissue around nerves and promote new blood vessel formation. Combined approach works <strong>with the body's natural healing process</strong> to address the root cause, not just symptoms.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">The Process</div>
+        <p>Starts with comprehensive diagnostic workup: 16-point sensory exam, thermography imaging, X-rays. Then typically <strong>multi-visit treatment protocol over several weeks</strong>. Each visit 30-60 minutes. Minimal to no downtime. Most see improvement within the first few weeks.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Expected Results</div>
+        <p>Reduced burning, tingling, and numbness. Improved sensation and balance. Better sleep. Patients can return to activities they've missed. Results vary by severity and progression stage.</p>
+      </div>
+    </div>
+
+    <h3>The "Bridge" (Why THIS After Everything Else Failed)</h3>
+
+    <div class="card-dark" style="margin-bottom: 16px;">
+      <div class="card-label">Mechanism Story (Cash-Pay Regenerative)</div>
+      <p>"Most neuropathy treatments just cover up the pain. Gabapentin turns down the volume on your nerve signals, but the damage keeps getting worse underneath. The medication masks the problem while your nerves continue to deteriorate. Our approach works differently. We address the actual root cause: poor blood flow to your damaged nerves. Cold laser and shockwave therapy increase blood flow to the damaged nerve tissue and stimulate your body's natural repair process. Instead of masking pain with medication, we're working to restore the nerves themselves."</p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. COMPETITORS -->
+<div class="section" id="competitors">
+  <div class="container">
+    <div class="section-num">04</div>
+    <div class="section-title">Competitive Ad Research</div>
+    <div class="section-desc">What's running in the Facebook Ad Library and where the gaps are.</div>
+
+    <h3>Common Patterns in Competitor Ads</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Pattern</th>
+            <th>What They Do</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Discounted Evaluation Offer</strong></td>
+            <td>"$49-$67 Neuropathy Screening (reg. $250-$350)"</td>
+            <td>Most common lead magnet in the space. Very similar to Cornerstone's current offer. Still works but not differentiated.</td>
+          </tr>
+          <tr>
+            <td><strong>Symptom Listing Format</strong></td>
+            <td>Image with words on feet ("burning," "tingling," "numbness")</td>
+            <td>The #1 most-used format in neuropathy ads. Creates visual noise. Generic and forgettable.</td>
+          </tr>
+          <tr>
+            <td><strong>"New Breakthrough" Angle</strong></td>
+            <td>"New Neuropathy Breakthrough in [City]!"</td>
+            <td>Dominant headline template. Overused and borderline on claim violations. Audience is skeptical.</td>
+          </tr>
+          <tr>
+            <td><strong>Scarcity Format</strong></td>
+            <td>"X vouchers available" or "Only X spots this month"</td>
+            <td>Works if it's real. This audience can smell fake urgency.</td>
+          </tr>
+          <tr>
+            <td><strong>Casual Tone</strong></td>
+            <td>"Hey [City]! 👋 Tired of numb feet?"</td>
+            <td>Lots of emojis. Feels like a used car lot. Not building trust with skeptical audience.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Gaps &amp; Opportunities</h3>
+    <div class="callout-green">
+      <p><strong>What's NOT working (where we can win):</strong></p>
+      <p>Almost every neuropathy ad looks identical. Same emoji-heavy format. Same "breakthrough" claims. Same symptom list images. Almost NO ads use the "Who" perspective (spouse watching them suffer, grandkids they can't play with). Very few address the gabapentin frustration angle ("sick of medications that make you feel like a zombie"). Nobody leads with the SLEEP angle (burning feet at night is the #1 complaint). Very few use authentic patient video testimonials. Almost no ads address the emotional/mental health impact. No one is calling out the fear of falling, which is massive for this demographic.</p>
+    </div>
+    <div class="callout-green" style="margin-top: 12px;">
+      <p><strong>Biggest gaps in the market:</strong></p>
+      <p>Sleep deprivation is the universal pain point and nobody makes it the headline. "I haven't slept through the night in 2 years" would stop the scroll instantly. The gabapentin side effects angle is completely untapped. "Tired of feeling like a zombie from your neuropathy medication?" is a differentiator almost no one is using. The fear of falling and losing independence is a major emotional driver but rarely addressed. Real patient stories beat templated ads every time in this space.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. PLATFORM -->
+<div class="section" id="platform">
+  <div class="container">
+    <div class="section-num">05</div>
+    <div class="section-title">Platform Considerations</div>
+    <div class="section-desc">Facebook/Instagram policy, targeting options, and what to watch for.</div>
+
+    <h3>Facebook Policy Watch</h3>
+    <div class="card-grid">
+      <div class="card" style="border-color: var(--red); border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Can't Say</div>
+        <p>No "cure neuropathy." No "reverse nerve damage" (too close to a cure claim). No "we will fix your neuropathy." Can't imply you know someone has neuropathy ("You have neuropathy" is risky). No guaranteed outcomes.</p>
+      </div>
+      <div class="card" style="border-color: var(--red); border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Image / Video Rules</div>
+        <p>No graphic medical imagery. No images exploiting pain/suffering. No needles. Feet with symptom words is borderline but generally passes. Avoid "results will be visible" imagery that implies guaranteed outcomes.</p>
+      </div>
+      <div class="card" style="border-color: var(--gold); border-left: 4px solid var(--gold);">
+        <div class="card-label">2025-2026 Changes</div>
+        <p>Neuropathy falls under health/wellness. Health is a "sensitive category" with data restrictions as of 2025. Meta restricts conversion optimization for health-labeled advertisers. Can't optimize for "appointment booked" events. Lead forms and landing page traffic campaigns are the workaround.</p>
+      </div>
+      <div class="card" style="border-color: var(--green); border-left: 4px solid var(--green);">
+        <div class="card-label" style="color: var(--green);">Safe Words</div>
+        <p>"May help," "many patients report," "results vary," "non-invasive," "drug-free," "natural," "FDA-cleared" (if true). Avoid "breakthrough" and "miracle."</p>
+      </div>
+    </div>
+
+    <h3>Targeting Setup</h3>
+    <div class="card-full">
+      <h4>Interest Targeting</h4>
+      <div style="margin: 4px 0 12px;">
+        <span class="tag tag-gold">Diabetes</span>
+        <span class="tag tag-gold">Neuropathy</span>
+        <span class="tag tag-gold">Chronic Pain</span>
+        <span class="tag tag-gold">Nerve Pain</span>
+        <span class="tag tag-gold">Gabapentin</span>
+        <span class="tag tag-gold">Natural Medicine</span>
+        <span class="tag tag-gold">Chiropractic</span>
+        <span class="tag tag-gold">Pain Management</span>
+        <span class="tag tag-gold">Health & Wellness</span>
+        <span class="tag tag-gold">Grandparenting</span>
+      </div>
+      <h4>Age / Location</h4>
+      <p><strong>Cold traffic:</strong> 50-70 in Warrenton MO + 25 mile radius. <strong>Retargeting:</strong> Broaden to 45-75+.</p>
+      <h4>Custom Audiences</h4>
+      <p>Upload Cornerstone's patient list for lookalike (even a small list helps). Retarget video viewers (50%+), website visitors, landing page visitors who didn't convert, page engagers.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 6. STATS -->
+<div class="section" id="stats">
+  <div class="container">
+    <div class="section-num">06</div>
+    <div class="section-title">Compelling Statistics</div>
+    <div class="section-desc">Scroll-stopping numbers for ad copy. All sourced from NIH, CDC, and peer-reviewed studies.</div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">30M+</div>
+        <div class="stat-label">Americans suffer from peripheral neuropathy</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1 in 4</div>
+        <div class="stat-label">Adults over 70 have peripheral neuropathy (many undiagnosed)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">60%</div>
+        <div class="stat-label">Of gabapentin users report side effects they can't tolerate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">28%</div>
+        <div class="stat-label">Of all adults with diabetes develop peripheral neuropathy</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">$8,500+</div>
+        <div class="stat-label">Annual healthcare costs for painful diabetic neuropathy</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">#1</div>
+        <div class="stat-label">Neuropathy-related falls are the leading cause of injury death in 65+</div>
+      </div>
+    </div>
+
+    <p style="font-size: 12px; color: var(--ink-muted); margin-top: 8px;"><strong>Sources:</strong> Foundation for Peripheral Neuropathy, NIH/NHANES, Harvard Health, NIH StatPearls, CDC Fall Prevention Data, PubMed</p>
+  </div>
+</div>
+
+<!-- 7. TONE -->
+<div class="section" id="tone">
+  <div class="container">
+    <div class="section-num">07</div>
+    <div class="section-title">Tone &amp; Messaging</div>
+    <div class="section-desc">What to say, how to say it, and what to never say.</div>
+
+    <div class="card-grid">
+      <div class="card" style="border-left: 4px solid var(--green);">
+        <div class="card-label" style="color: var(--green);">Do's</div>
+        <ul class="styled">
+          <li>Use their language: "burning feet," "can't sleep," "numb toes," "afraid of falling"</li>
+          <li>Lead with the activity they've lost (grandkids, fishing, walking, golf)</li>
+          <li>Address the sleep angle specifically (biggest pain point)</li>
+          <li>Call out gabapentin frustration ("tired of medications that make you feel like a zombie")</li>
+          <li>Show the diagnostic process (demystify the workup)</li>
+          <li>Address "I've been burned before" skepticism head-on</li>
+          <li>Lead with empathy: "You're not crazy. It IS getting worse."</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Don'ts</div>
+        <ul class="styled">
+          <li>Don't say "cure" or "reverse" or "guaranteed"</li>
+          <li>Don't trash neurologists or PCPs (many patients trust them)</li>
+          <li>Don't use emoji-heavy format (screams scammy)</li>
+          <li>Don't use clinical jargon ("demyelination")</li>
+          <li>Don't make it sound too good to be true</li>
+          <li>Don't use stock photos of young, fit people</li>
+          <li>Don't fear-monger about amputation (feels manipulative)</li>
+          <li>Don't overuse "breakthrough" (forbidden claim)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Tone Sweet Spot</h3>
+    <div class="callout">
+      <p><strong>Honest, empathetic, direct.</strong> "We understand you've tried everything. Here's why this is different." Acknowledge their frustration with medication side effects and dismissed concerns. Don't talk down to them. Authenticity wins here. Real patients, real stories, real numbers. Most competitor ads feel like they came from a template. Be specific and human.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 8. HORMOZI FRAMEWORK -->
+<div class="section" id="hormozi">
+  <div class="container">
+    <div class="section-num">08</div>
+    <div class="section-title">Hormozi Framework Application</div>
+    <div class="section-desc">Pre-built callouts, value angles, and CTAs ready for ad copy.</div>
+
+    <h3>Callout Options (Test These First)</h3>
+
+    <h4>Labels</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"Warrenton residents dealing with burning, tingling, or numb feet"</li>
+        <li>"Anyone in the area who's been told 'just take gabapentin'"</li>
+        <li>"Diabetics who are losing feeling in their feet"</li>
+        <li>"Adults over 50 whose feet burn at night so bad they can't sleep"</li>
+        <li>"People who've been to their doctor and got no real answers"</li>
+      </ul>
+    </div>
+
+    <h4>Yes-Questions</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"Do your feet burn so bad at night you can't sleep?"</li>
+        <li>"Are you taking gabapentin but still dealing with numbness and tingling?"</li>
+        <li>"Have you been told there's nothing else your doctor can do for your neuropathy?"</li>
+        <li>"Do you worry about falling because you can't feel your feet?"</li>
+        <li>"Has neuropathy forced you to give up activities you used to love?"</li>
+        <li>"Do you feel like a burden because your spouse has to drive you everywhere?"</li>
+      </ul>
+    </div>
+
+    <h4>If-Then Statements</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"If your feet burn at night and gabapentin isn't helping, there's a reason for that..."</li>
+        <li>"If you've been told you just have to 'live with' neuropathy, you need to hear this."</li>
+        <li>"If you're losing feeling in your feet and your doctor keeps increasing your medication, pay attention."</li>
+        <li>"If neuropathy is stealing your sleep, your independence, and your quality of life, there may be an option you haven't tried."</li>
+      </ul>
+    </div>
+
+    <h4>Ridiculous Results</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"She couldn't feel her feet for 3 years. After treatment she felt the carpet between her toes for the first time." <span class="tag tag-gray">needs real testimonial</span></li>
+        <li>"He was taking 3 neuropathy medications. Now he takes zero." <span class="tag tag-gray">needs real testimonial</span></li>
+        <li>"She hadn't slept through the night in 2 years. After 4 weeks of treatment, she slept 7 hours straight." <span class="tag tag-gray">needs real testimonial</span></li>
+        <li>"He was afraid to drive. Now he's comfortable on the highway again." <span class="tag tag-gray">needs real testimonial</span></li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>What-Who-When Angles</h3>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Dream Outcome</div>
+        <p>Sleeping through the night without burning feet. Walking barefoot again, feeling the ground. Off gabapentin and brain fog. Feeling your grandkids' hands. Driving confidently. Back to gardening, fishing, walking, golf.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Nightmare</div>
+        <p>Neuropathy is progressive. Wait too long and nerve damage becomes permanent. More meds with more side effects. Falls, broken hips, loss of independence. Amputation risk (for diabetics). Dependent on others for basic daily tasks.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Who Perspectives</div>
+        <p><strong>Self:</strong> "I feel like myself again. I can walk to my mailbox without holding onto something."<br>
+        <strong>Spouse:</strong> "My husband finally sleeps through the night. I don't have to watch him suffer."<br>
+        <strong>Grandkids:</strong> "Dad can finally come to the park with us again."<br>
+        <strong>Friends:</strong> "Our fishing buddy is back."</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Timeline</div>
+        <p><strong>Past:</strong> "I used to walk two miles every morning. I haven't done that in years."<br>
+        <strong>Present:</strong> "Right now I'm afraid to walk to the bathroom at night because I can't feel my feet."<br>
+        <strong>Future:</strong> "In a few weeks, I could be sleeping through the night again, or I could still be popping gabapentin and hoping it gets better on its own."</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>CTA Tiers</h3>
+    <div class="card-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Cold Traffic</div>
+        <p style="font-size: 13px;">"Watch this 2-minute video"<br>"Download our free Neuropathy Guide"</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Warm Traffic</div>
+        <p style="font-size: 13px;">"Take our 30-second Neuropathy Severity Assessment"</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Hot Traffic</div>
+        <p style="font-size: 13px;">"Schedule your $49 Life Without Neuropathy Screening"<br>"Only X spots left this month"</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 9. OFFER -->
+<div class="section" id="offer">
+  <div class="container">
+    <div class="section-num">09</div>
+    <div class="section-title">Offer Construction</div>
+    <div class="section-desc">What we're putting in front of them to get them in the door.</div>
+
+    <div class="card-dark">
+      <div class="card-label">Primary Offer (This Client)</div>
+      <p style="font-size: 18px; color: #fff;"><strong>$49 "Life Without Neuropathy" Special</strong></p>
+      <p style="color: rgba(255,255,255,0.6); margin-top: 4px;">Comprehensive diagnostic workup. Reg. value $250+. Limited availability.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">What the Screening Includes</div>
+        <p>Private one-on-one consultation with the doctor, 16-point sensory examination to measure nerve function and pain response, thermography imaging scan to assess blood flow and inflammation patterns, comprehensive X-rays. Patient leaves knowing exactly what's going on and whether they're a candidate for treatment.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Why This Price Point</div>
+        <p>At $49 (vs. $250+ regular value), the barrier to entry is nearly zero. The screening itself demonstrates expertise (16-point exam, thermography, X-rays are things their PCP never did). This builds trust and proves competence before asking for the treatment package commitment.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Risk Reversal</div>
+        <p>"If we can't help you, we'll tell you. No pressure, no BS. You'll walk out knowing more about your neuropathy than you did walking in, guaranteed."</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Scarcity Element</div>
+        <p>"Limited slots available this month" (if it's a real capacity constraint). Current ad says "17 vouchers this month." This works if it's genuine. This audience is skeptical and can smell manufactured urgency.</p>
+      </div>
+    </div>
+
+    <h3>How to Frame the Full Treatment Cost</h3>
+    <div class="card-full">
+      <p><strong>Cash-pay treatment packages will run $3-5K+.</strong> This is a significant commitment. Frame against alternatives:</p>
+      <ul class="styled">
+        <li>Lifetime gabapentin costs: $200-400/year forever (that's $5,000-10,000+ over a decade)</li>
+        <li>Single fall-related hospitalization: $30,000+ per hip fracture</li>
+        <li>Amputation (for diabetics): $100,000+ in direct medical costs plus lost income</li>
+        <li>Lost productivity and quality of life: priceless</li>
+      </ul>
+      <p style="margin-top: 16px;">Position treatment not as an expense but as an investment in keeping your independence, sleeping through the night, and avoiding far more expensive consequences down the road.</p>
+    </div>
+
+    <h3>Notes on Current Ad</h3>
+    <div class="callout">
+      <p>Cornerstone's current ad follows the most common template in the neuropathy space: emoji-heavy, symptom list image (words on feet), limited vouchers, $49 special offer. It's functional but undifferentiated. Engagement is low. Opportunities for improvement:</p>
+      <ul class="styled">
+        <li>Differentiate creative (the foot image is the #1 most-used format)</li>
+        <li>Lead with ONE specific pain point (sleep, gabapentin frustration, fear of falling) instead of listing all symptoms</li>
+        <li>Add doctor's name/face for credibility and humanity</li>
+        <li>Test patient testimonial format (video or authentic quote)</li>
+        <li>Use the "Who" perspective (spouse, grandkids watching them suffer)</li>
+        <li>Address the gabapentin angle specifically ("tired of feeling like a zombie")</li>
+        <li>Lead with the sleep angle ("I haven't slept through the night in 2 years")</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="container">
+    <p><strong>Be Top Local</strong> | Copy Brain | Condition Research: Neuropathy</p>
+    <p style="margin-top: 8px;">Cornerstone Health Clinics, Warrenton MO | Stats sourced from NIH, CDC, Foundation for Peripheral Neuropathy, Harvard Health, PubMed &bull; Framework based on $100M Leads by Alex Hormozi</p>
+    <p style="margin-top: 4px;">March 2026</p>
+  </div>
+</div>
+
+</body>
+</html>
