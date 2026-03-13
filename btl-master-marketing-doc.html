@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be Top Local - Master Marketing Doc</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C5A028;
+  --gold-light: #D4B44A;
+  --dark: #1A1A1A;
+  --white: #FFFFFF;
+  --light-bg: #F7F5F0;
+  --med-gray: #666666;
+  --light-gray: #E8E4DC;
+  --accent-bg: #2A2A2A;
+  --quote-bg: #FBF9F4;
+  --border-subtle: #E0DDD6;
+  --tag-pain: #D32F2F;
+  --tag-promise: #2E7D32;
+  --tag-proof: #1565C0;
+  --tag-constraint: #E65100;
+  --tag-curiosity: #7B1FA2;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--light-bg);
+  color: var(--dark);
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* ── SIDEBAR NAV ── */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 260px;
+  height: 100vh;
+  background: var(--accent-bg);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 24px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #444 var(--accent-bg);
+}
+.sidebar::-webkit-scrollbar { width: 5px; }
+.sidebar::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+.sidebar-brand {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 16px;
+}
+.sidebar-brand h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.sidebar-brand span {
+  font-size: 11px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.nav-section {
+  padding: 0 12px;
+  margin-bottom: 8px;
+}
+.nav-section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #777;
+  padding: 8px 8px 4px;
+  font-weight: 600;
+}
+.nav-link {
+  display: block;
+  padding: 7px 12px;
+  color: #bbb;
+  text-decoration: none;
+  font-size: 13px;
+  border-radius: 6px;
+  transition: all 0.15s;
+  font-weight: 500;
+}
+.nav-link:hover {
+  background: #3a3a3a;
+  color: var(--gold-light);
+}
+.nav-link.active {
+  background: rgba(197, 160, 40, 0.15);
+  color: var(--gold);
+}
+
+/* ── MAIN CONTENT ── */
+.main {
+  margin-left: 260px;
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--accent-bg) 100%);
+  padding: 80px 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(197,160,40,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.hero p {
+  color: #999;
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+.hero-metrics {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.hero-metric {
+  text-align: left;
+}
+.hero-metric .num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  line-height: 1.2;
+}
+.hero-metric .label {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── CONTENT AREA ── */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 60px 80px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  margin-bottom: 48px;
+  scroll-margin-top: 20px;
+}
+.section-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin: 12px 0 24px;
+  border-radius: 2px;
+}
+.section h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 28px 0 12px;
+}
+.section p, .section li {
+  color: var(--med-gray);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+/* ── AVATAR CARD ── */
+.avatar-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 24px;
+}
+.avatar-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+.avatar-subtitle {
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.avatar-desc {
+  color: var(--med-gray);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+.demo-item {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}
+.demo-item strong {
+  color: var(--dark);
+  white-space: nowrap;
+}
+.demo-item span { color: var(--med-gray); }
+
+/* ── TABLES ── */
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 16px 0 24px;
+  border: 1px solid var(--border-subtle);
+}
+.styled-table th {
+  background: var(--accent-bg);
+  color: var(--gold);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 14px 18px;
+  text-align: left;
+}
+.styled-table td {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--med-gray);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--white);
+}
+.styled-table tr:last-child td { border-bottom: none; }
+.styled-table td strong { color: var(--dark); }
+.styled-table td em { color: #888; font-style: italic; }
+
+/* ── QUOTE BLOCKS ── */
+.soundbite {
+  background: var(--quote-bg);
+  border-left: 3px solid var(--gold);
+  padding: 14px 20px;
+  margin: 10px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #555;
+  font-size: 14px;
+}
+
+/* ── NUMBERED ITEMS ── */
+.numbered-item {
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 10px 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.numbered-item .num-badge {
+  background: var(--gold);
+  color: var(--white);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.numbered-item .item-content strong { color: var(--dark); }
+.numbered-item .item-content { color: var(--med-gray); font-size: 14px; }
+
+/* ── COPY BLOCKS ── */
+.copy-blocks-container { margin: 16px 0; }
+.copy-block {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 6px 0;
+  font-size: 14px;
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.15s;
+}
+.copy-block:hover { border-color: var(--gold); }
+.copy-block .block-num {
+  font-weight: 700;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  font-family: 'Inter', monospace;
+}
+.copy-block .block-text {
+  color: var(--med-gray);
+  line-height: 1.6;
+}
+.copy-block .block-text em { color: #888; }
+
+.block-pain .block-num { background: #FFEBEE; color: var(--tag-pain); }
+.block-promise .block-num { background: #E8F5E9; color: var(--tag-promise); }
+.block-proof .block-num { background: #E3F2FD; color: var(--tag-proof); }
+.block-constraint .block-num { background: #FFF3E0; color: var(--tag-constraint); }
+.block-curiosity .block-num { background: #F3E5F5; color: var(--tag-curiosity); }
+
+/* ── TAG CHIPS ── */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 24px;
+}
+.tag-chip {
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--med-gray);
+  font-weight: 500;
+}
+
+/* ── PRICING TABLE ── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+.pricing-card {
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+.pricing-card:hover { border-color: var(--gold); }
+.pricing-card.featured {
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px rgba(197, 160, 40, 0.15);
+  position: relative;
+}
+.pricing-card.featured::before {
+  content: 'MOST POPULAR';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 12px;
+  border-radius: 10px;
+}
+.pricing-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+.pricing-card .price {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 8px 0 4px;
+}
+.pricing-card .price-sub {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 16px;
+}
+.pricing-card ul {
+  list-style: none;
+  text-align: left;
+  font-size: 13px;
+  color: var(--med-gray);
+}
+.pricing-card li {
+  padding: 5px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.pricing-card li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ── EDGE CARDS ── */
+.edge-card {
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin: 12px 0;
+}
+.edge-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.edge-card p { color: var(--med-gray); font-size: 14px; margin: 0; }
+
+/* ── AWARENESS STAGES ── */
+.awareness-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 20px 0;
+}
+.awareness-stage {
+  display: flex;
+  gap: 20px;
+  padding: 18px 22px;
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  align-items: flex-start;
+}
+.awareness-stage:first-child { border-radius: 10px 10px 0 0; }
+.awareness-stage:last-child { border-radius: 0 0 10px 10px; }
+.stage-label {
+  background: var(--accent-bg);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  min-width: 110px;
+  text-align: center;
+}
+.stage-text { color: var(--med-gray); font-size: 14px; line-height: 1.65; }
+
+/* ── ORIGIN STORY ── */
+.story-block {
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 16px 0;
+}
+.story-block p {
+  color: var(--med-gray);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.story-block p:last-child { margin-bottom: 0; }
+.story-block strong { color: var(--dark); }
+
+/* ── LINKS ── */
+.link-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin: 4px 8px 4px 0;
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.link-card:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.link-card::before {
+  content: '\2192';
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .hero { padding: 40px 24px 32px; }
+  .hero h1 { font-size: 28px; }
+  .content { padding: 24px 20px 60px; }
+  .demo-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .hero-metrics { gap: 20px; }
+}
+
+@media print {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .hero { background: var(--dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ SIDEBAR ═══════ -->
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <h2>Be Top Local</h2>
+    <span>Master Marketing Doc</span>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">The Customer</div>
+    <a href="#buyer-profile" class="nav-link">Buyer Profile</a>
+    <a href="#core-problem" class="nav-link">Core Problem</a>
+    <a href="#emotions" class="nav-link">Emotions & Fears</a>
+    <a href="#relationships" class="nav-link">Relationship Impact</a>
+    <a href="#other-solutions" class="nav-link">Other Solutions Tried</a>
+    <a href="#dont-want" class="nav-link">What They Don't Want</a>
+    <a href="#transformation" class="nav-link">Primary Transformation</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">The Market</div>
+    <a href="#market-specifics" class="nav-link">Market Specifics</a>
+    <a href="#objections" class="nav-link">Objections</a>
+    <a href="#awareness" class="nav-link">Audience Awareness</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">Copy Blocks</div>
+    <a href="#pain" class="nav-link">Pain</a>
+    <a href="#promise" class="nav-link">Promise</a>
+    <a href="#proof" class="nav-link">Proof</a>
+    <a href="#constraints" class="nav-link">Constraints</a>
+    <a href="#curiosity" class="nav-link">Curiosity / Mechanism</a>
+  </div>
+  <div class="nav-section">
+    <div class="nav-section-label">The Brand</div>
+    <a href="#origin" class="nav-link">Origin Story</a>
+    <a href="#edge" class="nav-link">Your Edge</a>
+    <a href="#pricing" class="nav-link">Product Offerings</a>
+    <a href="#patterns" class="nav-link">Recurring Patterns</a>
+    <a href="#links" class="nav-link">Core Links</a>
+  </div>
+</nav>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="main">
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <div class="hero-label">Copywriting Brain</div>
+    <h1>Be Top Local<br>Master Marketing Doc</h1>
+    <p>The complete operating reference for all BTL copywriting, ads, sales conversations, and marketing content. Every section is built from 10+ years of real data in functional medicine marketing.</p>
+    <div class="hero-metrics">
+      <div class="hero-metric"><span class="num">700+</span><span class="label">Practices Served</span></div>
+      <div class="hero-metric"><span class="num">$100M+</span><span class="label">Patient Revenue</span></div>
+      <div class="hero-metric"><span class="num">&lt;60s</span><span class="label">AI Response Time</span></div>
+      <div class="hero-metric"><span class="num">60%</span><span class="label">AI Schedule Rate</span></div>
+      <div class="hero-metric"><span class="num">24/7</span><span class="label">Lead Coverage</span></div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- ═══ BUYER PROFILE ═══ -->
+    <div class="section" id="buyer-profile">
+      <div class="section-tag">The Customer</div>
+      <h2>Buyer Profile</h2>
+      <div class="section-divider"></div>
+      <div class="avatar-card">
+        <div class="avatar-name">Dr. David "The Builder" Brennan</div>
+        <div class="avatar-subtitle">Age 38-58 | Practice Owner | Decision Maker</div>
+        <p class="avatar-desc">Clinically brilliant chiropractor or functional medicine practitioner who expanded beyond adjustments into neuropathy, knee pain, weight loss, or hormone therapy -- but can't figure out how to consistently fill the schedule with the right patients. Burned by agencies before. Skeptical but desperate for something that actually works.</p>
+        <div class="demo-grid">
+          <div class="demo-item"><strong>Practice Type:</strong> <span>Holistic, integrative, chiro, functional med, naturopathic</span></div>
+          <div class="demo-item"><strong>Annual Revenue:</strong> <span>$400K - $2M</span></div>
+          <div class="demo-item"><strong>Team Size:</strong> <span>4 - 12 employees</span></div>
+          <div class="demo-item"><strong>Location:</strong> <span>Physical practice, local service area (US)</span></div>
+          <div class="demo-item"><strong>Avg. Patient Value:</strong> <span>$2,500+ lifetime</span></div>
+          <div class="demo-item"><strong>Marketing History:</strong> <span>$2K-$10K/mo spent, inconsistent results</span></div>
+        </div>
+      </div>
+      <h3>Psychographics</h3>
+      <p>They are clinically excellent but business-frustrated. They went into healthcare to help people, not to become marketers. They feel overwhelmed by the business side, jealous when they see competitors thriving, and angry that past agencies overpromised and underdelivered. They want a predictable, done-for-you system that brings in qualified patients without adding more to their plate.</p>
+      <p>They are the kind of person who stays late to research a complex case but dreads looking at their marketing dashboard. They know they should be doing more to grow, but every time they try something new it either doesn't work or creates more work for their already overwhelmed front desk.</p>
+
+      <h3>Disqualifiers</h3>
+      <p>Brand-new practices with no existing patient base or revenue. Practices unwilling to invest at least $5,000/mo in growth. Owners who want to micromanage every marketing detail. Practices without a front desk or intake process to handle new leads.</p>
+    </div>
+
+    <!-- ═══ CORE PROBLEM ═══ -->
+    <div class="section" id="core-problem">
+      <div class="section-tag">The Problem</div>
+      <h2>Core Problem</h2>
+      <div class="section-divider"></div>
+      <p>Inconsistent patient flow and crushing uncertainty -- they're stuck on a revenue rollercoaster where some months are packed and others are terrifyingly slow. They've tried mailers, SEO, seminars, Groupon-style deals, and at least one agency that promised the world and delivered vanity metrics. They see marketing as an expense because no one has ever shown them a clear, measurable path from ad dollar to patient in the door.</p>
+    </div>
+
+    <!-- ═══ EMOTIONS & FEARS ═══ -->
+    <div class="section" id="emotions">
+      <div class="section-tag">Emotional Landscape</div>
+      <h2>Top 5 Emotions & Fears</h2>
+      <div class="section-divider"></div>
+
+      <h3>Most Powerful Emotions</h3>
+      <table class="styled-table">
+        <thead><tr><th>Emotion</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Frustration & Exhaustion</strong></td><td>They didn't go to school for marketing. They're tired of being the doctor, the manager, the marketer, and the business owner all at once. They just want to treat patients.</td></tr>
+          <tr><td><strong>Skepticism & Distrust</strong></td><td>They've been burned before. At least one agency took their money and delivered impressions, clicks, and pretty reports -- but no patients. They don't trust marketing people.</td></tr>
+          <tr><td><strong>Fear of Wasted Money</strong></td><td>Every dollar spent on marketing that doesn't produce patients feels like it was stolen. They're guarded with their budget because past investments went nowhere.</td></tr>
+          <tr><td><strong>Envy & Inadequacy</strong></td><td>They see competitors with packed schedules and wonder what they're doing differently. There's a gnawing feeling that they're missing something everyone else figured out.</td></tr>
+          <tr><td><strong>Overwhelm</strong></td><td>They wear too many hats. The thought of adding another marketing initiative -- even a good one -- feels like one more thing they'll have to manage, troubleshoot, and babysit.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Biggest Fears</h3>
+      <table class="styled-table">
+        <thead><tr><th>Fear</th><th>Raw Internal Voice</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Wasting More Money</strong></td><td><em>"I've already spent tens of thousands on agencies that did nothing. What if this is just another one?"</em></td></tr>
+          <tr><td><strong>Falling Behind Competitors</strong></td><td><em>"The clinic down the street is packed every day. If I don't figure this out soon, I'm going to lose my market."</em></td></tr>
+          <tr><td><strong>Keeping the Doors Open</strong></td><td><em>"If patient flow keeps being this inconsistent, I don't know how long I can sustain this practice."</em></td></tr>
+          <tr><td><strong>Looking Foolish</strong></td><td><em>"My spouse already thinks I throw money away on marketing. If I bring in another company and it fails, I'll never hear the end of it."</em></td></tr>
+          <tr><td><strong>Referral Dependence</strong></td><td><em>"90% of my new patients come from word of mouth. That's great until it dries up -- and I have zero control over when that happens."</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══ RELATIONSHIPS ═══ -->
+    <div class="section" id="relationships">
+      <div class="section-tag">Relationship Impact</div>
+      <h2>How Fear Affects Key Relationships</h2>
+      <div class="section-divider"></div>
+
+      <table class="styled-table">
+        <thead><tr><th>Relationship</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Spouse/Partner</strong></td><td>Tense conversations about the marketing budget. Reluctance to approve new spending. "We tried that already" becomes the default response to any growth idea.</td></tr>
+          <tr><td><strong>Office Manager / Front Desk</strong></td><td>Overwhelmed staff who can't keep up with lead follow-up on top of their regular duties. Leads go unanswered, phones ring out, and the doctor blames the team instead of the broken system.</td></tr>
+          <tr><td><strong>Associate Doctors / Staff</strong></td><td>Team members notice the slow months and start worrying about job security. The best ones start looking elsewhere. Morale drops.</td></tr>
+          <tr><td><strong>Patients</strong></td><td>When the schedule is thin, the doctor overcompensates by spending too long with each patient. When it's packed, quality suffers. Neither extreme serves anyone well.</td></tr>
+          <tr><td><strong>Peer Practitioners</strong></td><td>Avoiding mastermind groups or conferences because they're embarrassed about their numbers. Not wanting to admit they can't figure out the marketing piece.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hurtful Things They Hear</h3>
+      <div class="soundbite">"How much did we spend on that marketing company last year? And how many patients did we actually get from it?" <span style="color:#999;font-style:normal;">-- Spouse</span></div>
+      <div class="soundbite">"I don't have time to follow up on all these leads AND check patients in. Something has to give." <span style="color:#999;font-style:normal;">-- Office Manager</span></div>
+      <div class="soundbite">"We've been doing our own Facebook ads and it's been great. You should just learn to do it yourself." <span style="color:#999;font-style:normal;">-- Fellow Practitioner</span></div>
+      <div class="soundbite">"Are we going to be slow again this month? I need to know if I should pick up shifts somewhere else." <span style="color:#999;font-style:normal;">-- Staff Member</span></div>
+      <div class="soundbite">"Your marketing line item keeps going up but your new patient numbers are flat. We need to talk about cutting this." <span style="color:#999;font-style:normal;">-- Accountant</span></div>
+    </div>
+
+    <!-- ═══ OTHER SOLUTIONS ═══ -->
+    <div class="section" id="other-solutions">
+      <div class="section-tag">Competitive Landscape</div>
+      <h2>Other Solutions They've Tried</h2>
+      <div class="section-divider"></div>
+
+      <div class="numbered-item"><div class="num-badge">1</div><div class="item-content"><strong>SEO Companies</strong> -- Spent $1,500-$3,000/mo for 6-12 months on "organic rankings" and saw minimal patient growth. Got monthly reports full of keyword rankings that meant nothing to their bottom line.</div></div>
+      <div class="numbered-item"><div class="num-badge">2</div><div class="item-content"><strong>General Marketing Agencies</strong> -- Hired a local or online agency that did marketing for dentists, lawyers, and restaurants too. Generic ads, no understanding of functional medicine patients, and zero accountability for actual results.</div></div>
+      <div class="numbered-item"><div class="num-badge">3</div><div class="item-content"><strong>Seminars & Dinner Events</strong> -- Ran expensive seminar campaigns ($3K-$8K per event) with inconsistent attendance and poor conversion. Some months 40 people, next month 8. No predictability.</div></div>
+      <div class="numbered-item"><div class="num-badge">4</div><div class="item-content"><strong>DIY Social Media / Boosted Posts</strong> -- Had their front desk or a "social media person" post content and boost posts. Got likes and comments from existing patients but no new patient acquisition.</div></div>
+      <div class="numbered-item"><div class="num-badge">5</div><div class="item-content"><strong>Mailers & Print Advertising</strong> -- Spent thousands on direct mail, newspaper ads, and local magazine placements. Impossible to track, impossible to optimize, and impossible to know if it actually produced a single patient.</div></div>
+
+      <h3>Soundbites About Failed Solutions</h3>
+      <div class="soundbite">"We spent $30,000 on SEO last year and I couldn't tell you if we got a single patient from it..."</div>
+      <div class="soundbite">"Our last agency showed us all these 'impressions' and 'reach' numbers. Cool story -- my schedule was still empty on Tuesdays and Thursdays."</div>
+      <div class="soundbite">"I tried doing my own Facebook ads. Got a bunch of people asking about free consultations who never showed up."</div>
+      <div class="soundbite">"We did a dinner seminar and spent $6,000. Twelve people came. Two became patients. That's $3,000 per patient just for the event."</div>
+      <div class="soundbite">"The marketing company we hired also worked with dentists and plumbers. They didn't understand our patients at all."</div>
+    </div>
+
+    <!-- ═══ DON'T WANT ═══ -->
+    <div class="section" id="dont-want">
+      <div class="section-tag">Resistance Points</div>
+      <h2>What They Don't Want to Do</h2>
+      <div class="section-divider"></div>
+
+      <div class="numbered-item"><div class="num-badge">1</div><div class="item-content"><strong>Manage Another Marketing Agency</strong> -- <em>"I don't want to have weekly calls where I explain my business to someone who doesn't get functional medicine"</em></div></div>
+      <div class="numbered-item"><div class="num-badge">2</div><div class="item-content"><strong>Learn to Run Their Own Ads</strong> -- <em>"I didn't spend 8 years in school to become a Facebook ads expert. I want someone to just handle it"</em></div></div>
+      <div class="numbered-item"><div class="num-badge">3</div><div class="item-content"><strong>Chase Leads Themselves</strong> -- <em>"I can't have my front desk dropping everything to call back internet leads within 5 minutes. They have patients to check in"</em></div></div>
+      <div class="numbered-item"><div class="num-badge">4</div><div class="item-content"><strong>Try Another Silver Bullet</strong> -- <em>"I'm done with the next shiny object. I don't want another 'revolutionary' thing that works for 2 months and dies"</em></div></div>
+      <div class="numbered-item"><div class="num-badge">5</div><div class="item-content"><strong>Wait 6-12 Months for Results</strong> -- <em>"I can't afford to burn through another year of 'building a foundation' before seeing actual patients show up"</em></div></div>
+    </div>
+
+    <!-- ═══ TRANSFORMATION ═══ -->
+    <div class="section" id="transformation">
+      <div class="section-tag">The Dream State</div>
+      <h2>Primary Transformation</h2>
+      <div class="section-divider"></div>
+
+      <h3>Dr. Brennan's Life After the System</h3>
+      <div class="numbered-item"><div class="num-badge">1</div><div class="item-content"><strong>Predictable Patient Flow</strong> -- <em>"I know exactly how many new patients are coming in every month. I can plan, hire, and grow because the pipeline is consistent."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">2</div><div class="item-content"><strong>Leads Handled Automatically</strong> -- <em>"When someone fills out a form at 9pm on a Saturday, they get a response in under a minute. I don't even have to think about it."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">3</div><div class="item-content"><strong>High-Value Patients</strong> -- <em>"These aren't coupon chasers or tire kickers. They're people with real conditions who are ready to invest in their health."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">4</div><div class="item-content"><strong>Clear ROI</strong> -- <em>"I can see exactly what I spent and exactly what it produced. For the first time in my career, marketing is an investment with a measurable return."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">5</div><div class="item-content"><strong>Freedom to Practice</strong> -- <em>"I finally get to just be the doctor. The marketing runs itself. The follow-up is automated. Patients show up. I do what I love."</em></div></div>
+
+      <h3>Post-Transformation Soundbites</h3>
+      <div class="soundbite">"I can't believe the difference. We actually have a waitlist now. Remember when you used to stress about Tuesdays being empty?" <span style="color:#999;font-style:normal;">-- Spouse</span></div>
+      <div class="soundbite">"You went from struggling to fill your schedule to turning people away? What the hell happened?" <span style="color:#999;font-style:normal;">-- Colleague</span></div>
+      <div class="soundbite">"This AI thing is a game changer. I used to spend two hours a day chasing leads. Now they show up already booked." <span style="color:#999;font-style:normal;">-- Office Manager</span></div>
+      <div class="soundbite">"How are you getting so many neuropathy patients? I can barely get anyone to come in for that." <span style="color:#999;font-style:normal;">-- Competitor</span></div>
+    </div>
+
+    <!-- ═══ MARKET SPECIFICS ═══ -->
+    <div class="section" id="market-specifics">
+      <div class="section-tag">Market Intelligence</div>
+      <h2>Market Specifics</h2>
+      <div class="section-divider"></div>
+
+      <h3>What Does the Market Hinge Their Success On?</h3>
+      <p>Having a proven, done-for-you system with someone who actually understands functional medicine marketing -- they believe they need a partner who specializes in their niche, has the track record to prove it works, and will own the entire process from ad to appointment so they can focus on being a doctor.</p>
+
+      <h3>What Does the Market Have to Give Up?</h3>
+      <p>The comfort of blaming marketing for their problems. Once the system is installed and working, they can no longer hide behind "marketing doesn't work for my practice." They have to show up, deliver great care, and close the patients that walk through the door.</p>
+
+      <h3>Who Does the Market Blame?</h3>
+      <div class="soundbite" style="font-style:normal;">Past marketing agencies who overpromised and underdelivered</div>
+      <div class="soundbite" style="font-style:normal;">The "saturated" market and increased competition from corporate wellness chains</div>
+      <div class="soundbite" style="font-style:normal;">Their front desk for not following up on leads fast enough</div>
+      <div class="soundbite" style="font-style:normal;">Facebook/Google for "making it harder" to reach people</div>
+      <div class="soundbite" style="font-style:normal;">The economy and patients who "just can't afford" functional medicine</div>
+    </div>
+
+    <!-- ═══ OBJECTIONS ═══ -->
+    <div class="section" id="objections">
+      <div class="section-tag">Sales Intelligence</div>
+      <h2>Top 6 Objections</h2>
+      <div class="section-divider"></div>
+
+      <div class="numbered-item"><div class="num-badge">1</div><div class="item-content"><strong>"I've been burned by agencies before"</strong><br><em>"My last company promised 30 new patients a month and we got maybe 5. I'm not falling for that again."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">2</div><div class="item-content"><strong>"It's too expensive"</strong><br><em>"$5,000 a month is a lot. What if it doesn't work? That's $60,000 a year I could lose."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">3</div><div class="item-content"><strong>"I need to think about it"</strong><br><em>"This sounds good but I need to talk to my partner/spouse/office manager before I commit."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">4</div><div class="item-content"><strong>"I don't trust Facebook ads"</strong><br><em>"I've tried Facebook ads before and all I got was people who wanted free stuff and never showed up."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">5</div><div class="item-content"><strong>"My market is different"</strong><br><em>"I'm in a small town / saturated market / expensive area. I don't think this would work here."</em></div></div>
+      <div class="numbered-item"><div class="num-badge">6</div><div class="item-content"><strong>"I want to see it work first"</strong><br><em>"Can you guarantee results? Can I try it for a month? I don't want to sign a long-term contract."</em></div></div>
+    </div>
+
+    <!-- ═══ AUDIENCE AWARENESS ═══ -->
+    <div class="section" id="awareness">
+      <div class="section-tag">Sales Framework</div>
+      <h2>Audience Awareness Spectrum</h2>
+      <div class="section-divider"></div>
+      <p>Understanding where our prospect sits on the awareness spectrum is critical to how we sell.</p>
+      <div class="awareness-stages">
+        <div class="awareness-stage"><div class="stage-label">Unaware</div><div class="stage-text">They don't realize their inconsistent patient flow is a solvable problem. They think the ups and downs are just "how it goes" in private practice. We reach these prospects through educational content and targeted ads that name the problem before offering the solution.</div></div>
+        <div class="awareness-stage"><div class="stage-label">Problem Aware</div><div class="stage-text">They know they have a problem -- inconsistent revenue, empty appointment slots, dependence on referrals -- but they don't know a systematic solution exists. Our messaging focuses on diagnosing the root cause and introducing the concept of a patient acquisition system.</div></div>
+        <div class="awareness-stage"><div class="stage-label">Solution Aware</div><div class="stage-text">They know they need professional marketing help but are deeply skeptical. They've been burned by agencies before. At this stage, our testimonials, ROI numbers, and the specificity of our niche focus do the heavy lifting.</div></div>
+        <div class="awareness-stage"><div class="stage-label">Product Aware</div><div class="stage-text">They know about Be Top Local specifically. They've seen the pitch deck, talked to Ben, or been referred by a colleague. The conversation is about fit, timing, and getting started with the Growth package.</div></div>
+        <div class="awareness-stage"><div class="stage-label">Most Aware</div><div class="stage-text">They're ready to buy. They just need the final nudge -- a start date, pricing confirmation, or one last question answered. Ben closes efficiently without over-selling.</div></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- COPY BLOCKS -->
+    <!-- ═══════════════════════════════ -->
+
+    <!-- ═══ PAIN ═══ -->
+    <div class="section" id="pain">
+      <div class="section-tag">Copy Blocks</div>
+      <h2>Pain</h2>
+      <div class="section-divider"></div>
+      <div class="copy-blocks-container">
+        <div class="copy-block block-pain"><span class="block-num">#1</span><span class="block-text">Inconsistent patient flow and crushing uncertainty -- some months packed, others terrifyingly slow</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#2</span><span class="block-text">Burned by agencies who delivered vanity metrics but no actual patients</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#3</span><span class="block-text">Front desk overwhelmed -- leads sitting for hours or days before anyone follows up</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#4</span><span class="block-text">Spending thousands on marketing with no clear way to track if it produced a single patient</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#5</span><span class="block-text">Watching competitors pack their schedules while you struggle to fill Tuesdays and Thursdays</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#6</span><span class="block-text">Tried SEO, mailers, seminars, boosted posts -- none of it was consistent or predictable</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#7</span><span class="block-text">Your front desk is too busy checking patients in to chase down internet leads</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#8</span><span class="block-text">Losing 40-60% of potential patients because nobody followed up fast enough</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#9</span><span class="block-text">Every marketing "expert" you've hired also worked with dentists, plumbers, and lawyers</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#10</span><span class="block-text">You didn't go to school for marketing -- you went to school to help people heal</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#11</span><span class="block-text">Referrals are great until they dry up -- and you have zero control over when that happens</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#12</span><span class="block-text">Spending $3K-$8K on a dinner seminar and getting 8 people to show up</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#13</span><span class="block-text">Your "marketing person" is posting on social media and getting likes from existing patients, not new ones</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#14</span><span class="block-text">Getting leads that want free consultations and never convert to treatment plans</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#15</span><span class="block-text">Monthly marketing reports full of impressions, clicks, and reach -- but your schedule is still half empty</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#16</span><span class="block-text">Your spouse asking "how much did we spend on marketing this month?" with THAT tone</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#17</span><span class="block-text">Staff starting to worry about job security because patient flow is unpredictable</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#18</span><span class="block-text">Avoiding conferences and masterminds because you're embarrassed about your numbers</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#19</span><span class="block-text">Having great clinical skills but no system to get patients through the door consistently</span></div>
+        <div class="copy-block block-pain"><span class="block-num">#20</span><span class="block-text">Knowing you should be growing but feeling paralyzed because everything you've tried has failed</span></div>
+      </div>
+    </div>
+
+    <!-- ═══ PROMISE ═══ -->
+    <div class="section" id="promise">
+      <h2>Promise</h2>
+      <div class="section-divider"></div>
+      <div class="copy-blocks-container">
+        <div class="copy-block block-promise"><span class="block-num">#1</span><span class="block-text">GUARANTEED NEW HIGH-TICKET PATIENTS. NO BS. JUST RESULTS.</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#2</span><span class="block-text">The last patient acquisition system you'll ever need</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#3</span><span class="block-text">Predictable new patient flow on autopilot -- every single month</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#4</span><span class="block-text">From empty appointment slots to a full schedule in 90 days or less</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#5</span><span class="block-text">We don't just get you leads -- we get you patients in the door</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#6</span><span class="block-text">Every lead followed up in under 60 seconds, 24/7/365 -- by AI</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#7</span><span class="block-text">The done-for-you system that turns ad spend into booked, qualified patients</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#8</span><span class="block-text">Stop chasing leads. Start treating patients.</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#9</span><span class="block-text">Your front desk will never have to play phone tag with a cold lead again</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#10</span><span class="block-text">From 4-5 high ticket patients per week to 4-5 per day</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#11</span><span class="block-text">We include your ad spend. We include the AI. We include everything.</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#12</span><span class="block-text">The Automatic Patient Machine: Attract. Capture. Show. Scale.</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#13</span><span class="block-text">We only work with functional and integrative practices -- this is all we do</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#14</span><span class="block-text">See exactly what you spent and exactly what it produced -- for the first time ever</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#15</span><span class="block-text">A full pipeline of condition-specific patients: neuropathy, knee pain, weight loss, hormones</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#16</span><span class="block-text">We handle the ads, the landing pages, the AI follow-up, the nurture sequences -- you handle the patients</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#17</span><span class="block-text">Marketing that works while you sleep, while you treat patients, while you live your life</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#18</span><span class="block-text">700+ practices served. $100M+ in patient revenue generated. We know what works.</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#19</span><span class="block-text">Your competitors are already using systems like this. Catch up or get left behind.</span></div>
+        <div class="copy-block block-promise"><span class="block-num">#20</span><span class="block-text">A real marketing partner who eats what they kill -- our ad spend is included because we need it to work too</span></div>
+      </div>
+    </div>
+
+    <!-- ═══ PROOF ═══ -->
+    <div class="section" id="proof">
+      <h2>Proof</h2>
+      <div class="section-divider"></div>
+      <div class="copy-blocks-container">
+        <div class="copy-block block-proof"><span class="block-num">#1</span><span class="block-text">700+ practices served across the United States</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#2</span><span class="block-text">$100M+ in tracked patient revenue generated for clients</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#3</span><span class="block-text">10+ years specializing exclusively in medical marketing</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#4</span><span class="block-text">20+ years of founder experience in healthcare marketing</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#5</span><span class="block-text">AI Appointment Coordinator with sub-60-second response time and 60% schedule rate</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#6</span><span class="block-text">"I've been with Be Top Local since 2018 and I do ALOT of Neuropathy and Knee cases every single month and it's been amazing"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#7</span><span class="block-text">"We started right before COVID and we still easily got a 6:1 ROI"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#8</span><span class="block-text">"We have a 62% show rate and closed 18 new knee cases in April!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#9</span><span class="block-text">"We went from 4-5 high ticket patients per week to 4-5 per day"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#10</span><span class="block-text">"She is ending her first two months with 40:1 ROI"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#11</span><span class="block-text">"We usually see 10:1, sometimes even better"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#12</span><span class="block-text">"We just finalized our first quarter stats and our ROI is about 28:1"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#13</span><span class="block-text">"We've been able to increase our percentage of closing patients by almost 100%"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#14</span><span class="block-text">"We have been working with BTL for over 15 months and are scheduling 15-20 New Patients a WEEK"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#15</span><span class="block-text">"Our worst month with Be Top in over a year was 15-1 and our best month was 50-1 ROI!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#16</span><span class="block-text">"We've already signed up $15,000 in revenue within one week!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#17</span><span class="block-text">"I've consistently got 11:1 ROI for the past 9 months!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#18</span><span class="block-text">"Over the span of the last year, we've seen a 4:1 Return on Investment"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#19</span><span class="block-text">"We've closed 12 procedures since we started a couple months ago!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#20</span><span class="block-text">"Newspaper, direct mail, other internet marketing companies, no one else comes close"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#21</span><span class="block-text">"When I started doing it your way... Things went through the roof"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#22</span><span class="block-text">"Good luck to anyone finding another program better than BTL"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#23</span><span class="block-text">"We're Not Even At The 7 Day Mark and We're Already at 41 Leads and Have Scheduled 2/3"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#24</span><span class="block-text">"About 5 to 6 New High Case Value Patients a Month. I Would Definitely Recommend Be Top Local"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#25</span><span class="block-text">"Be Top Local is able to target the people we really want to get in!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#26</span><span class="block-text">"I couldn't be happier with this experience...they aren't only results driven but also invested in our business!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#27</span><span class="block-text">"I'm so glad we outsourced our marketing. They're going to make sure you get the conversion of the patient."</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#28</span><span class="block-text">"Be Top Local made it a point to have a continual flow of new patients into our practice."</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#29</span><span class="block-text">"The training is a make or break for our practice!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#30</span><span class="block-text">"Stay on top of the leads and do the work and you will absolutely see the results!"</span></div>
+        <div class="copy-block block-proof"><span class="block-num">#31</span><span class="block-text">"Generated Roughly 10-12 New Patients on Average Per Seminar -- 5k Case Value"</span></div>
+      </div>
+    </div>
+
+    <!-- ═══ CONSTRAINTS ═══ -->
+    <div class="section" id="constraints">
+      <h2>Constraints</h2>
+      <div class="section-divider"></div>
+      <div class="copy-blocks-container">
+        <div class="copy-block block-constraint"><span class="block-num">#1</span><span class="block-text">"I've already spent tens of thousands on agencies that did nothing. What if this is just another one?"</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#2</span><span class="block-text">"$5,000 a month is a lot. What if it doesn't work? That's $60,000 a year I could lose."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#3</span><span class="block-text">"My last company promised 30 new patients a month and we got maybe 5. I'm not falling for that again."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#4</span><span class="block-text">"I've tried Facebook ads before and all I got was people who wanted free stuff and never showed up."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#5</span><span class="block-text">"I'm in a small town. I don't think there's enough demand here for this to work."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#6</span><span class="block-text">"I need to talk to my partner/spouse before I commit to anything."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#7</span><span class="block-text">"Can you guarantee results? Can I try it for a month first?"</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#8</span><span class="block-text">"My front desk can barely handle what we have now. Adding more leads will just overwhelm them."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#9</span><span class="block-text">"We spent $30,000 on SEO last year and I couldn't tell you if we got a single patient from it."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#10</span><span class="block-text">"I've tried boosting posts on Facebook and it did nothing."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#11</span><span class="block-text">"My market is saturated -- there are 15 chiropractors within 5 miles of me."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#12</span><span class="block-text">"How do I know your AI thing actually works? Patients want to talk to a real person."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#13</span><span class="block-text">"I had a marketing company for two years and all they showed me were vanity metrics."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#14</span><span class="block-text">"We did dinner seminars and the cost per patient was insane."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#15</span><span class="block-text">"I don't want to sign a long-term contract. I've been burned too many times."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#16</span><span class="block-text">"My spouse already thinks I throw money away on marketing."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#17</span><span class="block-text">"What makes you different from the 50 other agencies who've cold-called me this month?"</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#18</span><span class="block-text">"I'm barely breaking even as it is. I'm not sure I can afford to invest in marketing right now."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#19</span><span class="block-text">"My accountant says our marketing spend is too high relative to what it's producing."</span></div>
+        <div class="copy-block block-constraint"><span class="block-num">#20</span><span class="block-text">"I've been doing fine on referrals. I'm not sure I need to change anything."</span></div>
+      </div>
+    </div>
+
+    <!-- ═══ CURIOSITY ═══ -->
+    <div class="section" id="curiosity">
+      <h2>Curiosity / Mechanism</h2>
+      <div class="section-divider"></div>
+      <div class="copy-blocks-container">
+        <div class="copy-block block-curiosity"><span class="block-num">#1</span><span class="block-text">The Automatic Patient Machine</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#2</span><span class="block-text">AI Appointment Coordinator that responds in under 60 seconds, 24/7/365</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#3</span><span class="block-text">Our proprietary 4-step system: Attract, Capture, Show, Scale</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#4</span><span class="block-text">Condition-specific campaigns -- not generic brand awareness ads</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#5</span><span class="block-text">Done-for-you patient acquisition system built from 700+ practice data</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#6</span><span class="block-text">The Before &gt; After &gt; Bridge ad framework</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#7</span><span class="block-text">Ad spend included in every package -- we eat what we kill</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#8</span><span class="block-text">The exact system that took practices from 4-5 patients per week to 4-5 per day</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#9</span><span class="block-text">Why 60% of your leads are being lost right now (and the AI that fixes it)</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#10</span><span class="block-text">The one metric that actually matters in medical marketing (hint: it's not impressions)</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#11</span><span class="block-text">How we generate 10:1 to 50:1 ROI for functional medicine practices</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#12</span><span class="block-text">The follow-up gap: why your front desk is losing you $250,000+/year in patient revenue</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#13</span><span class="block-text">Our niche-specific approach built from 10+ years of data in integrative medicine</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#14</span><span class="block-text">The 60-second rule: why speed-to-lead is the #1 predictor of patient conversion</span></div>
+        <div class="copy-block block-curiosity"><span class="block-num">#15</span><span class="block-text">How we turned a practice that was "slow on Tuesdays and Thursdays" into one with a waitlist</span></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ -->
+    <!-- BRAND SECTIONS -->
+    <!-- ═══════════════════════════════ -->
+
+    <!-- ═══ ORIGIN STORY ═══ -->
+    <div class="section" id="origin">
+      <div class="section-tag">The Brand</div>
+      <h2>Origin Story</h2>
+      <div class="section-divider"></div>
+      <div class="story-block">
+        <p>Be Top Local started over 10 years ago as a medical marketing company. In the early days, Ben was onboarding <strong>20-30 new clients per month</strong> across all kinds of practices. Growth was fast. Revenue was good. But something was off.</p>
+        <p>Some clients crushed it. Others struggled. And BTL couldn't figure out why.</p>
+        <p>So Ben did something most agencies would never do: <strong>he stopped growing.</strong> He pulled back, analyzed every client they'd ever worked with, and looked for patterns. What did the winners have in common? What made the losers fail?</p>
+        <p>The answer was clear. The practices that succeeded all shared specific traits: a physical location, average patient values of $2,500+, commitment to the system, and a willingness to treat marketing as an investment rather than an expense. They were almost always functional or integrative medicine practices -- chiropractors who'd expanded into neuropathy, knee pain, weight loss, or hormone therapy.</p>
+        <p>Instead of trying to make the system work for everyone, Ben flipped the model. He <strong>turned the success criteria into qualifying requirements.</strong> BTL went from onboarding 20-30 clients a month to accepting just 3-5 of the right ones.</p>
+        <p>The result? Retention went through the roof. Client results got dramatically better. Some clients like Dr. Moorman and Dr. Berman have been with BTL for <strong>9-10 years.</strong> The system works because BTL only installs it in practices where it's proven to work.</p>
+        <p>Today, Ben personally qualifies every single client. No sales team. No handoffs. If you talk to BTL, you talk to Ben. That's by design. <strong>He'd rather turn away 20 bad fits than take on one client he can't help.</strong></p>
+      </div>
+    </div>
+
+    <!-- ═══ YOUR EDGE ═══ -->
+    <div class="section" id="edge">
+      <div class="section-tag">Competitive Advantage</div>
+      <h2>Your Edge</h2>
+      <div class="section-divider"></div>
+
+      <div class="edge-card"><h4>1. The Full System, Not Just Ads</h4><p>Most agencies hand off leads and walk away. BTL owns the entire pipeline from click to calendar. The AI Appointment Coordinator fills the gap between lead capture and booked appointment -- the exact stage where most practices lose 40-60% of their potential patients.</p></div>
+      <div class="edge-card"><h4>2. Niche Specialization</h4><p>BTL only works with holistic and integrative practices. Every campaign template, landing page, follow-up script, and conversation framework is built from 10+ years of data in this exact market. A generalist agency cannot replicate this depth.</p></div>
+      <div class="edge-card"><h4>3. AI-Powered Speed to Lead</h4><p>The proprietary AI Coordinator responds to every new lead in under 60 seconds, 24/7/365. It doesn't take lunch breaks, miss calls, or forget to follow up. It converts leads that would otherwise be lost -- especially after-hours and weekends.</p></div>
+      <div class="edge-card"><h4>4. Ad Spend Included</h4><p>Unlike most agencies that charge a management fee on top of ad spend, BTL includes ad spend in every package. This simplifies the investment and aligns incentives -- BTL needs the ads to work because they're funding them.</p></div>
+      <div class="edge-card"><h4>5. Condition-Specific Campaigns</h4><p>No generic brand-awareness ads. Every campaign targets a specific condition (neuropathy, knee pain, weight loss, hormone therapy) with messaging crafted for that patient's unique pain points. This precision drives higher quality leads and better conversion rates.</p></div>
+    </div>
+
+    <!-- ═══ PRICING ═══ -->
+    <div class="section" id="pricing">
+      <div class="section-tag">Product</div>
+      <h2>The Automatic Patient Machine</h2>
+      <div class="section-divider"></div>
+      <p style="margin-bottom:24px;">The Growth package is what we lead with and recommend for every qualified practice. It's the full system. Starter and Premium exist as options for budget or scaling needs, but Growth is the product.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card" style="opacity:0.7;">
+          <h4>Starter</h4>
+          <div class="price" style="font-size:22px;">$3,500</div>
+          <div class="price-sub">per month / ad spend included</div>
+          <ul>
+            <li>Entry-level option for budget-conscious practices</li>
+            <li>Custom landing page</li>
+            <li>Facebook & Instagram ads</li>
+            <li>CRM setup</li>
+            <li>Basic nurture sequences</li>
+          </ul>
+          <p style="font-size:12px;color:#999;margin-top:12px;font-style:italic;">Fallback option if prospect can't afford Growth</p>
+        </div>
+        <div class="pricing-card featured">
+          <h4>Growth</h4>
+          <div class="price">$5,000</div>
+          <div class="price-sub">per month / ad spend included</div>
+          <ul>
+            <li>The full Automatic Patient Machine</li>
+            <li>AI Appointment Coordinator</li>
+            <li>Condition-specific campaigns</li>
+            <li>Custom landing pages</li>
+            <li>Advanced nurture sequences</li>
+            <li>Call tracking</li>
+            <li>Full CRM setup & management</li>
+          </ul>
+          <p style="font-size:12px;color:var(--gold);margin-top:12px;font-weight:600;">THIS IS WHAT WE SELL</p>
+        </div>
+        <div class="pricing-card" style="opacity:0.7;">
+          <h4>Premium</h4>
+          <div class="price" style="font-size:22px;">$8,500</div>
+          <div class="price-sub">per month / ad spend included</div>
+          <ul>
+            <li>Everything in Growth</li>
+            <li>Priority support</li>
+            <li>Consulting & strategy</li>
+            <li>Full AI suite</li>
+            <li>Scaling strategy</li>
+          </ul>
+          <p style="font-size:12px;color:#999;margin-top:12px;font-style:italic;">For practices ready to scale aggressively</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PATTERNS ═══ -->
+    <div class="section" id="patterns">
+      <div class="section-tag">Brand Consistency</div>
+      <h2>Recurring Patterns & Structural Phrases</h2>
+      <div class="section-divider"></div>
+      <div class="tag-row">
+        <span class="tag-chip">No BS. Just Results.</span>
+        <span class="tag-chip">Guaranteed New High-Ticket Patients</span>
+        <span class="tag-chip">The Automatic Patient Machine</span>
+        <span class="tag-chip">700+ Practices Served</span>
+        <span class="tag-chip">$100M+ in Patient Revenue</span>
+        <span class="tag-chip">Under 60 Seconds</span>
+        <span class="tag-chip">60% Schedule Rate</span>
+        <span class="tag-chip">24/7/365</span>
+        <span class="tag-chip">Done-For-You</span>
+        <span class="tag-chip">Condition-Specific</span>
+        <span class="tag-chip">Burned by agencies before</span>
+        <span class="tag-chip">Ad spend included</span>
+        <span class="tag-chip">Patients, not leads</span>
+        <span class="tag-chip">Your front desk is too busy</span>
+      </div>
+      <h3>Writing Rules</h3>
+      <div class="edge-card"><h4>Always Acknowledge Skepticism</h4><p>"Burned by agencies before" should appear early in any long-form piece. Lead with proof and honesty, not hype. Our clients are skeptical and they have every right to be.</p></div>
+      <div class="edge-card"><h4>Differentiate From the Agency Model</h4><p>We are not "an agency." We are a patient acquisition system. We include ad spend. We eat what we kill. Every claim should tie back to real numbers and real results.</p></div>
+      <div class="edge-card"><h4>Reframe From Metrics to Outcomes</h4><p>Never talk about impressions, reach, or clicks unless you're making fun of agencies that do. The only metric that matters is new patients on the schedule.</p></div>
+      <div class="edge-card"><h4>Name the Follow-Up Gap</h4><p>"Your front desk is too busy" is one of the most powerful phrases in our arsenal. It names the real problem without blaming the staff -- and positions the AI as the solution.</p></div>
+      <div class="edge-card"><h4>Use Specific ROI Numbers</h4><p>We have ROI data ranging from 4:1 to 50:1. Use specific numbers from specific clients. "10:1 ROI" lands harder than "great return on investment."</p></div>
+      <div class="edge-card"><h4>Ben Personally Qualifies Every Client</h4><p>No sales team. No handoffs. This is a differentiator. Use it. It signals that BTL cares about fit, not just revenue.</p></div>
+    </div>
+
+    <!-- ═══ LINKS ═══ -->
+    <div class="section" id="links">
+      <div class="section-tag">Resources</div>
+      <h2>Core Links</h2>
+      <div class="section-divider"></div>
+      <div>
+        <a href="https://betoplocal.com" class="link-card" target="_blank">Main Website</a>
+        <a href="https://betoplocal.com/ai-coordinator" class="link-card" target="_blank">AI Coordinator Page</a>
+        <a href="https://www.closemorepatients.com/qctya" class="link-card" target="_blank">Testimonials</a>
+        <a href="https://betoplocal.com/pitch" class="link-card" target="_blank">Pitch Deck</a>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<script>
+// Active nav link on scroll
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const id = entry.target.id;
+      const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// Smooth scroll
+navLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>

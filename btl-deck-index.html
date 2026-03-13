@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be Top Local — Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-glow: rgba(212,175,55,0.2);
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --ink-faint: #B8B8B8;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --surface-cool: #F7F7F5;
+    --border: #E5E5E3;
+    --red: #BE3A2A;
+    --green: #1B7D42;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #000;
+    color: var(--ink-soft);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    width: 100vw;
+    height: 100vh;
+    cursor: default;
+  }
+
+  /* ── SLIDE CONTAINER ── */
+  .deck { width: 100vw; height: 100vh; position: relative; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    overflow: hidden;
+  }
+  .slide.active { display: flex; animation: fadeIn 0.3s ease; }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ── LAYOUT TYPES ── */
+  .slide-light { background: var(--surface); color: var(--ink-soft); }
+  .slide-warm  { background: var(--surface-warm); color: var(--ink-soft); }
+  .slide-dark  { background: var(--ink); color: #fff; }
+
+  /* ── SLIDE INNER — centered with max-width so it doesn't stretch on big monitors ── */
+  .slide-inner {
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 60px 52px;
+    position: relative;
+  }
+
+  /* ── GOLD TOP BAR ── */
+  .gold-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+  }
+
+  /* ── FOOTER BAR ── */
+  .footer-bar {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .footer-bar span {
+    font-size: 10px; font-weight: 700; letter-spacing: 6px;
+    text-transform: uppercase; color: rgba(255,255,255,0.45);
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .slide-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    line-height: 1.06;
+    color: var(--ink);
+    margin-bottom: 20px;
+    font-size: clamp(36px, 4.5vw, 64px);
+  }
+  .slide-dark .slide-title { color: #fff; }
+  .slide-title em { font-style: italic; font-weight: 700; color: var(--gold); }
+  .slide-dark .slide-title em { color: var(--gold-bright); }
+
+  .slide-eyebrow {
+    font-size: clamp(10px, 1vw, 13px); font-weight: 700;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .slide-dark .slide-eyebrow { color: var(--gold-bright); }
+
+  .bullet-list {
+    list-style: none; display: flex; flex-direction: column;
+    gap: clamp(12px, 1.5vh, 22px);
+  }
+  .bullet-list li {
+    font-size: clamp(16px, 1.6vw, 24px); font-weight: 400;
+    line-height: 1.45; color: var(--ink-mid);
+    padding-left: 28px; position: relative;
+  }
+  .slide-dark .bullet-list li { color: rgba(255,255,255,0.72); }
+  .bullet-list li::before {
+    content: ''; position: absolute; left: 0; top: 10px;
+    width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
+  }
+
+  .body-text {
+    font-size: clamp(16px, 1.5vw, 22px); font-weight: 300;
+    color: var(--ink-mid); line-height: 1.65;
+  }
+  .slide-dark .body-text { color: rgba(255,255,255,0.6); }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 1.8vw, 28px);
+    font-style: italic; font-weight: 400;
+    color: var(--gold); line-height: 1.45; margin-top: 24px;
+  }
+  .slide-dark .quote-text { color: var(--gold-bright); }
+
+  /* ── TWO COLUMN LAYOUT — fills available height ── */
+  .two-col {
+    display: flex; gap: 40px; flex: 1; min-height: 0;
+    align-items: center;
+  }
+
+  .col-text {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; min-width: 0;
+  }
+
+  .col-img {
+    flex: 0 0 44%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px; min-width: 0; height: 100%;
+  }
+  .col-img img {
+    max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px;
+  }
+
+  .col-img-stack {
+    flex: 0 0 44%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px; min-width: 0; height: 100%;
+  }
+  .col-img-stack img {
+    max-width: 100%; object-fit: contain; border-radius: 10px;
+  }
+
+  /* ── CENTER SLIDE ── */
+  .center-content {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 0 5%;
+    max-width: 900px; margin: 0 auto; width: 100%;
+  }
+  .center-content .slide-title {
+    font-size: clamp(40px, 5.5vw, 80px);
+  }
+
+  /* ── FULL IMAGE SLIDE ── */
+  .full-img-slide {
+    flex: 1; display: flex; align-items: center;
+    justify-content: center; padding: 0;
+  }
+  .full-img-slide img {
+    max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px;
+  }
+
+  /* ── BRIDGE SLIDE (slide 14 — Option C) ── */
+  .bridge-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; max-width: 1000px;
+    margin: 0 auto; width: 100%;
+  }
+  .bridge-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3.5vw, 52px);
+    font-weight: 800; color: var(--ink);
+    line-height: 1.1; margin-bottom: 36px; text-align: center;
+  }
+  .bridge-title em { color: var(--gold); font-style: italic; }
+  .bridge-cols {
+    display: flex; align-items: stretch; gap: 0;
+    max-width: 750px; margin: 0 auto; width: 100%;
+  }
+  .bridge-side {
+    flex: 1; padding: 28px 32px;
+    display: flex; flex-direction: column; gap: 20px;
+    border-radius: 14px;
+  }
+  .bridge-side.before {
+    background: rgba(190, 58, 42, 0.05);
+    border: 1.5px solid rgba(190, 58, 42, 0.12);
+    margin-right: 10px;
+  }
+  .bridge-side.after {
+    background: rgba(27, 125, 66, 0.05);
+    border: 1.5px solid rgba(27, 125, 66, 0.12);
+    margin-left: 10px;
+  }
+  .bridge-side-label {
+    font-size: clamp(9px, 0.85vw, 11px); font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .bridge-side.before .bridge-side-label { color: var(--red); }
+  .bridge-side.after .bridge-side-label { color: var(--green); }
+  .bridge-word {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 2.8vw, 40px);
+    font-weight: 700; line-height: 1;
+  }
+  .bridge-side.before .bridge-word { color: var(--red); }
+  .bridge-side.after .bridge-word { color: var(--green); }
+  .bridge-arrow {
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; width: 40px;
+    color: var(--gold); font-size: 28px;
+  }
+
+  /* ── BIG LINE SLIDE (slide 15 — Option B) ── */
+  .bigline-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 0 6%;
+    max-width: 1000px; margin: 0 auto; width: 100%;
+  }
+  .bigline-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 68px);
+    font-weight: 800; color: var(--ink);
+    line-height: 1.12;
+  }
+  .bigline-headline em { color: var(--gold); font-style: italic; font-weight: 700; }
+
+  /* ── VALUE STACK (slide 21) ── */
+  .vstack-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; max-width: 1000px;
+    margin: 0 auto; width: 100%;
+  }
+  .vstack-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.2vw, 48px);
+    font-weight: 800; color: var(--ink);
+    line-height: 1.1; margin-bottom: 28px;
+  }
+  .vstack-title em { color: var(--gold); font-style: italic; }
+  .vstack-rows { display: flex; flex-direction: column; gap: 0; }
+  .vstack-row {
+    display: flex; align-items: center; gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .vstack-row:last-child { border-bottom: none; }
+  .vstack-check {
+    font-size: clamp(18px, 1.6vw, 26px);
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .vstack-item {
+    font-size: clamp(15px, 1.4vw, 21px);
+    font-weight: 500; color: var(--ink-soft);
+  }
+
+  /* ── PRICING ── */
+  .pricing-slide img {
+    max-width: 96%; max-height: 92%; object-fit: contain; border-radius: 12px;
+  }
+
+  /* ── PRICING CARDS ── */
+  .pricing-header {
+    text-align: center; margin-bottom: clamp(12px, 2vh, 24px);
+  }
+  .pricing-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 44px);
+    font-weight: 800; color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .pricing-header p {
+    font-size: clamp(12px, 1.1vw, 16px);
+    color: var(--ink-mid); font-weight: 400;
+  }
+  .pricing-grid {
+    display: flex; gap: clamp(12px, 1.5vw, 24px);
+    justify-content: center; align-items: stretch;
+    width: 100%;
+  }
+  .pkg-card {
+    flex: 1; max-width: 340px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: clamp(16px, 1.5vw, 28px);
+    display: flex; flex-direction: column;
+    position: relative;
+    transition: box-shadow 0.3s;
+  }
+  .pkg-card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1.5px var(--gold), 0 8px 32px rgba(197,160,40,0.12);
+  }
+  .pkg-card.featured::before {
+    content: 'Most Popular';
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: #fff;
+    font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 16px; border-radius: 20px;
+    white-space: nowrap;
+  }
+  .pkg-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2vw, 30px);
+    font-weight: 800; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .pkg-adspend {
+    display: inline-block;
+    font-size: clamp(10px, 0.85vw, 13px);
+    font-weight: 700; color: var(--gold-deep);
+    letter-spacing: 0.5px;
+    margin-bottom: clamp(10px, 1.2vh, 18px);
+    background: var(--gold-subtle);
+    border: 1px solid rgba(197,160,40,0.25);
+    padding: 5px 12px;
+    border-radius: 8px;
+  }
+  .pkg-section {
+    display: flex; flex-direction: column; gap: 6px;
+    padding-bottom: clamp(8px, 1vh, 14px);
+    margin-bottom: clamp(8px, 1vh, 14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .pkg-section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .pkg-line {
+    display: flex; align-items: center; gap: 8px;
+    font-size: clamp(11px, 1vw, 15px);
+    font-weight: 400; color: var(--ink-soft);
+    line-height: 1.3;
+  }
+  .pkg-line .icon-yes { color: var(--gold); font-weight: 700; flex-shrink: 0; font-size: 1.1em; }
+  .pkg-line .icon-no { color: var(--ink-faint); font-weight: 700; flex-shrink: 0; font-size: 1.1em; }
+  .pkg-line.disabled { color: var(--ink-faint); }
+  .pkg-price {
+    margin-top: auto; padding-top: clamp(12px, 1.5vh, 20px);
+    text-align: center;
+  }
+  .pkg-price span {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 46px);
+    font-weight: 800; color: var(--ink);
+    line-height: 1;
+  }
+  .pkg-price small {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(12px, 1vw, 16px);
+    font-weight: 400; color: var(--ink-muted);
+  }
+  .pricing-footnote {
+    text-align: center;
+    font-size: clamp(10px, 0.85vw, 13px);
+    color: var(--ink-muted); font-weight: 400;
+    margin-top: clamp(10px, 1.5vh, 20px);
+  }
+
+  /* ── CALCULATOR ── */
+  .calc-wrap {
+    width: 100%; max-width: 800px; margin: 0 auto;
+  }
+  .calc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 44px);
+    font-weight: 800; color: var(--ink);
+    text-align: center; margin-bottom: clamp(16px, 2.5vh, 32px);
+  }
+  .calc-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: clamp(8px, 1.2vh, 14px) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .calc-row:last-of-type { border-bottom: none; }
+  .calc-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(14px, 1.3vw, 20px);
+    font-weight: 600; color: var(--ink-soft);
+    min-width: 160px;
+  }
+  .calc-input {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 1.8vw, 28px);
+    font-weight: 700; color: var(--ink);
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    width: 140px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .calc-input:focus { border-color: var(--gold); }
+  .calc-input::placeholder { color: var(--ink-faint); font-weight: 400; }
+  .calc-divider {
+    font-size: clamp(12px, 1vw, 16px);
+    color: var(--ink-muted); font-weight: 500;
+    white-space: nowrap;
+  }
+  .calc-pct-input {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(14px, 1.2vw, 20px);
+    font-weight: 600; color: var(--gold-deep);
+    background: var(--gold-subtle);
+    border: 1.5px solid rgba(197,160,40,0.25);
+    border-radius: 8px;
+    padding: 6px 10px;
+    width: 80px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .calc-pct-input:focus { border-color: var(--gold); }
+  .calc-computed {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 1.8vw, 28px);
+    font-weight: 700; color: var(--ink);
+    min-width: 100px;
+  }
+  .calc-total-bar {
+    margin-top: clamp(16px, 2.5vh, 32px);
+    padding-top: clamp(16px, 2.5vh, 32px);
+    border-top: 2.5px solid var(--gold);
+    text-align: center;
+  }
+  .calc-total-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(11px, 1vw, 14px);
+    font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--gold-deep);
+    margin-bottom: 8px;
+  }
+  .calc-total-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5.5vw, 80px);
+    font-weight: 800; color: var(--green);
+    line-height: 1;
+    transition: all 0.3s ease;
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: var(--gold); z-index: 200;
+    transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  /* ── NAV CONTROLS ── */
+  .nav-controls {
+    position: fixed; bottom: 8px; right: 16px;
+    display: flex; align-items: center; gap: 8px; z-index: 100;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  body:hover .nav-controls { opacity: 1; }
+
+  .slide-counter {
+    font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600;
+    color: rgba(255,255,255,0.5); letter-spacing: 1px;
+    padding: 4px 10px; background: rgba(0,0,0,0.5);
+    border-radius: 16px; backdrop-filter: blur(8px);
+    cursor: pointer;
+  }
+  .slide-counter:hover { color: rgba(255,255,255,0.8); }
+  .slide-jump {
+    font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600;
+    color: #fff; letter-spacing: 1px;
+    padding: 4px 10px; background: rgba(0,0,0,0.7);
+    border-radius: 16px; backdrop-filter: blur(8px);
+    border: 1.5px solid var(--gold);
+    width: 70px; text-align: center; outline: none;
+  }
+  .nav-btn {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
+    color: rgba(255,255,255,0.7); display: flex;
+    align-items: center; justify-content: center;
+    cursor: pointer; font-size: 13px; transition: all 0.2s;
+  }
+  .nav-btn:hover {
+    background: var(--gold); border-color: var(--gold); color: var(--ink);
+  }
+
+  /* ── SLIDE THUMBNAIL STRIP (press T) ── */
+  .thumb-strip {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    height: 0; background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; padding: 0 20px; z-index: 150;
+    overflow-x: auto; transition: height 0.3s ease, padding 0.3s ease;
+  }
+  .thumb-strip.open { height: 80px; padding: 12px 20px; }
+  .thumb-strip .thumb {
+    flex-shrink: 0; width: 90px; height: 54px;
+    border-radius: 6px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5);
+    border: 2px solid transparent; transition: all 0.2s;
+    background: rgba(255,255,255,0.08);
+  }
+  .thumb-strip .thumb:hover { border-color: var(--gold); color: #fff; }
+  .thumb-strip .thumb.active-thumb { border-color: var(--gold); color: var(--gold); background: rgba(197,160,40,0.15); }
+
+  /* ── STAT CARDS ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(12px, 1.5vw, 20px);
+    flex: 1;
+    align-content: center;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: clamp(16px, 2vw, 28px);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 56px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .stat-card-num em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .stat-card-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(11px, 1vw, 15px);
+    font-weight: 500;
+    color: var(--ink-muted);
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progress" style="width: 0%;"></div>
+
+<div class="deck" id="deck">
+
+<!-- ═══════ SLIDE 0: Title ═══════ -->
+<div class="slide slide-dark active" data-slide="0">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="center-content">
+      <div class="slide-eyebrow">Be Top Local Presents</div>
+      <div class="slide-title" style="font-size: clamp(38px, 5vw, 72px); margin-bottom: 28px;">The $100M Patient<br><em>Acquisition System</em></div>
+      <p class="body-text" style="font-size: clamp(18px, 2vw, 28px); font-weight: 500; color: rgba(255,255,255,0.55); letter-spacing: 1px;">4 steps. 700 practices. 10 years of proof.</p>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 1: Who Am I ═══════ -->
+<div class="slide slide-light" data-slide="1">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col">
+      <div class="col-text">
+        <div class="slide-title">Who Am I?</div>
+        <ul class="bullet-list">
+          <li>Ben — Founder of Be Top Local, 20 years in medical marketing</li>
+          <li>I built the team, systems, and process you're about to see</li>
+          <li>Numbers guy — if we can measure it, we can improve it</li>
+          <li>This only works if we both make money — I'm not here to waste your time or mine</li>
+        </ul>
+      </div>
+      <div class="col-img-stack">
+        <img src="images/image-1-1.png" style="max-height: 55vh;">
+        <img src="images/image-1-2.jpg" style="max-height: 28vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 2: Who is BTL ═══════ -->
+<div class="slide slide-light" data-slide="2">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col" style="flex: 1;">
+      <div style="display: flex; flex-direction: column; flex: 1; justify-content: center;">
+        <div class="slide-title" style="margin-bottom: clamp(16px, 2.5vh, 28px);">Who is Be Top Local</div>
+        <div class="stat-grid" style="flex: none;">
+          <div class="stat-card">
+            <div class="stat-card-num"><em>700</em></div>
+            <div class="stat-card-label">Practices Served</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>$10M+</em></div>
+            <div class="stat-card-label">Spent on Ads</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>$100M+</em></div>
+            <div class="stat-card-label">New Patient Revenue Generated</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>10</em> Years</div>
+            <div class="stat-card-label">Exclusively Medical Practices</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-img-stack">
+        <img src="images/image-2-1.png" style="max-height: 65vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 3: Used to Onboard ═══════ -->
+<div class="slide slide-light" data-slide="3">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col">
+      <div class="col-text">
+        <div class="slide-title">We USED to Onboard 20-30 New Clients a Month and Found Out…</div>
+        <ul class="bullet-list">
+          <li>Our program doesn't work for everyone</li>
+          <li>We didn't WANT to work with 20-30 new clients a month</li>
+          <li>All of our successful clinics had a lot of things in common</li>
+        </ul>
+      </div>
+      <div class="col-img">
+        <img src="images/image-3-1.png" style="max-height: 70vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 4: Analyzed Top Performers ═══════ -->
+<div class="slide slide-light" data-slide="4">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col">
+      <div class="col-text">
+        <div class="slide-title">We Analyzed Our Top Performers and Discovered…</div>
+        <ul class="bullet-list">
+          <li>They had a physical location patients could walk into</li>
+          <li>Their average patient value was $2,500+</li>
+          <li>They committed to the system and trusted the process</li>
+          <li>They treated marketing as an investment, not an expense</li>
+        </ul>
+      </div>
+      <div class="col-img">
+        <img src="images/image-4-1.png" style="max-height: 65vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 5: Requirements ═══════ -->
+<div class="slide slide-light" data-slide="5">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="center-content">
+      <div class="slide-title">So, We Decided to Make Those <em>Requirements</em></div>
+      <ul class="bullet-list" style="text-align:left; max-width: 750px; margin-top: 16px;">
+        <li>Now, we only onboard 3-5 new clients per month</li>
+        <li>We only work with clinics that we know our program will work for</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 6: Testimonials Dr. Moorman ═══════ -->
+<div class="slide slide-warm" data-slide="6">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col" style="flex: 1;">
+      <div style="display: flex; flex-direction: column; flex: 1; justify-content: center;">
+        <div class="slide-eyebrow">Client Spotlight</div>
+        <div class="slide-title" style="margin-bottom: clamp(12px, 2vh, 20px);">Dr. Ryan Moorman</div>
+        <div class="stat-grid" style="flex: none;">
+        <div class="stat-card">
+          <div class="stat-card-num"><em>9</em> Years</div>
+          <div class="stat-card-label">And Counting</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">$1,013,300</div>
+          <div class="stat-card-label">Invested With Us</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>2</em> Conditions</div>
+          <div class="stat-card-label">Knee &amp; Back</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>1</em> → <em>5</em></div>
+          <div class="stat-card-label">Locations Grown With Us</div>
+        </div>
+        </div>
+      </div>
+      <div class="col-img-stack">
+        <img src="images/image-6-1.png" style="max-height: 65vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 7: Transition ═══════ -->
+<div class="slide slide-warm" data-slide="7">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="center-content">
+      <div class="slide-title">But it's not just Dr. Moorman…</div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 8: Dr. Berman ═══════ -->
+<div class="slide slide-light" data-slide="8">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col" style="flex: 1;">
+      <div style="display: flex; flex-direction: column; flex: 1; justify-content: center;">
+        <div class="slide-eyebrow">Client Spotlight</div>
+        <div class="slide-title" style="margin-bottom: clamp(12px, 2vh, 20px);">Dr. Jonathan Berman</div>
+        <div class="stat-grid" style="flex: none;">
+        <div class="stat-card">
+          <div class="stat-card-num"><em>10</em> Years</div>
+          <div class="stat-card-label">And Counting</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">$755,250</div>
+          <div class="stat-card-label">Invested With Us</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">Knee Pain</div>
+          <div class="stat-card-label">Core Condition</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>1</em> → <em>2</em></div>
+          <div class="stat-card-label">Practices Grown With Us</div>
+        </div>
+        </div>
+      </div>
+      <div class="col-img-stack">
+        <img src="images/JB.png" style="max-height: 65vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 8b: Michelle & Dr. Sims ═══════ -->
+<div class="slide slide-warm" data-slide="8b">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col" style="flex: 1;">
+      <div style="display: flex; flex-direction: column; flex: 1; justify-content: center;">
+        <div class="slide-eyebrow">Client Spotlight</div>
+        <div class="slide-title" style="margin-bottom: clamp(12px, 2vh, 20px);">Michelle &amp; Dr. Scott Sims</div>
+        <div class="stat-grid" style="flex: none;">
+        <div class="stat-card" style="border-color: var(--gold); background: var(--gold-subtle);">
+          <div class="stat-card-num" style="font-size: clamp(40px, 4.5vw, 72px);"><em>8:1</em></div>
+          <div class="stat-card-label">Return on Investment</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">$907,416</div>
+          <div class="stat-card-label">New Patient Revenue</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Best January</em></div>
+          <div class="stat-card-label">Ever — 2026</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">Neuropathy</div>
+          <div class="stat-card-label">Blueprint Member</div>
+        </div>
+        </div>
+      </div>
+      <div class="col-img-stack">
+        <img src="images/michellescott.jpg" style="max-height: 65vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 9: Dr. White ═══════ -->
+<div class="slide slide-warm" data-slide="9">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col" style="flex: 1;">
+      <div style="display: flex; flex-direction: column; flex: 1; justify-content: center;">
+        <div class="slide-eyebrow">Client Spotlight</div>
+        <div class="slide-title" style="margin-bottom: clamp(12px, 2vh, 20px);">Dr. Scott White</div>
+        <div class="stat-grid" style="flex: none;">
+        <div class="stat-card">
+          <div class="stat-card-num"><em>8</em> Years</div>
+          <div class="stat-card-label">And Counting</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num">$532,200</div>
+          <div class="stat-card-label">Invested With Us</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>2</em> Conditions</div>
+          <div class="stat-card-label">Knee &amp; Back</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>2</em> Languages</div>
+          <div class="stat-card-label">English &amp; Spanish</div>
+        </div>
+        </div>
+      </div>
+      <div class="col-img-stack">
+        <img src="images/New Life Laser - Woodbridge - Equipment Photo 3.png" style="max-height: 65vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 12: 4-Step System ═══════ -->
+<div class="slide slide-light" data-slide="12">
+  <div class="gold-bar"></div>
+  <div class="slide-inner" style="justify-content: center;">
+    <div style="max-width: 1000px; margin: 0 auto; width: 100%;">
+      <div class="slide-eyebrow" style="text-align: center;">Our Proven Process</div>
+      <div class="slide-title" style="text-align: center; margin-bottom: clamp(24px, 4vh, 48px);">The 4-Step Patient<br><em>Acquisition Machine</em></div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.5vw, 24px);">
+        <div style="background: var(--surface-warm); border: 1.5px solid var(--border); border-radius: 14px; padding: clamp(20px, 2vw, 32px); display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 60px); font-weight: 800; color: var(--gold); line-height: 1;">1</div>
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(20px, 1.8vw, 28px); font-weight: 800; color: var(--ink); line-height: 1.15;">Attract</div>
+          <div style="font-size: clamp(12px, 1vw, 16px); color: var(--ink-mid); line-height: 1.45;">Proven ads that put you in front of the right patient at the right time</div>
+        </div>
+        <div style="background: var(--surface-warm); border: 1.5px solid var(--border); border-radius: 14px; padding: clamp(20px, 2vw, 32px); display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 60px); font-weight: 800; color: var(--gold); line-height: 1;">2</div>
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(20px, 1.8vw, 28px); font-weight: 800; color: var(--ink); line-height: 1.15;">Capture</div>
+          <div style="font-size: clamp(12px, 1vw, 16px); color: var(--ink-mid); line-height: 1.45;">Landing pages and automations that turn clicks into booked appointments</div>
+        </div>
+        <div style="background: var(--surface-warm); border: 1.5px solid var(--border); border-radius: 14px; padding: clamp(20px, 2vw, 32px); display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 60px); font-weight: 800; color: var(--gold); line-height: 1;">3</div>
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(20px, 1.8vw, 28px); font-weight: 800; color: var(--ink); line-height: 1.15;">Show</div>
+          <div style="font-size: clamp(12px, 1vw, 16px); color: var(--ink-mid); line-height: 1.45;">Reminders, pre-selling, and follow-up that get patients through your door</div>
+        </div>
+        <div style="background: var(--surface-warm); border: 1.5px solid var(--border); border-radius: 14px; padding: clamp(20px, 2vw, 32px); display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 60px); font-weight: 800; color: var(--gold); line-height: 1;">4</div>
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(20px, 1.8vw, 28px); font-weight: 800; color: var(--ink); line-height: 1.15;">Scale</div>
+          <div style="font-size: clamp(12px, 1vw, 16px); color: var(--ink-mid); line-height: 1.45;">Real numbers, real tracking, real optimization — every month</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 13: Proven FB Ads ═══════ -->
+<div class="slide slide-warm" data-slide="13">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col" style="flex: 1;">
+      <div style="display: flex; flex-direction: column; flex: 1; justify-content: center;">
+        <div class="slide-eyebrow">Step 1 — Attract</div>
+        <div class="slide-title" style="margin-bottom: clamp(16px, 2.5vh, 28px);">Proven Instagram &amp; <em>Facebook Ads</em></div>
+        <div class="stat-grid" style="flex: none;">
+          <div class="stat-card">
+            <div class="stat-card-num"><em>3,000+</em></div>
+            <div class="stat-card-label">Campaigns Run</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>45+</em></div>
+            <div class="stat-card-label">Conditions</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>A/B</em> Tested</div>
+            <div class="stat-card-label">From Day One</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>Every</em> Market</div>
+            <div class="stat-card-label">Rural, Suburban &amp; Metro</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-img-stack">
+        <img src="images/image-13-1.png" style="max-height: 65vh;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 14: Before / After Bridge ═══════ -->
+<div class="slide slide-light" data-slide="14">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="bridge-wrap">
+      <div class="bridge-title">What Your Last Agency<br><em>Didn't Tell You</em></div>
+      <div class="bridge-cols">
+        <div class="bridge-side before">
+          <div class="bridge-side-label">Most Agencies</div>
+          <div class="bridge-word">Guessing</div>
+          <div class="bridge-word">Generic</div>
+          <div class="bridge-word">Hoping</div>
+        </div>
+        <div class="bridge-arrow">&#10132;</div>
+        <div class="bridge-side after">
+          <div class="bridge-side-label">What We Do</div>
+          <div class="bridge-word">Proven</div>
+          <div class="bridge-word">Specialized</div>
+          <div class="bridge-word">Systematic</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 15: The Big Line ═══════ -->
+<div class="slide slide-warm" data-slide="15">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="bigline-wrap">
+      <div class="bigline-headline">Other agencies learn<br>on <em>your</em> dime.<br><br>We already spent $10M<br>learning on <em>ours.</em></div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 16: Landing Pages ═══════ -->
+<div class="slide slide-warm" data-slide="16">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div class="two-col">
+      <div class="col-text">
+        <div class="slide-eyebrow">Step 2 — Capture</div>
+        <div class="slide-title">Landing Pages That <em>Convert</em></div>
+        <div class="stat-grid" style="flex: none; margin-bottom: clamp(16px, 2vh, 24px);">
+          <div class="stat-card">
+            <div class="stat-card-num"><em>Condition</em>-Specific</div>
+            <div class="stat-card-label">Not Generic Templates</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>Higher</em> Quality</div>
+            <div class="stat-card-label">Leads</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>Split</em> Tested</div>
+            <div class="stat-card-label">Best Performer Wins</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num"><em>Dedicated</em> Pages</div>
+            <div class="stat-card-label">Not Your Website</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-img" style="flex: 0 0 44%; display: flex; flex-direction: row; gap: 12px; align-items: center;">
+        <img src="images/image-16-1.png" style="max-height: 70vh; max-width: 48%;">
+        <img src="images/image-16-2.png" style="max-height: 70vh; max-width: 48%;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 17: Step 3 — Show ═══════ -->
+<div class="slide slide-light" data-slide="17">
+  <div class="gold-bar"></div>
+  <div class="slide-inner" style="justify-content: center;">
+    <div style="max-width: 1000px; margin: 0 auto; width: 100%;">
+      <div class="slide-eyebrow" style="text-align: center;">Step 3 — Show</div>
+      <div class="slide-title" style="text-align: center; margin-bottom: clamp(24px, 4vh, 40px);">Get Them Through <em>the Door</em></div>
+      <div class="stat-grid" style="max-width: 800px; margin: 0 auto;">
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Automated</em> Reminders</div>
+          <div class="stat-card-label">So No One Forgets</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Call</em> Scripts</div>
+          <div class="stat-card-label">Exactly What to Say</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Call</em> Cadence</div>
+          <div class="stat-card-label">When &amp; How Often to Follow Up</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Staff</em> Training</div>
+          <div class="stat-card-label">Accountability Built In</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 19: Step 4 — Scale ═══════ -->
+<div class="slide slide-light" data-slide="19">
+  <div class="gold-bar"></div>
+  <div class="slide-inner" style="justify-content: center;">
+    <div style="max-width: 1000px; margin: 0 auto; width: 100%;">
+      <div class="slide-eyebrow" style="text-align: center;">Step 4 — Scale</div>
+      <div class="slide-title" style="text-align: center; margin-bottom: clamp(24px, 4vh, 40px);">Track, Optimize, <em>Scale</em></div>
+      <div class="stat-grid" style="max-width: 800px; margin: 0 auto;">
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Go High Level</em></div>
+          <div class="stat-card-label">The Engine Behind It All</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Full</em> Transparency</div>
+          <div class="stat-card-label">See Every Number, Every Lead</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Call</em> Tracking</div>
+          <div class="stat-card-label">Inbound &amp; Outbound</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>Data</em>-Driven</div>
+          <div class="stat-card-label">Real Optimization, Every Month</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 22: Power of Numbers Calculator ═══════ -->
+<div class="slide slide-light" data-slide="22">
+  <div class="gold-bar"></div>
+  <div class="slide-inner" style="justify-content:center;">
+    <div class="calc-wrap">
+      <div class="slide-eyebrow" style="text-align: center; margin-bottom: 8px;">Step 4 — Scale</div>
+      <div class="calc-title">Let's Run <em>Your</em> Numbers</div>
+
+      <!-- Average Case Value -->
+      <div class="calc-row">
+        <div class="calc-label">Avg Case Value</div>
+        <span class="calc-divider">$</span>
+        <input class="calc-input" type="text" id="calcACV" value="5,000">
+      </div>
+
+      <!-- Leads -->
+      <div class="calc-row">
+        <div class="calc-label">Leads</div>
+        <input class="calc-input" type="text" id="calcLeads" value="80">
+      </div>
+
+      <!-- Schedules -->
+      <div class="calc-row">
+        <div class="calc-label">Schedules</div>
+        <input class="calc-input" type="text" id="calcSchedules">
+        <span class="calc-divider">or</span>
+        <input class="calc-pct-input" type="text" id="calcSchedulesPct" value="50%">
+        <span class="calc-divider">% of leads</span>
+      </div>
+
+      <!-- Shows -->
+      <div class="calc-row">
+        <div class="calc-label">Shows</div>
+        <input class="calc-input" type="text" id="calcShows">
+        <span class="calc-divider">or</span>
+        <input class="calc-pct-input" type="text" id="calcShowsPct" value="50%">
+        <span class="calc-divider">% of schedules</span>
+      </div>
+
+      <!-- Closes -->
+      <div class="calc-row">
+        <div class="calc-label">Close Rate</div>
+        <input class="calc-pct-input" type="text" id="calcClosePct" value="30%">
+        <span class="calc-divider">=</span>
+        <div class="calc-computed" id="calcCloses">—</div>
+        <span class="calc-divider">new patients</span>
+      </div>
+
+      <!-- Total -->
+      <div class="calc-total-bar">
+        <div class="calc-total-label">Estimated Revenue</div>
+        <div class="calc-total-num" id="calcTotal">$0</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 23: What's Included ═══════ -->
+<div class="slide slide-light" data-slide="23">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; max-width: 1100px; margin: 0 auto; width: 100%;">
+      <div class="slide-title" style="text-align: center; margin-bottom: clamp(24px, 3vh, 40px);">Everything You Get</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.5vw, 40px) clamp(40px, 5vw, 80px); width: 100%;">
+        <!-- Attract -->
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: clamp(11px, 1vw, 14px); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px;">Step 1 — Attract</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Proven Facebook &amp; Instagram Ad Campaigns</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Campaign Offer Planning &amp; Strategy</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Retargeting Campaigns</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">AI Video Ad Creation</span></div>
+          </div>
+        </div>
+        <!-- Capture -->
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: clamp(11px, 1vw, 14px); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px;">Step 2 — Capture</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Custom Condition-Specific Landing Pages</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Automated Lead Nurturing Sequences</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Long-Term Email Follow-Up</span></div>
+          </div>
+        </div>
+        <!-- Show -->
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: clamp(11px, 1vw, 14px); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px;">Step 3 — Show</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Appointment Reminders &amp; No-Show Recovery</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Battle-Tested Call Scripts &amp; Call Cadence</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Front Desk Training &amp; Accountability</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Missed Call Text-Back</span></div>
+          </div>
+        </div>
+        <!-- Scale -->
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: clamp(11px, 1vw, 14px); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px;">Step 4 — Scale</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Go High Level CRM — Fully Built Out</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Full Call Tracking &amp; Reporting Dashboard</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><span style="color: var(--gold); font-weight: 700;">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Data-Driven Campaign Optimization</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 23b: The Real ROI ═══════ -->
+<div class="slide slide-dark" data-slide="23b">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; max-width: 900px; margin: 0 auto; width: 100%; text-align: center;">
+      <div class="slide-eyebrow">Here's What You're Really Getting</div>
+      <div class="slide-title" style="font-size: clamp(32px, 4.5vw, 64px); margin-bottom: clamp(28px, 4vh, 48px);">A Proven System That Turns<br><em>$1 Into $4+</em></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(16px, 2vw, 28px); width: 100%; margin-bottom: clamp(28px, 4vh, 44px);">
+        <div style="background: rgba(255,255,255,0.06); border: 1.5px solid rgba(197,160,40,0.3); border-radius: 14px; padding: clamp(20px, 2.5vw, 36px) clamp(12px, 1.5vw, 20px);">
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 60px); font-weight: 800; color: var(--gold-bright); line-height: 1.1;">4:1</div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: clamp(11px, 1vw, 15px); font-weight: 500; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 8px;">Worst Case</div>
+        </div>
+        <div style="background: rgba(197,160,40,0.12); border: 2px solid var(--gold); border-radius: 14px; padding: clamp(20px, 2.5vw, 36px) clamp(12px, 1.5vw, 20px); transform: scale(1.05);">
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(40px, 4.5vw, 68px); font-weight: 800; color: var(--gold-bright); line-height: 1.1;">6–8:1</div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: clamp(11px, 1vw, 15px); font-weight: 500; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 8px;">Average Clinic</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.06); border: 1.5px solid rgba(197,160,40,0.3); border-radius: 14px; padding: clamp(20px, 2.5vw, 36px) clamp(12px, 1.5vw, 20px);">
+          <div style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 60px); font-weight: 800; color: var(--gold-bright); line-height: 1.1;">10:1+</div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: clamp(11px, 1vw, 15px); font-weight: 500; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 8px;">Top Performers</div>
+        </div>
+      </div>
+      <p style="font-family: 'Outfit', sans-serif; font-size: clamp(16px, 1.8vw, 26px); font-weight: 500; color: rgba(255,255,255,0.6); line-height: 1.5;">Results in the <span style="color: #fff; font-weight: 700;">first 30 days.</span></p>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 24: Fast Action Bonus - AI Appointment Coordinator ═══════ -->
+<div class="slide slide-warm" data-slide="24">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; max-width: 1000px; margin: 0 auto; width: 100%; text-align: center;">
+      <div class="slide-eyebrow" style="margin-bottom: 8px;">Fast Action Bonus #1</div>
+      <div class="slide-title" style="font-size: clamp(30px, 4vw, 58px); margin-bottom: clamp(8px, 1.5vh, 14px);">AI Appointment<br><em>Coordinator</em></div>
+      <p style="font-family: 'Outfit', sans-serif; font-size: clamp(14px, 1.4vw, 20px); font-weight: 400; color: var(--ink-muted); margin-bottom: clamp(24px, 3.5vh, 40px); max-width: 600px; line-height: 1.5;">Normally $1,500/mo</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: clamp(10px, 1.2vw, 18px); width: 100%; margin-bottom: clamp(24px, 3.5vh, 40px);">
+        <div class="stat-card">
+          <div class="stat-card-num"><em>&lt;60s</em></div>
+          <div class="stat-card-label">Response Time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>60%</em></div>
+          <div class="stat-card-label">Schedule Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>24/7</em></div>
+          <div class="stat-card-label">Always On</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-num"><em>0</em></div>
+          <div class="stat-card-label">Staff Hours</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: clamp(6px, 1vh, 10px); text-align: left; max-width: 640px; width: 100%;">
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: 700; font-size: clamp(16px, 1.4vw, 22px);">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Calls every lead within 60 seconds*</span></div>
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: 700; font-size: clamp(16px, 1.4vw, 22px);">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Books appointments directly into Go High Level — no back-and-forth</span></div>
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: 700; font-size: clamp(16px, 1.4vw, 22px);">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Follows up on no-shows and reschedules cancellations</span></div>
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: 700; font-size: clamp(16px, 1.4vw, 22px);">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Frees up your staff to focus on patients in the office</span></div>
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: 700; font-size: clamp(16px, 1.4vw, 22px);">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Works nights, weekends &amp; holidays — never misses a lead</span></div>
+        <div style="display: flex; align-items: center; gap: 12px;"><span style="color: var(--gold); font-weight: 700; font-size: clamp(16px, 1.4vw, 22px);">&#10003;</span><span style="font-size: clamp(13px, 1.2vw, 18px); font-weight: 500; color: var(--ink-soft);">Fully transparent — identifies as AI so patients always know</span></div>
+      </div>
+      <p style="font-family: 'Outfit', sans-serif; font-size: clamp(10px, 0.8vw, 12px); color: var(--ink-faint); margin-top: clamp(14px, 2vh, 22px);">*During legally permitted calling hours</p>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 25: Fast Action Bonus #2 - Consulting Calls ═══════ -->
+<div class="slide slide-light" data-slide="25">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; max-width: 800px; margin: 0 auto; width: 100%; text-align: center;">
+      <div class="slide-eyebrow" style="margin-bottom: 8px;">Fast Action Bonus #2</div>
+      <div class="slide-title" style="font-size: clamp(30px, 4vw, 58px); margin-bottom: clamp(16px, 2.5vh, 28px);">1-on-1 Consulting Calls<br><em>With Me</em></div>
+      <p style="font-family: 'Outfit', sans-serif; font-size: clamp(16px, 1.6vw, 24px); font-weight: 400; color: var(--ink-mid); max-width: 680px; line-height: 1.7;">6 calls. 90 days. We find the leaks in your system and fix them.</p>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 26: Confirmation ═══════ -->
+<div class="slide slide-dark" data-slide="26">
+  <div class="gold-bar"></div>
+  <div class="slide-inner">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; max-width: 850px; margin: 0 auto; width: 100%; text-align: center;">
+      <div class="slide-title" style="font-size: clamp(30px, 4vw, 58px); color: #FFFFFF; margin-bottom: 0;">Does This Sound Like What You Need<br>to <em>Grow Your Practice?</em></div>
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 27: Growth Price Reveal ═══════ -->
+<div class="slide slide-warm" data-slide="27">
+  <div class="gold-bar"></div>
+  <div class="slide-inner" style="justify-content:center; text-align:center;">
+    <div class="slide-eyebrow">Growth Package</div>
+    <div class="slide-title" style="margin-bottom: clamp(8px, 1.5vh, 16px);">Your Investment</div>
+    <div style="font-family:'Playfair Display',serif; font-size:clamp(56px,7vw,100px); font-weight:800; color:var(--ink); line-height:1;">$5,000<span style="font-size:0.35em; font-weight:400; color:var(--ink-muted);">/mo</span></div>
+    <div class="pkg-adspend" style="margin-top:clamp(12px,2vh,24px); margin-bottom:0;">&#9733; Includes $2,000 Ad Spend</div>
+    <div style="margin-top:clamp(20px,3vh,36px); font-size:clamp(14px,1.3vw,20px); color:var(--ink-mid); max-width:600px; margin-left:auto; margin-right:auto; line-height:1.5;">A complete system designed to put $5,000 in and get at least $20,000 back — fully managed, from day one.</div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+<!-- ═══════ SLIDE 28: Package Comparison (Downsell/Upsell) ═══════ -->
+<div class="slide slide-light" data-slide="28">
+  <div class="gold-bar"></div>
+  <div class="slide-inner" style="justify-content:center;">
+    <div class="pricing-header">
+      <h2>Choose Your Level</h2>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="pkg-card">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-adspend">&#9733; Included Ad Spend: $1,000</div>
+        <div class="pkg-section">
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Landing Page + Hosting</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Call Tracking Reporting</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Online Scheduling</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Appointment Confirmation &amp; Reminders</div>
+        </div>
+        <div class="pkg-section">
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Staff Training</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Call &amp; Text Scripts</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> Long Term Email Follow-up</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> Campaign Offer Planning</div>
+        </div>
+        <div class="pkg-section">
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> Retargeting Campaign</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> Missed Call Text-Back</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> AI Video Creation</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> AI Patient Concierge</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> Priority Support</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> Online Scheduling Integration</div>
+        </div>
+        <div class="pkg-price"><span>$3,500</span><small>/mo</small></div>
+      </div>
+
+      <!-- Growth (Featured) -->
+      <div class="pkg-card featured">
+        <div class="pkg-name">Growth</div>
+        <div class="pkg-adspend">&#9733; Included Ad Spend: $2,000</div>
+        <div class="pkg-section">
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Landing Page + Hosting</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Call Tracking Reporting</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Online Scheduling</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Appointment Confirmation &amp; Reminders</div>
+        </div>
+        <div class="pkg-section">
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Staff Training</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Call &amp; Text Scripts</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Long Term Email Follow-up</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Campaign Offer Planning</div>
+        </div>
+        <div class="pkg-section">
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Retargeting Campaign</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Missed Call Text-Back</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> AI Video Creation</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> AI Patient Concierge</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> Priority Support</div>
+          <div class="pkg-line disabled"><span class="icon-no">&#10005;</span> Online Scheduling Integration</div>
+        </div>
+        <div class="pkg-price"><span>$5,000</span><small>/mo</small></div>
+      </div>
+
+      <!-- Premium -->
+      <div class="pkg-card">
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-adspend">&#9733; Included Ad Spend: $4,000</div>
+        <div class="pkg-section">
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Landing Page + Hosting</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Call Tracking Reporting</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Online Scheduling</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Appointment Confirmation &amp; Reminders</div>
+        </div>
+        <div class="pkg-section">
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Staff Training</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Call &amp; Text Scripts</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Long Term Email Follow-up</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Campaign Offer Planning</div>
+        </div>
+        <div class="pkg-section">
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Retargeting Campaign</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Missed Call Text-Back</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> AI Video Creation</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> AI Patient Concierge</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Priority Support</div>
+          <div class="pkg-line"><span class="icon-yes">&#10003;</span> Online Scheduling Integration</div>
+        </div>
+        <div class="pkg-price"><span>$8,500</span><small>/mo</small></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-bar"><span>Be Top Local</span></div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- THUMBNAIL STRIP -->
+<div class="thumb-strip" id="thumbStrip"></div>
+
+<!-- NAV CONTROLS -->
+<div class="nav-controls">
+  <span class="slide-counter" id="counter">1 / 28</span>
+  <button class="nav-btn" onclick="prev()" title="Previous (← or scroll up)">&#8592;</button>
+  <button class="nav-btn" onclick="next()" title="Next (→ or scroll down)">&#8594;</button>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  const thumbStrip = document.getElementById('thumbStrip');
+  const total = slides.length;
+
+  // Build thumbnail strip
+  for (let i = 0; i < total; i++) {
+    const t = document.createElement('div');
+    t.className = 'thumb' + (i === 0 ? ' active-thumb' : '');
+    t.textContent = i + 1;
+    t.onclick = () => show(i);
+    thumbStrip.appendChild(t);
+  }
+
+  function show(n) {
+    slides[current].classList.remove('active');
+    const thumbs = thumbStrip.querySelectorAll('.thumb');
+    thumbs[current].classList.remove('active-thumb');
+
+    current = ((n % total) + total) % total;
+
+    slides[current].classList.add('active');
+    thumbs[current].classList.add('active-thumb');
+    counter.textContent = (current + 1) + ' / ' + total;
+    progress.style.width = ((current + 1) / total * 100) + '%';
+
+    // Scroll thumb into view
+    thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  // ── Slide jump input ──
+  let jumpBuffer = '';
+  let jumpTimer = null;
+  const counterEl = document.getElementById('counter');
+
+  function openJumpInput() {
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'slide-jump';
+    input.placeholder = '#';
+    input.value = jumpBuffer;
+    counterEl.style.display = 'none';
+    counterEl.parentNode.insertBefore(input, counterEl);
+    input.focus();
+    input.select();
+
+    function closeJump() {
+      input.remove();
+      counterEl.style.display = '';
+      jumpBuffer = '';
+    }
+
+    input.addEventListener('keydown', (ev) => {
+      ev.stopPropagation();
+      if (ev.key === 'Enter') {
+        const num = parseInt(input.value, 10);
+        if (num >= 1 && num <= total) show(num - 1);
+        closeJump();
+      } else if (ev.key === 'Escape') {
+        closeJump();
+      }
+    });
+    input.addEventListener('blur', closeJump);
+  }
+
+  counterEl.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openJumpInput();
+  });
+
+  // Keyboard nav
+  document.addEventListener('keydown', (e) => {
+    // If a jump input or calculator field is focused, don't handle nav keys
+    if (document.querySelector('.slide-jump')) return;
+    const ae = document.activeElement;
+    if (ae && (ae.tagName === 'INPUT' || ae.tagName === 'TEXTAREA')) return;
+
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') { e.preventDefault(); show(0); }
+    if (e.key === 'End') { e.preventDefault(); show(total - 1); }
+    if (e.key === 't' || e.key === 'T') { thumbStrip.classList.toggle('open'); }
+    if (e.key === 'Escape') { thumbStrip.classList.remove('open'); }
+    // F key for fullscreen
+    if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen();
+      }
+    }
+    // Number keys: type a slide number, auto-jump after 1s pause
+    if (e.key >= '0' && e.key <= '9') {
+      jumpBuffer += e.key;
+      clearTimeout(jumpTimer);
+      jumpTimer = setTimeout(() => {
+        const num = parseInt(jumpBuffer, 10);
+        if (num >= 1 && num <= total) show(num - 1);
+        jumpBuffer = '';
+      }, 1000);
+    }
+  });
+
+  // SCROLL WHEEL navigation with debounce
+  let scrollLock = false;
+  document.addEventListener('wheel', (e) => {
+    if (e.target.closest('.calc-input') || e.target.closest('.calc-pct-input')) return;
+    e.preventDefault();
+    if (scrollLock) return;
+    scrollLock = true;
+
+    if (e.deltaY > 0) next();
+    else if (e.deltaY < 0) prev();
+
+    setTimeout(() => { scrollLock = false; }, 350);
+  }, { passive: false });
+
+  // Touch support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(diff) > 50) { diff < 0 ? next() : prev(); }
+  });
+
+  // Click left/right halves to navigate
+  document.addEventListener('click', (e) => {
+    // Don't navigate if clicking on controls or calculator
+    if (e.target.closest('.nav-controls') || e.target.closest('.thumb-strip') || e.target.closest('.calc-wrap')) return;
+    const x = e.clientX / window.innerWidth;
+    if (x < 0.15) prev();
+    else if (x > 0.85) next();
+  });
+
+  // Init progress
+  progress.style.width = (1 / total * 100) + '%';
+
+  // ── CALCULATOR LOGIC ──
+  (function() {
+    const acv = document.getElementById('calcACV');
+    const leads = document.getElementById('calcLeads');
+    const schedNum = document.getElementById('calcSchedules');
+    const schedPct = document.getElementById('calcSchedulesPct');
+    const showsNum = document.getElementById('calcShows');
+    const showsPct = document.getElementById('calcShowsPct');
+    const closePct = document.getElementById('calcClosePct');
+    const closesEl = document.getElementById('calcCloses');
+    const totalEl = document.getElementById('calcTotal');
+
+    function strip(str) { return parseFloat((str || '').replace(/[^0-9.]/g, '')) || 0; }
+    function stripPct(str) { return strip(str) / 100; }
+    function fmtNum(n) { return Math.round(n).toLocaleString(); }
+    function fmtMoney(n) { return '$' + Math.round(n).toLocaleString(); }
+
+    // Track focused element directly
+    let focusedEl = null;
+    let activeField = null;
+
+    const allInputs = [acv, leads, schedNum, schedPct, showsNum, showsPct, closePct];
+    const pctInputs = [schedPct, showsPct, closePct];
+    const numInputs = [acv, leads, schedNum, showsNum];
+
+    const fieldMap = {
+      calcACV: 'acv', calcLeads: 'leads',
+      calcSchedules: 'schedNum', calcSchedulesPct: 'schedPct',
+      calcShows: 'showsNum', calcShowsPct: 'showsPct',
+      calcClosePct: 'closePct'
+    };
+
+    // ── FORMAT a single field (if not currently focused) ──
+    function formatField(el) {
+      if (el === focusedEl) return; // never format the field being typed in
+      const raw = strip(el.value);
+      if (!raw || raw <= 0) return;
+      if (pctInputs.includes(el)) {
+        el.value = Math.round(raw) + '%';
+      } else {
+        el.value = fmtNum(raw);
+      }
+    }
+
+    // ── FORMAT all fields except the focused one ──
+    function formatAll() {
+      allInputs.forEach(formatField);
+    }
+
+    // ── FOCUS: track which field, then format all others ──
+    allInputs.forEach(el => {
+      el.addEventListener('focus', () => {
+        const prev = focusedEl;
+        focusedEl = el;
+        activeField = fieldMap[el.id];
+        // Format the field we just LEFT
+        if (prev && prev !== el) formatField(prev);
+        // Format all others too
+        formatAll();
+      });
+    });
+
+    // ── INPUT: recalculate on every keystroke ──
+    allInputs.forEach(el => {
+      el.addEventListener('input', () => {
+        calc();
+        formatAll(); // format everything except current
+      });
+    });
+
+    // ── CLICK OUTSIDE CALC: format everything including the last field typed in ──
+    document.addEventListener('mousedown', (e) => {
+      if (!e.target.closest('.calc-wrap')) {
+        // Use setTimeout so the input loses focus first
+        setTimeout(() => {
+          focusedEl = null;
+          activeField = null;
+          formatAll();
+        }, 0);
+      }
+    }, true);
+
+    // ── CORE CALC ──
+    function calc() {
+      const leadsVal = strip(leads.value);
+      const acvVal = strip(acv.value);
+      const closeRate = stripPct(closePct.value);
+
+      // Schedules
+      let schedVal;
+      if (activeField === 'schedPct') {
+        const pct = stripPct(schedPct.value);
+        schedVal = Math.round(leadsVal * pct);
+        schedNum.value = schedVal ? fmtNum(schedVal) : '';
+      } else {
+        schedVal = Math.round(strip(schedNum.value));
+        if (activeField === 'schedNum' && leadsVal > 0 && schedVal > 0) {
+          schedPct.value = Math.round((schedVal / leadsVal) * 100) + '%';
+        } else if (activeField !== 'schedNum') {
+          if (schedPct.value && leadsVal > 0) {
+            const pct = stripPct(schedPct.value);
+            schedVal = Math.round(leadsVal * pct);
+            schedNum.value = schedVal ? fmtNum(schedVal) : '';
+          }
+        }
+      }
+
+      // Shows
+      let showsVal;
+      if (activeField === 'showsPct') {
+        const pct = stripPct(showsPct.value);
+        showsVal = Math.round(schedVal * pct);
+        showsNum.value = showsVal ? fmtNum(showsVal) : '';
+      } else {
+        showsVal = Math.round(strip(showsNum.value));
+        if (activeField === 'showsNum' && schedVal > 0 && showsVal > 0) {
+          showsPct.value = Math.round((showsVal / schedVal) * 100) + '%';
+        } else if (activeField !== 'showsNum') {
+          if (showsPct.value && schedVal > 0) {
+            const pct = stripPct(showsPct.value);
+            showsVal = Math.round(schedVal * pct);
+            showsNum.value = showsVal ? fmtNum(showsVal) : '';
+          }
+        }
+      }
+
+      // Closes & Revenue
+      const closes = showsVal * closeRate;
+      closesEl.textContent = closes > 0 ? (closes % 1 === 0 ? fmtNum(closes) : closes.toFixed(1)) : '—';
+      const total = closes * acvVal;
+      totalEl.textContent = total > 0 ? fmtMoney(total) : '$0';
+    }
+    // ── INIT: compute from default values on load ──
+    activeField = 'schedPct'; // so it calculates schedules from %
+    calc();
+    activeField = 'showsPct'; // so it calculates shows from %
+    calc();
+    activeField = null;
+    formatAll();
+  })();
+</script>
+
+</body>
+</html>
