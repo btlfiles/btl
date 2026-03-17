@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Putting Green Layout - 16' x 33'</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    margin: 0;
+  }
+  h1 { font-size: 24px; margin-bottom: 5px; color: #fff; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 30px; }
+  .diagram-container {
+    background: #0d1117;
+    border-radius: 12px;
+    padding: 50px 40px 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .legend {
+    display: flex; gap: 30px; margin-top: 25px; flex-wrap: wrap; justify-content: center;
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #aaa; }
+  .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+  .legend-line { width: 20px; height: 3px; flex-shrink: 0; border-radius: 2px; }
+  .info-section {
+    max-width: 700px; margin-top: 35px; background: #0d1117;
+    border-radius: 12px; padding: 25px 30px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .info-section h2 { font-size: 18px; margin: 0 0 15px 0; color: #fff; }
+  .cup-detail {
+    display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px;
+    padding: 10px 12px; background: rgba(255,255,255,0.03); border-radius: 8px;
+  }
+  .cup-num {
+    background: #2d6a4f; color: #fff; width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-weight: 700;
+    font-size: 13px; flex-shrink: 0;
+  }
+  .cup-info { font-size: 13px; line-height: 1.5; }
+  .cup-info strong { color: #52b788; }
+  .note {
+    margin-top: 20px; padding: 15px; background: rgba(82,183,136,0.08);
+    border-left: 3px solid #52b788; border-radius: 0 8px 8px 0;
+    font-size: 13px; line-height: 1.6; color: #bbb;
+  }
+</style>
+</head>
+<body>
+
+<h1>Putting Green Layout</h1>
+<p class="subtitle">16' (deck-to-fence) x 33' (existing + expansion) / 4 Cups / All Putt Lines Clear</p>
+
+<div class="diagram-container">
+<!--
+  Orientation:
+  - Horizontal (left to right) = 33': existing 20' then 13' expansion to grate
+  - Vertical (top to bottom) = 16': fence at top, deck at bottom
+
+  Scale: 15px per foot
+  Origin: (50, 40)
+  x_px = 50 + feet*15
+  y_px = 40 + feet*15
+
+  Cup positions (feet from left, feet from fence/top):
+  A: (6, 4)    - existing, fence side
+  B: (14, 12)  - existing, deck side
+  C: (24, 5)   - expansion, fence side
+  D: (28, 11)  - expansion, deck side
+
+  No cup falls on any line between any other two cups.
+-->
+<svg width="620" height="370" viewBox="0 0 620 370">
+  <defs>
+    <pattern id="gp" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#2d6a4f"/>
+      <rect width="4" height="4" fill="#317a56"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="aR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#666"/>
+    </marker>
+    <marker id="aL" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <path d="M8,0 L0,3 L8,6" fill="#666"/>
+    </marker>
+    <marker id="aRg" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#52b788"/>
+    </marker>
+    <marker id="aLg" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <path d="M8,0 L0,3 L8,6" fill="#52b788"/>
+    </marker>
+    <marker id="aRy" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#c29234"/>
+    </marker>
+    <marker id="aLy" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <path d="M8,0 L0,3 L8,6" fill="#c29234"/>
+    </marker>
+  </defs>
+
+  <!-- === DIMENSION ARROWS === -->
+  <line x1="50" y1="20" x2="545" y2="20" stroke="#666" stroke-width="1" marker-end="url(#aR)" marker-start="url(#aL)"/>
+  <text x="297" y="16" text-anchor="middle" fill="#aaa" font-size="13" font-weight="600">33' total</text>
+
+  <line x1="30" y1="40" x2="30" y2="280" stroke="#666" stroke-width="1" marker-end="url(#aR)" marker-start="url(#aL)"/>
+  <text x="26" y="165" text-anchor="middle" fill="#aaa" font-size="13" font-weight="600" transform="rotate(-90, 26, 165)">16'</text>
+
+  <line x1="50" y1="300" x2="350" y2="300" stroke="#52b788" stroke-width="1" marker-end="url(#aRg)" marker-start="url(#aLg)"/>
+  <text x="200" y="315" text-anchor="middle" fill="#52b788" font-size="11" font-weight="600">20' existing green</text>
+
+  <line x1="350" y1="300" x2="545" y2="300" stroke="#c29234" stroke-width="1" marker-end="url(#aRy)" marker-start="url(#aLy)"/>
+  <text x="447" y="315" text-anchor="middle" fill="#c29234" font-size="11" font-weight="600">13' expansion</text>
+
+  <!-- === GREEN SURFACE === -->
+  <rect x="50" y="40" width="495" height="240" rx="6" fill="url(#gp)" stroke="#52b788" stroke-width="2"/>
+
+  <!-- Existing green zone -->
+  <rect x="50" y="40" width="300" height="240" fill="rgba(82,183,136,0.1)"/>
+  <text x="200" y="155" text-anchor="middle" fill="#52b788" font-size="13" font-weight="700" opacity="0.35">EXISTING GREEN</text>
+  <text x="200" y="172" text-anchor="middle" fill="#52b788" font-size="11" opacity="0.25">20' x 16'</text>
+
+  <!-- Seam line -->
+  <line x1="350" y1="40" x2="350" y2="280" stroke="#fff" stroke-width="1" stroke-dasharray="8,4" opacity="0.15"/>
+
+  <!-- Expansion zone -->
+  <rect x="350" y="40" width="195" height="240" fill="rgba(194,146,52,0.06)"/>
+  <text x="447" y="155" text-anchor="middle" fill="#c29234" font-size="13" font-weight="700" opacity="0.35">EXPANSION</text>
+  <text x="447" y="172" text-anchor="middle" fill="#c29234" font-size="11" opacity="0.25">13' x 16'</text>
+
+  <!-- === BORDERS === -->
+  <rect x="50" y="28" width="495" height="12" rx="3" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+  <text x="297" y="37" text-anchor="middle" fill="#888" font-size="8" font-weight="600">FENCE</text>
+
+  <rect x="50" y="280" width="495" height="14" rx="3" fill="#3d2b1f" stroke="#6b4c30" stroke-width="1"/>
+  <text x="297" y="291" text-anchor="middle" fill="#a08060" font-size="8" font-weight="600">DECK / STAIRS</text>
+
+  <rect x="545" y="40" width="20" height="240" rx="3" fill="#333" stroke="#666" stroke-width="1"/>
+  <text x="555" y="165" text-anchor="middle" fill="#999" font-size="8" font-weight="600" transform="rotate(90, 555, 165)">GRATE</text>
+
+  <text x="55" y="335" fill="#555" font-size="9">HOUSE SIDE</text>
+
+  <!-- === PUTT LINES (all 6 combinations, all clear) === -->
+  <!-- A to B: (6,4) to (14,12) = ~11.3' -->
+  <line x1="140" y1="100" x2="260" y2="220" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="180" y="175" fill="#555" font-size="10" font-weight="500" transform="rotate(45, 180, 175)">11'</text>
+
+  <!-- A to C: (6,4) to (24,5) = ~18' -->
+  <line x1="140" y1="100" x2="410" y2="115" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="275" y="96" fill="#555" font-size="10" font-weight="500">18'</text>
+
+  <!-- A to D: (6,4) to (28,11) = ~23' -->
+  <line x1="140" y1="100" x2="470" y2="205" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,6"/>
+  <text x="310" y="138" fill="#444" font-size="10">23'</text>
+
+  <!-- B to C: (14,12) to (24,5) = ~12.2' -->
+  <line x1="260" y1="220" x2="410" y2="115" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="345" y="180" fill="#555" font-size="10" font-weight="500">12'</text>
+
+  <!-- B to D: (14,12) to (28,11) = ~14' -->
+  <line x1="260" y1="220" x2="470" y2="205" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="365" y="225" fill="#555" font-size="10" font-weight="500">14'</text>
+
+  <!-- C to D: (24,5) to (28,11) = ~7.2' -->
+  <line x1="410" y1="115" x2="470" y2="205" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="450" y="155" fill="#555" font-size="10" font-weight="500">7'</text>
+
+  <!-- === CUP POSITIONS === -->
+  <!-- Cup 1 (A): 6' from left, 4' from fence -->
+  <!-- px: 50+90=140, 40+60=100 -->
+  <circle cx="140" cy="100" r="15" fill="none" stroke="#fff" stroke-width="2.5" filter="url(#glow)"/>
+  <circle cx="140" cy="100" r="7" fill="#fff"/>
+  <text x="140" y="104" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="800">1</text>
+  <text x="140" y="82" text-anchor="middle" fill="#7fcdab" font-size="10" font-weight="600">6' in, 4' from fence</text>
+
+  <!-- Cup 2 (B): 14' from left, 12' from fence (4' from deck) -->
+  <!-- px: 50+210=260, 40+180=220 -->
+  <circle cx="260" cy="220" r="15" fill="none" stroke="#fff" stroke-width="2.5" filter="url(#glow)"/>
+  <circle cx="260" cy="220" r="7" fill="#fff"/>
+  <text x="260" y="224" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="800">2</text>
+  <text x="260" y="248" text-anchor="middle" fill="#7fcdab" font-size="10" font-weight="600">14' in, 4' from deck</text>
+
+  <!-- Cup 3 (C): 24' from left, 5' from fence -->
+  <!-- px: 50+360=410, 40+75=115 -->
+  <circle cx="410" cy="115" r="15" fill="none" stroke="#fff" stroke-width="2.5" filter="url(#glow)"/>
+  <circle cx="410" cy="115" r="7" fill="#fff"/>
+  <text x="410" y="119" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="800">3</text>
+  <text x="410" y="100" text-anchor="middle" fill="#7fcdab" font-size="10" font-weight="600">24' in, 5' from fence</text>
+
+  <!-- Cup 4 (D): 28' from left, 11' from fence (5' from deck) -->
+  <!-- px: 50+420=470, 40+165=205 -->
+  <circle cx="470" cy="205" r="15" fill="none" stroke="#fff" stroke-width="2.5" filter="url(#glow)"/>
+  <circle cx="470" cy="205" r="7" fill="#fff"/>
+  <text x="470" y="209" text-anchor="middle" fill="#1a1a2e" font-size="10" font-weight="800">4</text>
+  <text x="470" y="232" text-anchor="middle" fill="#7fcdab" font-size="10" font-weight="600">28' in, 5' from deck</text>
+
+</svg>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#fff; box-shadow: 0 0 6px rgba(255,255,255,0.5);"></div>Cup Position</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(82,183,136,0.3); border: 1px solid #52b788;"></div>Existing Green (20' x 16')</div>
+  <div class="legend-item"><div class="legend-dot" style="background:rgba(194,146,52,0.15); border: 1px solid #c29234;"></div>Expansion (13' x 16')</div>
+  <div class="legend-item"><div class="legend-line" style="background:#555;"></div>Putt Line / Distance</div>
+</div>
+
+<div class="info-section">
+  <h2>4 Cups / Every Putt Line Clear</h2>
+  <p style="font-size:12px; color:#888; margin-top:0;">No cup sits in the path between any other two cups. You can putt from any hole to any hole without interference.</p>
+
+  <div class="cup-detail">
+    <div class="cup-num">1</div>
+    <div class="cup-info"><strong>Existing / Fence Side (6' in, 4' from fence)</strong><br>Near the house, fence side. Your short-game anchor. 11' diagonal to Cup 2, 18' straight shot to Cup 3.</div>
+  </div>
+
+  <div class="cup-detail">
+    <div class="cup-num">2</div>
+    <div class="cup-info"><strong>Existing / Deck Side (14' in, 4' from deck)</strong><br>Opposite corner of the existing green. Closest to where you step off the deck. 12' diagonal to Cup 3, 14' to Cup 4.</div>
+  </div>
+
+  <div class="cup-detail">
+    <div class="cup-num">3</div>
+    <div class="cup-info"><strong>Expansion / Fence Side (24' in, 5' from fence)</strong><br>Into the new section, fence side. Short 7' putt to Cup 4. Long 18' from Cup 1. Mirrors Cup 1's position in the expansion half.</div>
+  </div>
+
+  <div class="cup-detail">
+    <div class="cup-num">4</div>
+    <div class="cup-info"><strong>Expansion / Deck Side (28' in, 5' from deck)</strong><br>Farthest from the house. 23' from Cup 1 is your longest putt. 7' from Cup 3 for quick reps near the grate.</div>
+  </div>
+
+  <div class="note">
+    <strong>Why 4 cups on 528 sq ft:</strong> Course practice greens run about 1 cup per 100-150 sq ft. 4 cups gives you 132 sq ft per hole, which is right in that sweet spot. Every putt lane between any two cups is completely clear of other holes. You get 6 unique putt combinations ranging from 7' to 23'. The offset pattern (cups zigzag fence-side to deck-side) means you're always changing your line and distance. No two putts feel the same.
+  </div>
+</div>
+
+</body>
+</html>
