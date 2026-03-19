@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erectile Dysfunction — Condition Research | Be Top Local</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-glow: rgba(212,175,55,0.2);
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --ink-faint: #B8B8B8;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --surface-cool: #F7F7F5;
+    --border: #E5E5E3;
+    --border-light: #F0F0EE;
+    --red: #BE3A2A;
+    --green: #1B7D42;
+    --green-bg: #E8F5ED;
+    --red-bg: #FDECEB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink-soft);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Cover */
+  .cover {
+    background: var(--ink);
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 30%, rgba(197,160,40,0.1), transparent),
+      radial-gradient(ellipse 60% 80% at 80% 70%, rgba(197,160,40,0.06), transparent);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+  }
+  .cover-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--gold-bright);
+    margin-bottom: 20px; position: relative;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px; font-weight: 800; color: #fff;
+    line-height: 1.1; margin-bottom: 12px; position: relative;
+  }
+  .cover h1 em { font-style: italic; color: var(--gold-bright); }
+  .cover .subtitle {
+    font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.5);
+    position: relative; margin-bottom: 24px;
+  }
+  .cover-meta {
+    display: inline-flex; gap: 24px; position: relative;
+    font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.35);
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .cover-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* Nav */
+  .toc {
+    background: var(--surface-warm);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .toc-inner {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center;
+  }
+  .toc a {
+    font-size: 12px; font-weight: 600; color: var(--ink-mid);
+    text-decoration: none; padding: 6px 14px;
+    border-radius: 20px; border: 1px solid var(--border);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .toc a:hover {
+    background: var(--gold-subtle); border-color: var(--gold);
+    color: var(--gold-deep);
+  }
+
+  /* Sections */
+  .section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px; font-weight: 800; color: var(--gold);
+    margin-bottom: 6px; letter-spacing: 1px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 800; color: var(--ink);
+    line-height: 1.15; margin-bottom: 8px;
+  }
+  .section-desc {
+    font-size: 15px; font-weight: 300; color: var(--ink-muted);
+    margin-bottom: 32px; line-height: 1.7; max-width: 600px;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--ink);
+    margin: 32px 0 12px;
+  }
+  h3:first-child { margin-top: 0; }
+
+  h4 {
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin: 24px 0 10px;
+  }
+
+  p { margin-bottom: 12px; font-size: 15px; line-height: 1.7; }
+  p.lead { font-size: 16px; font-weight: 300; color: var(--ink-mid); }
+
+  strong { font-weight: 700; color: var(--ink); }
+
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface-cool);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .card-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .card p { margin-bottom: 8px; font-size: 14px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .card-full {
+    background: var(--surface-cool);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin: 16px 0;
+  }
+
+  .card-dark {
+    background: var(--ink);
+    border: none;
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin: 16px 0;
+    color: rgba(255,255,255,0.7);
+  }
+  .card-dark .card-label { color: var(--gold-bright); }
+  .card-dark strong { color: #fff; }
+  .card-dark p { color: rgba(255,255,255,0.7); }
+
+  /* Stats */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .stat-card {
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 800; color: var(--gold-bright);
+    line-height: 1.1; margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+  }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--ink);
+    color: #fff; font-weight: 600;
+    padding: 12px 16px; text-align: left;
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  thead th:first-child { border-radius: 12px 0 0 0; }
+  thead th:last-child { border-radius: 0 12px 0 0; }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--surface-cool); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    padding: 4px 10px; border-radius: 12px;
+    margin: 2px 2px;
+  }
+  .tag-gold { background: var(--gold-subtle); color: var(--gold-deep); border: 1px solid rgba(197,160,40,0.3); }
+  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-red { background: var(--red-bg); color: var(--red); }
+  .tag-gray { background: var(--surface-cool); color: var(--ink-mid); border: 1px solid var(--border); }
+
+  /* Callout boxes */
+  .callout {
+    border-left: 4px solid var(--gold);
+    background: var(--gold-subtle);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout-red {
+    border-left: 4px solid var(--red);
+    background: var(--red-bg);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout-red p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+
+  .callout-green {
+    border-left: 4px solid var(--green);
+    background: var(--green-bg);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+  }
+  .callout-green p { margin-bottom: 4px; font-size: 14px; color: var(--ink-soft); }
+
+  /* Lists */
+  ul.styled {
+    list-style: none; padding: 0; margin: 12px 0;
+  }
+  ul.styled li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  ul.styled li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 14px;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--ink);
+    padding: 40px 0;
+    text-align: center;
+    color: rgba(255,255,255,0.35);
+    font-size: 13px;
+  }
+  .footer strong { color: var(--gold-bright); }
+
+  /* Print */
+  @media print {
+    .toc { display: none; }
+    .cover { padding: 40px 0 30px; }
+    .section { padding: 30px 0; }
+    body { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="container">
+    <div class="cover-eyebrow">Condition Research</div>
+    <h1><em>Erectile Dysfunction</em></h1>
+    <p class="subtitle">Pre-Ad Research Brief for Functional &amp; Integrative Medicine Clinics</p>
+    <div class="cover-meta">
+      <span>Be Top Local</span>
+      <span>Copy Brain</span>
+      <span>March 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="toc">
+  <div class="container">
+    <div class="toc-inner">
+      <a href="#audience">Audience</a>
+      <a href="#symptoms">Symptoms</a>
+      <a href="#treatments">Treatments</a>
+      <a href="#competitors">Competitors</a>
+      <a href="#platform">Platform</a>
+      <a href="#stats">Stats</a>
+      <a href="#tone">Tone</a>
+      <a href="#hormozi">Hormozi Framework</a>
+      <a href="#offer">Offer</a>
+    </div>
+  </div>
+</div>
+
+<!-- 1. AUDIENCE -->
+<div class="section" id="audience">
+  <div class="container">
+    <div class="section-num">01</div>
+    <div class="section-title">Audience Profile</div>
+    <div class="section-desc">Who are these people, what have they tried, and where are they in their journey?</div>
+
+    <h3>Demographics</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Age</div>
+        <p><strong>Sweet spot: 40-65.</strong> 40% of men are affected at age 40, rising to 70% by age 70. Don't ignore younger men: approximately 14% of men aged 18-31 report some degree of ED. The 40-65 range is ideal: old enough to have the problem, young enough to actively seek solutions and pay cash.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Gender</div>
+        <p><strong>100% male condition.</strong> But spouses/partners are a secondary audience. 71% of couples experiencing ED report significant decline in communication. The partner is often the one who pushes him to seek treatment.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Income / Insurance</div>
+        <p>These are cash-pay treatments ($3,000-$5,000+ per course). Target middle to upper-middle income men. Average shockwave treatment: $3,338 nationally. <strong>Insurance does NOT cover shockwave or P-Shot.</strong> Must frame against lifetime Viagra/Cialis costs and the cost of doing nothing.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Health Profile</div>
+        <p>Mix of sedentary/overweight men with cardiovascular risk factors, diabetics (3.5x higher ED prevalence), former athletes dealing with declining health, stressed professionals. ED is strongly correlated with heart disease, diabetes, obesity, and depression.</p>
+      </div>
+    </div>
+
+    <h3>Psychographics</h3>
+    <div class="card-full">
+      <div class="card-label">Where They Are In Their Journey</div>
+      <p>Most have been dealing with ED for <strong>months to years</strong>. Many started with Viagra/Cialis and either experienced side effects, found the pills stopped working, or hate being dependent on medication. They're embarrassed, frustrated, and have probably searched online extensively before clicking an ad. <strong>Only 28% have talked to a doctor about it.</strong></p>
+    </div>
+
+    <h4>What They've Already Tried</h4>
+    <div style="margin: 8px 0 16px;">
+      <span class="tag tag-gray">Viagra / Cialis</span>
+      <span class="tag tag-gray">Supplements</span>
+      <span class="tag tag-gray">Testosterone Therapy</span>
+      <span class="tag tag-gray">Lifestyle Changes</span>
+      <span class="tag tag-gray">"Just Deal With It"</span>
+    </div>
+
+    <h4>What They're Searching Online</h4>
+    <div style="margin: 8px 0 16px;">
+      <span class="tag tag-gold">ED treatment without pills</span>
+      <span class="tag tag-gold">shockwave therapy for ED</span>
+      <span class="tag tag-gold">why Viagra stopped working</span>
+      <span class="tag tag-gold">GAINSWave reviews</span>
+      <span class="tag tag-gold">P-Shot results</span>
+    </div>
+
+    <h4>Who Influences Their Decisions</h4>
+    <p><strong>Partner/spouse is #1.</strong> This is deeply tied to their relationship. Friends are almost never consulted (too embarrassing). They turn to the internet (Reddit, forums) before doctors.</p>
+
+    <h4>Relationship With Medical System</h4>
+    <p><strong>Extremely avoidant on this topic.</strong> "Too embarrassed" is the #1 reason men don't raise ED with their doctor. They feel dismissed when they do ("it's just aging," "lose weight"). They want a specialist who takes this seriously, not their family doctor handing them a sample pack.</p>
+  </div>
+</div>
+
+<!-- 2. SYMPTOMS -->
+<div class="section" id="symptoms">
+  <div class="container">
+    <div class="section-num">02</div>
+    <div class="section-title">Symptoms &amp; Pain Points</div>
+    <div class="section-desc">What they feel, how they describe it, and what it costs them beyond physical symptoms.</div>
+
+    <h3>Physical Symptoms (In Their Own Words)</h3>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"I can't get it up at all, or it doesn't stay hard enough"</li>
+        <li>"It works sometimes but not consistently, so I never know what to expect"</li>
+        <li>"I need pills every single time and even those are hit or miss now"</li>
+        <li>"I have zero sex drive, I just don't even want it anymore"</li>
+        <li>"It takes forever to get aroused and then it's gone in seconds"</li>
+        <li>"Morning erections are gone, like my body just shut that part off"</li>
+        <li>"The side effects from the pills are terrible: headaches, flushing, stuffy nose, and it still barely works"</li>
+      </ul>
+    </div>
+
+    <h3>Emotional &amp; Lifestyle Impact</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Daily Life</div>
+        <p>Constant background anxiety. Dread intimate moments. Making excuses to avoid sex entirely.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Sleep</div>
+        <p>Anxiety and depression from ED disrupt sleep. Racing thoughts at night about their relationship, their masculinity, their health.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Work/Income</div>
+        <p>Depression and low self-esteem from ED spill into work performance. Men with ED have 2x higher absenteeism and significantly more work productivity impairment.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Relationships</div>
+        <p><strong>THIS IS THE BIGGEST ONE.</strong> 71% of couples report significant communication decline. Men avoid intimacy to prevent disappointment. Partners feel rejected. Relationships deteriorate. Some fear their partners will leave them.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Social/Hobbies</div>
+        <p>Withdrawal from social situations. Loss of confidence that extends far beyond the bedroom. Feeling "less than" around other men. Avoiding dating entirely (for single men).</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Mental Health</div>
+        <p>Clinical depression develops in approximately 25% of cases. Feelings of emasculation described as "total humiliation." 38% of young men posting about ED on Reddit report depressive symptoms.</p>
+      </div>
+    </div>
+
+    <h3>The Language They Use</h3>
+    <div class="callout">
+      <p><strong>Key phrases to use in ad copy:</strong> "I can't get it up." "The pills stopped working." "I feel broken." "I'm only [age] and this shouldn't be happening." "I feel like less of a man." "My confidence is shot." "I've tried everything." "My relationship is suffering."</p>
+    </div>
+    <p><strong>Similar conditions to study lingo:</strong> Hair loss (same shame/masculinity angle), low testosterone (overlapping audience), performance anxiety. Same "I shouldn't have to deal with this at my age" frustration.</p>
+  </div>
+</div>
+
+<!-- 3. TREATMENTS -->
+<div class="section" id="treatments">
+  <div class="container">
+    <div class="section-num">03</div>
+    <div class="section-title">Treatment Landscape</div>
+    <div class="section-desc">What they've been offered, why it failed, and how our client's approach is different.</div>
+
+    <h3>Conventional Options (What They've Already Tried)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Treatment</th>
+            <th>Patient Pros</th>
+            <th>Patient Cons</th>
+            <th>Why They Want Something Different</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Viagra/Cialis</strong><br>(PDE5 Inhibitors)</td>
+            <td>Familiar, easy to get, works for many initially</td>
+            <td>30-35% don't respond. Side effects (headaches, flushing, stuffy nose). Must plan sex around a pill. Doesn't fix the underlying problem. Can stop working over time.</td>
+            <td>Tired of being dependent on a pill. Hate the side effects. Want their body to work naturally again.</td>
+          </tr>
+          <tr>
+            <td><strong>Testosterone Therapy</strong></td>
+            <td>Can help if low T is the cause</td>
+            <td>Doesn't help most ED cases. Often prescribed as catch-all. Requires ongoing treatment. Side effects possible.</td>
+            <td>Often prescribed but doesn't address the real problem (vascular ED)</td>
+          </tr>
+          <tr>
+            <td><strong>Penile Injections</strong><br>(Trimix)</td>
+            <td>High success rate</td>
+            <td>INJECTING INTO THE PENIS. Risk of priapism. Kills spontaneity. Psychological barrier is massive.</td>
+            <td>Nobody wants to inject themselves before sex</td>
+          </tr>
+          <tr>
+            <td><strong>Penile Implant Surgery</strong></td>
+            <td>Permanent solution, high satisfaction in those who get it</td>
+            <td>SURGERY on the most sensitive area. Irreversible. Infection risk. Mechanical failure possible (21% not working at 10 years). Terrifying concept.</td>
+            <td>Last resort. Nobody wants surgery there unless they've exhausted everything else.</td>
+          </tr>
+          <tr>
+            <td><strong>Supplements</strong></td>
+            <td>Easy to buy, no prescription, feel "natural"</td>
+            <td>Almost no clinical evidence. Unregulated. Waste of money in most cases.</td>
+            <td>They've already wasted hundreds on supplements that didn't work</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Our Client's Treatment (Cash-Pay Only)</h3>
+
+    <div class="callout" style="border-left: 4px solid var(--gold); margin-bottom: 20px;">
+      <p style="font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Track A: Cash-Pay Clinics</p>
+      <p style="font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px;">Shockwave/GAINSWave, P-Shot/PRP, Combo Protocols</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">What They Offer</div>
+        <p>Low-intensity shockwave therapy (marketed as GAINSWave), P-Shot (PRP injection), or combination protocols. Non-invasive treatments designed to restore natural erectile function by improving blood flow to the penis.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">How Shockwave Works</div>
+        <p>Low-intensity acoustic waves applied to penile tissue cause micro-trauma that triggers the body's natural healing response: new blood vessel formation, improved blood flow, and breakdown of micro-plaque. <strong>Wakes up the blood supply that's been declining.</strong> 15-20 minutes per session, zero downtime.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">How P-Shot Works</div>
+        <p>Blood is drawn and processed to concentrate platelets and growth factors (PRP), then injected into specific areas of the penis. Growth factors stimulate tissue regeneration and improved blood flow. One study: 69% achieved clinically meaningful improvement vs. 27% placebo at 6 months.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">The Process</div>
+        <p><strong>Shockwave:</strong> typically 6-12 sessions over several weeks. <strong>P-Shot:</strong> 1-3 sessions, topical numbing applied first, about 30 minutes. <strong>Combo:</strong> both protocols coordinated. Most men notice improvement within 1-3 months.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Cost/Insurance</div>
+        <p><strong>Cash-pay. NOT covered by insurance.</strong> Average treatment course nationally: $3,338 for shockwave. Frame against: lifetime Viagra costs ($3,600-7,200/year), cost of doing nothing (relationship deterioration, mental health decline), and the fact that pills don't fix the problem.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Key Proof Points</div>
+        <p>Meta-analysis of 7 clinical trials with 600+ participants showed significant improvement in erectile function. Essentially no side effects reported. Patients with mild to moderate ED respond best. <strong>Addresses the ROOT CAUSE (vascular insufficiency) rather than masking symptoms.</strong></p>
+      </div>
+    </div>
+
+    <h3>The "Bridge" (Why THIS After Everything Else Failed)</h3>
+
+    <div class="card-dark">
+      <div class="card-label">Why Previous Treatments Failed</div>
+      <p><strong>Pills (Viagra/Cialis)</strong> work by amplifying a chemical signal (nitric oxide) to increase blood flow. But if the blood vessels are damaged or clogged, there's not enough signal to amplify. That's why pills stop working or never worked in the first place. <strong>They're a band-aid, not a fix.</strong> Supplements don't have the clinical potency to reverse vascular damage. Testosterone only helps if low T is the actual cause (it often isn't).</p>
+    </div>
+
+    <div class="card-dark" style="margin-top: 16px;">
+      <div class="card-label">Mechanism Story</div>
+      <p>"Your ED isn't a pill deficiency. It's a blood flow problem. Over the years, the tiny blood vessels that create an erection have been damaged by age, high blood pressure, diabetes, or other factors. Viagra tries to force more blood through damaged vessels. That's why it stops working. Our approach is different. We use acoustic wave technology to stimulate your body to grow <strong>NEW blood vessels</strong> and repair the damaged ones. Instead of masking the problem with a pill you take every time, we help your body rebuild the machinery that creates natural erections. <strong>That's why results last.</strong>"</p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. COMPETITORS -->
+<div class="section" id="competitors">
+  <div class="container">
+    <div class="section-num">04</div>
+    <div class="section-title">Competitive Ad Research</div>
+    <div class="section-desc">What's running in the Facebook Ad Library and where the gaps are.</div>
+
+    <h3>Common Patterns in Competitor Ads</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Advertiser</th>
+            <th>Offer/Hook</th>
+            <th>Format</th>
+            <th>What Stands Out</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Rugiet</strong> (DTC pharma)</td>
+            <td>"300K+ men have made the switch." Video testimonials.</td>
+            <td>Video (30-46 sec)</td>
+            <td>Heavy social proof (300K number), video-first, "3 easy steps" simplicity angle</td>
+          </tr>
+          <tr>
+            <td><strong>Online Rx Reviews</strong></td>
+            <td>"Shopping around for ED treatments?" Comparison angle. "3-in-1 ED Treatment"</td>
+            <td>Image + link</td>
+            <td>Affiliate/review site format. Multiple variants. "Gone are the days of feeling ashamed" copy.</td>
+          </tr>
+          <tr>
+            <td><strong>Florida Men's Health</strong></td>
+            <td>"Don't let ED stop you." Free consultation offer.</td>
+            <td>Video (40 sec)</td>
+            <td>Local clinic running for 20+ months. Free consultation CTA.</td>
+          </tr>
+          <tr>
+            <td><strong>Choice Men's Health</strong> (Atlanta)</td>
+            <td>"Struggling with ED? Move beyond old-school pills." Acoustic Wave therapy.</td>
+            <td>Image + link</td>
+            <td>Local clinic, shockwave-focused, "Atlanta's #1 ED Treatment Clinic" local positioning</td>
+          </tr>
+          <tr>
+            <td><strong>Hightower Men's Clinic</strong></td>
+            <td>"Is ED curable?" Curiosity hook. Shockwave therapy.</td>
+            <td>Image</td>
+            <td>Direct shockwave clinic, long-running, curiosity-based hook</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Gaps &amp; Opportunities</h3>
+    <div class="callout-green">
+      <p><strong>Where we can win:</strong></p>
+      <p>Almost NO local functional medicine / chiropractic clinics running ED ads on Facebook. The space is dominated by DTC pharma (Rugiet, Hims, Roman) and a handful of men's health clinics. <strong>Massive whitespace for our clients.</strong> Almost no one is using the spouse/partner perspective in hooks. Very few use specific stats or scroll-stopping numbers. Almost nobody explains WHY pills stop working (the mechanism story). No one is leading with "no pills, no surgery, no injections" triple negative. Ridiculous result testimonials are rare. Very few use the "your ED is actually a blood flow problem" reframe.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. PLATFORM -->
+<div class="section" id="platform">
+  <div class="container">
+    <div class="section-num">05</div>
+    <div class="section-title">Platform Considerations</div>
+    <div class="section-desc">Facebook/Instagram policy, targeting options, and what to watch for.</div>
+
+    <h3>Facebook Policy Watch</h3>
+    <div class="card-grid">
+      <div class="card" style="border-color: var(--red); border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Can't Say</div>
+        <p>No "cure" for ED. No guaranteed results. Cannot imply you KNOW someone has ED ("We know you're struggling" violates personal attributes). Can't claim specific outcomes ("You WILL get erections back"). No before/after imagery of a sexual nature.</p>
+      </div>
+      <div class="card" style="border-color: var(--red); border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Image / Video Rules</div>
+        <p>No sexual imagery. No nudity or implied nudity. No graphic medical procedures. No images that could be interpreted as sexual enhancement. Keep visuals clinical, relational (couples), or lifestyle-focused.</p>
+      </div>
+      <div class="card" style="border-color: var(--gold); border-left: 4px solid var(--gold);">
+        <div class="card-label">2025-2026 Changes</div>
+        <p>Meta restricts pixel/CAPI event data from health websites as of January 2025. Mid-to-lower funnel events (lead, purchase, complete registration) may be limited. Lead form campaigns and landing page traffic campaigns may be the workaround.</p>
+      </div>
+      <div class="card" style="border-color: var(--green); border-left: 4px solid var(--green);">
+        <div class="card-label" style="color: var(--green);">Safe Framing</div>
+        <p>Use medical framing: "improve blood flow," "restore natural function," "address the root cause." Use questions instead of assertions: "Are you experiencing changes in performance?" Focus on the relationship/confidence angle rather than sexual mechanics.</p>
+      </div>
+    </div>
+
+    <h3>Targeting Setup</h3>
+    <div class="card-full">
+      <h4>Interest Targeting</h4>
+      <div style="margin: 4px 0 12px;">
+        <span class="tag tag-gold">Men's Health</span>
+        <span class="tag tag-gold">Erectile Dysfunction</span>
+        <span class="tag tag-gold">Urology</span>
+        <span class="tag tag-gold">Viagra</span>
+        <span class="tag tag-gold">Cialis</span>
+        <span class="tag tag-gold">Testosterone</span>
+        <span class="tag tag-gold">Men's Wellness</span>
+        <span class="tag tag-gold">Natural Health</span>
+        <span class="tag tag-gold">Functional Medicine</span>
+        <span class="tag tag-gold">Golf</span>
+        <span class="tag tag-gold">Business</span>
+        <span class="tag tag-gold">Fitness Over 40</span>
+      </div>
+      <h4>Age / Location</h4>
+      <p><strong>Cold traffic:</strong> 40-60 in clinic's service radius (15-25 miles). <strong>Retargeting:</strong> Broaden to 35-70+.</p>
+      <h4>Custom Audiences</h4>
+      <p>Upload clinic's patient list for lookalike (even a small list helps). Retarget video viewers (50%+), landing page visitors who didn't book, Facebook page engagers. Retargeting is especially important for ED because the consideration period is long (men think about it for weeks/months).</p>
+    </div>
+  </div>
+</div>
+
+<!-- 6. STATS -->
+<div class="section" id="stats">
+  <div class="container">
+    <div class="section-num">06</div>
+    <div class="section-title">Compelling Statistics</div>
+    <div class="section-desc">Scroll-stopping numbers for ad copy. All sourced from NIH, MMAS, and peer-reviewed studies.</div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">52%</div>
+        <div class="stat-label">Of men aged 40-70 have some degree of erectile dysfunction</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30M+</div>
+        <div class="stat-label">Men in the US are affected by ED</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">25%</div>
+        <div class="stat-label">Of men with ED ever seek treatment. 75% suffer in silence.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30-35%</div>
+        <div class="stat-label">Of men don't respond to Viagra/Cialis at all</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">71%</div>
+        <div class="stat-label">Of couples report significant communication decline after ED onset</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">25%</div>
+        <div class="stat-label">Of ED cases develop clinical depression</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3.5x</div>
+        <div class="stat-label">More likely: Men with diabetes develop ED</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">69%</div>
+        <div class="stat-label">Of men in PRP group achieved clinically meaningful improvement at 6 months</div>
+      </div>
+    </div>
+
+    <p style="font-size: 12px; color: var(--ink-muted); margin-top: 8px;"><strong>Sources:</strong> Massachusetts Male Aging Study (MMAS), NIH/NCBI StatPearls, University of Michigan, PubMed 2024, Frontiers in Endocrinology</p>
+  </div>
+</div>
+
+<!-- 7. TONE -->
+<div class="section" id="tone">
+  <div class="container">
+    <div class="section-num">07</div>
+    <div class="section-title">Tone &amp; Messaging</div>
+    <div class="section-desc">What to say, how to say it, and what to never say.</div>
+
+    <div class="card-grid">
+      <div class="card" style="border-left: 4px solid var(--green);">
+        <div class="card-label" style="color: var(--green);">Do's</div>
+        <ul class="styled">
+          <li>Use their language: "the pills stopped working," "I feel like less of a man," "my relationship is suffering"</li>
+          <li>Lead with the relationship/confidence impact, not mechanics</li>
+          <li>Normalize with stats: "52% of men over 40 deal with this"</li>
+          <li>Explain the mechanism: "It's a blood flow problem, not a you problem"</li>
+          <li>Position as medical treatment, not sexual enhancement</li>
+          <li>Address skepticism: they've been burned by supplements and pills</li>
+          <li>Use the "root cause" angle: we fix it, not mask it</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--red);">
+        <div class="card-label" style="color: var(--red);">Don'ts</div>
+        <ul class="styled">
+          <li>Don't use sexual language or innuendo</li>
+          <li>Don't say "cure" or "guaranteed"</li>
+          <li>Don't make it a joke or use humor</li>
+          <li>Don't use images of pills, needles, or clinical-scary visuals</li>
+          <li>Don't promise specific outcomes</li>
+          <li>Don't imply you know their condition (personal attributes violation)</li>
+          <li>Don't use stock photos of young couples in bed</li>
+          <li>Don't bash Viagra/Cialis (many still use them)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Tone Sweet Spot</h3>
+    <div class="callout">
+      <p><strong>Direct acknowledgment without shame.</strong> "This is a medical condition, not a character flaw. And it's fixable." Treat the audience with respect. Don't make it a joke. Don't go overly clinical. Talk to them like a trusted friend who happens to be a doctor. This audience is already scared and ashamed. They need hope, not more fear. Lead with the dream outcome (natural function restored, confidence back, relationship saved).</p>
+    </div>
+  </div>
+</div>
+
+<!-- 8. HORMOZI FRAMEWORK -->
+<div class="section" id="hormozi">
+  <div class="container">
+    <div class="section-num">08</div>
+    <div class="section-title">Hormozi Framework Application</div>
+    <div class="section-desc">Pre-built callouts, value angles, and CTAs ready for ad copy.</div>
+
+    <h3>Callout Options (Test These First)</h3>
+
+    <h4>Labels</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"Men over 40 who are tired of relying on pills"</li>
+        <li>"Men in [city] whose ED medications stopped working"</li>
+        <li>"Husbands who've been avoiding intimacy because of ED"</li>
+        <li>"Men who've been told 'it's just part of aging'"</li>
+        <li>"Active men who refuse to accept that their best years are behind them"</li>
+      </ul>
+    </div>
+
+    <h4>Yes-Questions</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"Has your ED medication stopped working like it used to?"</li>
+        <li>"Are you avoiding intimacy because you're afraid it won't work?"</li>
+        <li>"Have you been told ED is just something you have to live with?"</li>
+        <li>"Do you dread the moment things start getting intimate?"</li>
+        <li>"Are you spending $300+ a month on pills that barely work anymore?"</li>
+        <li>"Has ED started affecting your relationship in ways you never expected?"</li>
+      </ul>
+    </div>
+
+    <h4>If-Then Statements</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"If Viagra or Cialis used to work but doesn't anymore, there's a medical reason for that..."</li>
+        <li>"If your doctor told you ED is just part of aging, you need to hear this."</li>
+        <li>"If you've tried pills, supplements, and 'just giving it time,' and nothing has worked, the problem isn't you. It's your blood flow."</li>
+        <li>"If ED is straining your relationship and you're running out of options, keep reading."</li>
+      </ul>
+    </div>
+
+    <h4>Ridiculous Results</h4>
+    <div class="card-full">
+      <ul class="styled">
+        <li>"He hadn't been intimate with his wife in 2 years. 6 weeks after starting treatment, they're on a second honeymoon." <span class="tag tag-gray">needs real testimonial</span></li>
+        <li>"He was about to accept that his sex life was over at 52. Now he doesn't need a single pill."</li>
+        <li>"His wife was the one who found us. He didn't want to come in. Now he says it saved his marriage."</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>What-Who-When Angles</h3>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Dream Outcome</div>
+        <p>Natural function restored without pills, injections, or surgery. Confidence back in AND out of the bedroom. Relationship revived, intimacy restored. Feeling like yourself again at any age. No more planning around a pill.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Nightmare</div>
+        <p>Relationship continues to deteriorate. Partner feels rejected. ED gets worse as blood vessels continue declining. Spending thousands on pills that work less each year. Missing out on years of intimacy you can't get back.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Who Perspectives</div>
+        <p><strong>Self:</strong> "I feel like myself again."<br>
+        <strong>Spouse:</strong> "She noticed the difference before I did. She said I seemed like a different person."<br>
+        <strong>Relationship:</strong> "We're closer than we've been in years."</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Timeline</div>
+        <p><strong>Past:</strong> "I used to never think twice about it."<br>
+        <strong>Present:</strong> "Right now I'm spending $400/month on pills that barely work."<br>
+        <strong>Future:</strong> "In 3 months I could have natural function back, or still be popping pills and praying."</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3>CTA Tiers</h3>
+    <div class="card-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Cold Traffic</div>
+        <p style="font-size: 13px;">"Watch this 2-minute video"<br>"Take our 60-second ED Assessment"</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Warm Traffic</div>
+        <p style="font-size: 13px;">"Download our free guide: The Root Cause of ED"<br>"See if you qualify for treatment"</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-label">Hot Traffic</div>
+        <p style="font-size: 13px;">"Schedule Your Free, Confidential ED Screening"<br>"Book your private consultation: X spots this month"</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 9. OFFER -->
+<div class="section" id="offer">
+  <div class="container">
+    <div class="section-num">09</div>
+    <div class="section-title">Offer Construction</div>
+    <div class="section-desc">What we're putting in front of them to get them in the door.</div>
+
+    <div class="card-dark">
+      <div class="card-label">Primary Offer (Cash-Pay Clinics)</div>
+      <p style="font-size: 18px; color: #fff;"><strong>Free, Confidential ED Screening</strong></p>
+      <p style="color: rgba(255,255,255,0.6); margin-top: 4px;">No cost, no commitment, completely private. Come in, get evaluated, hear your options.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">What the Screening Includes</div>
+        <p>Private one-on-one consultation with the doctor. Review of medical history, current medications, and previous treatments. Discussion of treatment options. Personalized assessment of whether they're a candidate for shockwave/P-Shot. Zero pressure to proceed.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Risk Reversal</div>
+        <p>"If we can't help you, we'll tell you. No pressure, no judgment. Just honest answers about your options." The free screening IS the risk reversal. The confidentiality promise is critical: <strong>"Your visit is completely private and confidential."</strong></p>
+      </div>
+      <div class="card">
+        <div class="card-label">Scarcity (If Real)</div>
+        <p>"We see a limited number of new ED patients per month to ensure personalized care" (true capacity constraint). Don't fake urgency on this one. The audience is skeptical enough already.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">The Catch</div>
+        <p>There isn't one. That's the point. Position it as zero-risk fact-finding. "Come in, talk to the doctor privately, find out if this could work for you. That's it."</p>
+      </div>
+    </div>
+
+    <h3>Offer Messaging for Cash-Pay Clinics</h3>
+    <div class="card-full">
+      <div class="card-label">Lead with "Free, Confidential ED Screening"</div>
+      <p>Eliminate the two biggest barriers: cost and embarrassment. The screening lets them meet the doctor, understand the treatment, and ask questions in a no-pressure environment before committing to a $3-5K+ treatment. Frame the treatment cost against: lifetime pill costs ($3,600-7,200/year), the cost of a deteriorating relationship (priceless), and the fact that this addresses the root cause while pills just mask it.</p>
+      <h4 style="margin-top: 16px;">Key CTA Language</h4>
+      <ul class="styled">
+        <li>"Schedule Your Free, Confidential ED Screening"</li>
+        <li>"Find Out If You're a Candidate"</li>
+        <li>"Book Your Private Consultation"</li>
+      </ul>
+      <p style="margin-top: 12px;">The word <strong>"confidential"</strong> or <strong>"private"</strong> should appear in every CTA. This audience needs to know nobody will find out they called.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="container">
+    <p><strong>Be Top Local</strong> | Copy Brain | Condition Research: Erectile Dysfunction</p>
+    <p style="margin-top: 8px;">Stats sourced from Massachusetts Male Aging Study (MMAS), NIH, PubMed, University of Michigan &bull; Framework based on $100M Leads by Alex Hormozi</p>
+    <p style="margin-top: 4px;">March 2026</p>
+  </div>
+</div>
+
+</body>
+</html>
