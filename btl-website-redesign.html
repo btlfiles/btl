@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be Top Local | Patient Acquisition for Functional Medicine</title>
+<meta name="description" content="We fill schedules for functional and integrative medicine practices. 700+ practices. $100M+ in patient revenue. But only if you're willing to do the work.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --ink-faint: #B8B8B8;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --surface-cool: #F7F7F5;
+    --border: #E5E5E3;
+    --border-light: #F0F0EE;
+    --red: #BE3A2A;
+    --green: #1B7D42;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink-soft);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  .narrow { max-width: 720px; margin: 0 auto; }
+
+  /* ══ NAV ══ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto; padding: 0 28px;
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo img { height: 36px; width: auto; }
+
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; color: var(--ink-mid);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    padding: 10px 24px !important; background: var(--ink) !important;
+    color: #fff !important; border-radius: 10px !important;
+    font-weight: 600 !important; font-size: 13px !important;
+    letter-spacing: 1px !important; text-transform: uppercase !important;
+    transition: all 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 5px 0; border-radius: 2px; }
+
+  /* ══ HERO ══ */
+  .hero {
+    padding: 140px 0 100px;
+    background: var(--ink);
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: -100px; left: 50%; transform: translateX(-50%);
+    width: 1000px; height: 600px;
+    background: radial-gradient(ellipse, rgba(197,160,40,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--gold-bright);
+    margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 800; line-height: 1.06;
+    color: #fff; margin-bottom: 28px;
+    opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 0.4s;
+  }
+  .hero h1 em { font-style: italic; font-weight: 700; color: var(--gold-bright); }
+
+  .hero-sub {
+    font-size: 19px; font-weight: 300; color: rgba(255,255,255,0.6);
+    line-height: 1.7; max-width: 580px; margin: 0 auto 40px;
+    opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 0.6s;
+  }
+  .hero-sub strong { font-weight: 600; color: #fff; }
+
+  .btn-primary {
+    display: inline-block; padding: 18px 44px;
+    background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-bright) 50%, var(--gold) 100%);
+    color: var(--ink); font-family: 'Outfit', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; text-decoration: none;
+    border-radius: 14px; transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(197,160,40,0.4);
+  }
+
+  .btn-dark {
+    display: inline-block; padding: 18px 44px;
+    background: var(--ink); color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; text-decoration: none;
+    border-radius: 14px; transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .btn-dark:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    color: var(--ink);
+  }
+
+  .hero-cta-wrap {
+    opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 0.8s;
+  }
+  .hero-cta-note {
+    font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 14px;
+  }
+
+  /* Hero stats */
+  .hero-stats {
+    display: flex; justify-content: center; gap: 48px;
+    margin-top: 56px; padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 1s;
+  }
+
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 800; color: var(--gold-bright); line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.35);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px;
+  }
+
+  /* ══ SECTIONS ══ */
+  section { padding: 88px 0; }
+
+  .section-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 800; line-height: 1.1; color: var(--ink); margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; font-weight: 700; color: var(--gold); }
+
+  .section-sub {
+    font-size: 17px; font-weight: 300; color: var(--ink-mid);
+    line-height: 1.7; margin-bottom: 40px;
+  }
+
+  /* ══ HARD TRUTH ══ */
+  .truth-section { background: var(--surface-warm); }
+
+  .truth-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  }
+
+  .truth-col h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 800; color: var(--ink);
+    margin-bottom: 20px; line-height: 1.2;
+  }
+  .truth-col h3 em { font-style: italic; color: var(--gold); font-weight: 700; }
+
+  .truth-list {
+    list-style: none; display: flex; flex-direction: column; gap: 14px;
+  }
+
+  .truth-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 15px; line-height: 1.55; color: var(--ink-mid);
+  }
+
+  .truth-icon {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; margin-top: 2px;
+  }
+  .truth-icon.we { background: rgba(197,160,40,0.15); color: var(--gold-deep); }
+  .truth-icon.you { background: rgba(27,125,66,0.12); color: var(--green); }
+
+  .truth-divider {
+    text-align: center; margin-top: 40px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .truth-divider p {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 800; color: var(--ink); line-height: 1.3;
+  }
+  .truth-divider p em { color: var(--gold); font-style: italic; font-weight: 700; }
+
+  /* ══ WALL OF PROOF ══ */
+  .proof-wall-section { background: var(--ink); padding: 80px 0; overflow: hidden; }
+
+  .proof-wall {
+    columns: 3; column-gap: 16px;
+  }
+
+  .proof-quote {
+    break-inside: avoid; margin-bottom: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 24px;
+    transition: border-color 0.3s;
+  }
+  .proof-quote:hover { border-color: rgba(197,160,40,0.3); }
+
+  .proof-quote p {
+    font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.75);
+    line-height: 1.6; font-style: italic;
+  }
+
+  .proof-quote .attribution {
+    margin-top: 12px; font-size: 13px; font-weight: 600;
+    color: var(--gold-bright); font-style: normal;
+  }
+
+  /* ══ HOW IT WORKS ══ */
+  .how-section { background: var(--surface); }
+
+  .how-steps {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  }
+
+  .how-step {
+    padding: 36px; background: var(--surface-warm);
+    border: 1.5px solid var(--border); border-radius: 16px;
+    transition: all 0.3s;
+  }
+  .how-step:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(197,160,40,0.08); }
+
+  .how-step-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+  }
+
+  .how-step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 800; color: var(--ink);
+    margin-bottom: 10px; line-height: 1.2;
+  }
+
+  .how-step p {
+    font-size: 15px; color: var(--ink-mid); line-height: 1.6;
+  }
+  .how-step p strong { font-weight: 600; color: var(--ink-soft); }
+
+  /* ══ FIT / NOT FIT ══ */
+  .fit-section { background: var(--surface-warm); }
+
+  .fit-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  }
+
+  .fit-col {
+    padding: 40px 36px; border-radius: 18px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+
+  .fit-col.yes {
+    background: rgba(27,125,66,0.04); border: 1.5px solid rgba(27,125,66,0.15);
+  }
+  .fit-col.no {
+    background: rgba(190,58,42,0.03); border: 1.5px solid rgba(190,58,42,0.12);
+  }
+
+  .fit-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+  }
+  .fit-col.yes .fit-label { color: var(--green); }
+  .fit-col.no .fit-label { color: var(--red); }
+
+  .fit-col h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 800; line-height: 1.2;
+  }
+  .fit-col.yes h3 { color: var(--green); }
+  .fit-col.no h3 { color: var(--red); }
+
+  .fit-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 15px; color: var(--ink-mid); line-height: 1.5;
+  }
+
+  .fit-check { color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .fit-x { color: var(--red); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  /* ══ COMPARE TABLE ══ */
+  .compare-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    border-radius: 18px; overflow: hidden;
+    border: 1.5px solid var(--border); background: var(--surface);
+  }
+
+  .compare-table thead th {
+    padding: 22px 24px; font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2px;
+  }
+  .compare-table thead th:first-child { background: var(--surface-cool); color: var(--ink-muted); text-align: left; width: 30%; }
+  .compare-table thead th:nth-child(2) { background: rgba(190,58,42,0.05); color: var(--red); }
+  .compare-table thead th:nth-child(3) { background: rgba(197,160,40,0.08); color: var(--gold-deep); }
+
+  .compare-table tbody td {
+    padding: 16px 24px; font-size: 15px;
+    border-top: 1px solid var(--border-light); vertical-align: middle;
+  }
+  .compare-table tbody td:first-child { font-weight: 600; color: var(--ink); text-align: left; }
+  .compare-table tbody td:nth-child(2) { color: var(--ink-mid); text-align: center; }
+  .compare-table tbody td:nth-child(3) { color: var(--ink); font-weight: 600; text-align: center; }
+
+  .cx { color: var(--red); font-size: 16px; opacity: 0.6; }
+  .cc { color: var(--gold); font-size: 18px; font-weight: 700; }
+
+  .table-wrap { overflow-x: auto; }
+
+  /* ══ CONDITIONS ══ */
+  .conditions-bar {
+    background: var(--surface-cool); padding: 56px 0;
+    text-align: center;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+
+  .conditions-bar .section-eyebrow { margin-bottom: 20px; }
+
+  .condition-tags {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
+  }
+
+  .condition-tag {
+    padding: 14px 28px; background: var(--surface);
+    border: 1.5px solid var(--border); border-radius: 100px;
+    font-size: 15px; font-weight: 600; color: var(--ink);
+    transition: all 0.3s;
+  }
+  .condition-tag:hover {
+    border-color: var(--gold); background: var(--gold-subtle);
+    color: var(--gold-deep);
+  }
+
+  /* ══ TEAM ══ */
+  .team-section { background: var(--surface); }
+
+  .team-photo {
+    width: 100%; max-width: 800px; margin: 0 auto 40px;
+    border-radius: 20px; overflow: hidden;
+    border: 1.5px solid var(--border);
+  }
+  .team-photo img { width: 100%; height: auto; display: block; }
+
+  .team-text {
+    max-width: 640px; margin: 0 auto; text-align: center;
+  }
+  .team-text p {
+    font-size: 17px; font-weight: 300; color: var(--ink-mid);
+    line-height: 1.75; margin-bottom: 16px;
+  }
+  .team-text p strong { font-weight: 600; color: var(--ink-soft); }
+
+  /* ══ ROI ══ */
+  .roi-section {
+    background: var(--surface-warm); text-align: center;
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+
+  .roi-grid {
+    display: flex; justify-content: center; gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .roi-card {
+    padding: 32px 40px; background: var(--surface);
+    border: 1.5px solid var(--border); border-radius: 16px;
+    text-align: center; min-width: 160px;
+  }
+  .roi-card.featured {
+    border: 2px solid var(--gold); background: var(--gold-subtle);
+    transform: scale(1.06);
+  }
+
+  .roi-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px; font-weight: 800; color: var(--ink); line-height: 1;
+  }
+  .roi-card.featured .roi-num { color: var(--gold-deep); }
+
+  .roi-label {
+    font-size: 12px; font-weight: 600; color: var(--ink-muted);
+    text-transform: uppercase; letter-spacing: 1.5px; margin-top: 8px;
+  }
+
+  .roi-note {
+    font-size: 15px; color: var(--ink-mid);
+  }
+  .roi-note strong { color: var(--ink); }
+
+  /* ══ FAQ ══ */
+  .faq-section { background: var(--surface); }
+
+  .faq-list {
+    max-width: 700px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .faq-item {
+    background: var(--surface-warm); border: 1.5px solid var(--border);
+    border-radius: 14px; overflow: hidden; transition: border-color 0.3s;
+  }
+  .faq-item.open { border-color: var(--gold); }
+
+  .faq-q {
+    padding: 20px 24px; font-size: 16px; font-weight: 600; color: var(--ink);
+    cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; gap: 16px; user-select: none;
+    background: none; border: none; width: 100%;
+    font-family: 'Outfit', sans-serif; text-align: left; line-height: 1.4;
+  }
+  .faq-q:hover { color: var(--gold-deep); }
+
+  .faq-toggle {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px;
+    background: var(--surface); display: flex; align-items: center;
+    justify-content: center; font-size: 18px; color: var(--gold);
+    transition: transform 0.3s; font-weight: 300;
+  }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.3s;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+
+  .faq-a p {
+    font-size: 15px; font-weight: 300; color: var(--ink-mid); line-height: 1.7;
+  }
+  .faq-a p strong { font-weight: 600; color: var(--ink-soft); }
+
+  /* ══ FINAL CTA ══ */
+  .final-cta {
+    text-align: center; padding: 100px 0;
+    background: var(--ink); position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: ''; position: absolute;
+    bottom: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(197,160,40,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-cta .section-title { color: #fff; }
+  .final-cta .section-sub { color: rgba(255,255,255,0.5); margin-bottom: 36px; }
+
+  .final-note {
+    font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 16px;
+  }
+
+  /* ══ FOOTER ══ */
+  footer {
+    background: var(--ink); padding: 0 0 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+
+  .footer-inner {
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-logo img { height: 28px; width: auto; filter: brightness(0) invert(1); }
+
+  .footer-links {
+    display: flex; gap: 24px; list-style: none;
+  }
+  .footer-links a {
+    font-size: 12px; color: rgba(255,255,255,0.3);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+  .footer-copy {
+    font-size: 11px; color: rgba(255,255,255,0.15); margin-top: 20px; text-align: center;
+  }
+
+  /* ══ ANIMATIONS ══ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ══ RESPONSIVE ══ */
+  @media (max-width: 900px) {
+    .truth-grid { grid-template-columns: 1fr; gap: 36px; }
+    .how-steps { grid-template-columns: 1fr; }
+    .fit-grid { grid-template-columns: 1fr; }
+    .proof-wall { columns: 2; }
+    .hero-stats { gap: 32px; flex-wrap: wrap; }
+    .roi-grid { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links {
+      display: none; position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--surface); flex-direction: column;
+      padding: 16px 28px 24px; border-bottom: 1px solid var(--border);
+      gap: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+    .hero { padding: 120px 0 72px; }
+    .hero h1 { font-size: 32px; }
+    .hero-stats { gap: 24px; }
+    .hero-stat-num { font-size: 28px; }
+    .proof-wall { columns: 1; }
+    .condition-tags { gap: 8px; }
+    .condition-tag { padding: 10px 20px; font-size: 14px; }
+    section { padding: 64px 0; }
+    .roi-card.featured { transform: none; }
+    .table-wrap { margin: 0 -28px; padding: 0 28px; }
+    .compare-table { min-width: 520px; }
+    .footer-inner { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="Logo%20Files/Copy%20of%20BeTopLocal.png" alt="Be Top Local"></a>
+    <ul class="nav-links">
+      <li><a href="#proof">Proof</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="application-quiz.html" class="nav-cta">Apply Now</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">For Functional &amp; Integrative Medicine Practices</div>
+    <h1>We Bring the Patients.<br><em>You Close Them.</em></h1>
+    <p class="hero-sub">A done-for-you patient acquisition system for practices that are ready to grow. We handle the ads, the AI follow-up, and the training. You handle the medicine. <strong>It works. But only if you do.</strong></p>
+    <div class="hero-cta-wrap">
+      <a href="application-quiz.html" class="btn-primary">See If You Qualify</a>
+      <p class="hero-cta-note">Takes 2 minutes. No commitment.</p>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">700+</div>
+        <div class="hero-stat-label">Practices Served</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">$100M+</div>
+        <div class="hero-stat-label">Patient Revenue Generated</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6-8x</div>
+        <div class="hero-stat-label">Average Client ROI</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10+ Yrs</div>
+        <div class="hero-stat-label">In Business</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE HARD TRUTH ══ -->
+<section class="truth-section">
+  <div class="container">
+    <div class="narrow reveal">
+      <div class="section-eyebrow" style="text-align:center;">The Hard Truth</div>
+      <div class="section-title" style="text-align:center;">This Is a <em>Partnership</em>, Not a Magic Trick</div>
+      <div class="section-sub" style="text-align:center;">Most agencies will tell you to sit back and watch the patients roll in. We won't. Here's what each side actually does:</div>
+    </div>
+    <div class="truth-grid reveal">
+      <div class="truth-col">
+        <h3>What <em>We</em> Handle</h3>
+        <ul class="truth-list">
+          <li class="truth-item"><span class="truth-icon we">&#10003;</span> Condition-specific Facebook &amp; Instagram ads built from 10+ years of data</li>
+          <li class="truth-item"><span class="truth-icon we">&#10003;</span> Custom landing pages for every condition you run</li>
+          <li class="truth-item"><span class="truth-icon we">&#10003;</span> AI follow-up that responds to every lead in under 60 seconds</li>
+          <li class="truth-item"><span class="truth-icon we">&#10003;</span> CRM setup, nurture sequences, and call tracking</li>
+          <li class="truth-item"><span class="truth-icon we">&#10003;</span> Call scripts, training, and a proven call cadence for your team</li>
+          <li class="truth-item"><span class="truth-icon we">&#10003;</span> Full reporting so you see every number, every month</li>
+        </ul>
+      </div>
+      <div class="truth-col">
+        <h3>What <em>You</em> Handle</h3>
+        <ul class="truth-list">
+          <li class="truth-item"><span class="truth-icon you">&#10003;</span> Your team calls the leads using the scripts and cadence we provide</li>
+          <li class="truth-item"><span class="truth-icon you">&#10003;</span> You show up to the appointments and deliver great care</li>
+          <li class="truth-item"><span class="truth-icon you">&#10003;</span> Your front desk follows the system we build for them</li>
+          <li class="truth-item"><span class="truth-icon you">&#10003;</span> You close the patients that walk through your door</li>
+          <li class="truth-item"><span class="truth-icon you">&#10003;</span> You commit to the process and give it time to work</li>
+        </ul>
+      </div>
+    </div>
+    <div class="truth-divider reveal">
+      <p>The practices that crush it with us aren't the ones with the biggest budgets.<br>They're the ones that <em>do the work.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WALL OF PROOF ══ -->
+<section class="proof-wall-section" id="proof">
+  <div class="container">
+    <div class="narrow reveal" style="text-align:center; margin-bottom: 48px;">
+      <div class="section-eyebrow" style="color: var(--gold-bright);">Proof</div>
+      <div class="section-title" style="color: #fff;">700+ Practices. <em>Here's What They Say.</em></div>
+    </div>
+    <div class="proof-wall reveal">
+      <div class="proof-quote">
+        <p>"In my 15 years in practice, I've worked with over 25 different marketing agencies, and I can confidently say Be Top Local is in a league of their own. They proactively identify problems, fix them, and optimize without me having to hover or constantly check in, which is priceless as a busy practice owner."</p>
+        <div class="attribution">Daniel Roach</div>
+      </div>
+      <div class="proof-quote">
+        <p>"We have tried so many different marketing companies and we finally found the one. From day 1 we started seeing leads. We easily have generated income that it was a no brainer to double down with Be Top Local."</p>
+        <div class="attribution">Patrick Cucarola</div>
+      </div>
+      <div class="proof-quote">
+        <p>"I have an orthopaedic clinic in central Georgia and been with BTL for over two years. They have been fantastic to work with, from putting together a great landing page to coaching on how to speak on the phone to the prospective patients."</p>
+        <div class="attribution">M Bann</div>
+      </div>
+      <div class="proof-quote">
+        <p>"Their service has brought us a great deal of new business. It does not feel like a big marketing company. Ben and Dwayn have been great."</p>
+        <div class="attribution">Gordie Cheyne</div>
+      </div>
+      <div class="proof-quote">
+        <p>"Be Top Local has helped grow our business! Professional and efficient, each team member has been fabulous! No pressure tactics. They underpromise and overdeliver!"</p>
+        <div class="attribution">Michelle Sims</div>
+      </div>
+      <div class="proof-quote">
+        <p>"The results of my campaign have been phenomenal. They are very easy to work with and very responsive. They have been a complete game changer for my business!"</p>
+        <div class="attribution">Justin Bergin</div>
+      </div>
+      <div class="proof-quote">
+        <p>"We have been working with BTL for over 15 months and are scheduling 15-20 New Patients a WEEK."</p>
+        <div class="attribution">Dr. Ryan Moorman</div>
+      </div>
+      <div class="proof-quote">
+        <p>"Incredible results within my budget. The staff at BTL goes above and beyond what I expected. They have driven over 60 patients into my office in the first month."</p>
+        <div class="attribution">David Z.</div>
+      </div>
+      <div class="proof-quote">
+        <p>"The team at Be Top Local work hard to help you understand your market and grow your business. Best decision we made this year."</p>
+        <div class="attribution">Tricia S.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="narrow reveal">
+      <div class="section-eyebrow" style="text-align:center;">How It Works</div>
+      <div class="section-title" style="text-align:center;">Four Moving Pieces. <em>One System.</em></div>
+    </div>
+    <div class="how-steps reveal">
+      <div class="how-step">
+        <div class="how-step-label">Step 1</div>
+        <h3>We Run the Ads</h3>
+        <p>Condition-specific campaigns on Facebook and Instagram. Not generic brand awareness. Ads built for neuropathy patients, knee pain patients, weight loss patients, back pain patients. <strong>Tested across thousands of campaigns over 10+ years.</strong></p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-label">Step 2</div>
+        <h3>We Capture the Lead</h3>
+        <p>Every click goes to a landing page built for that exact condition. The lead enters their info, hits our system, and <strong>the AI responds in under 60 seconds</strong> via text. Nights, weekends, holidays. No lead sits.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-label">Step 3</div>
+        <h3>Your Team Closes</h3>
+        <p>We give your front desk everything they need: <strong>proven call scripts, a call cadence, and training.</strong> The AI keeps leads warm. Your team brings them in. This is where the work happens on your end.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-label">Step 4</div>
+        <h3>We Optimize Together</h3>
+        <p>You see every number. What was spent, what came back, what's working, what isn't. <strong>We cut what's losing and double down on what's winning.</strong> Month over month, the system gets sharper.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONDITIONS BAR ══ -->
+<div class="conditions-bar">
+  <div class="container">
+    <div class="section-eyebrow">Conditions We Run Campaigns For</div>
+    <div class="condition-tags">
+      <span class="condition-tag">Neuropathy</span>
+      <span class="condition-tag">Knee Pain</span>
+      <span class="condition-tag">Back Pain</span>
+      <span class="condition-tag">Weight Loss</span>
+      <span class="condition-tag">Shoulder Pain</span>
+      <span class="condition-tag">Hormone Therapy</span>
+      <span class="condition-tag">Regenerative Medicine</span>
+      <span class="condition-tag">+ 40 More</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ WHO THIS IS FOR ══ -->
+<section class="fit-section">
+  <div class="container">
+    <div class="narrow reveal">
+      <div class="section-eyebrow" style="text-align:center;">Is This For You?</div>
+      <div class="section-title" style="text-align:center;">We're Not For <em>Everyone</em></div>
+    </div>
+    <div class="fit-grid reveal">
+      <div class="fit-col yes">
+        <div class="fit-label">This is for you if...</div>
+        <h3>Good Fit</h3>
+        <div class="fit-item"><span class="fit-check">&#10003;</span> You run a functional, integrative, or chiropractic practice</div>
+        <div class="fit-item"><span class="fit-check">&#10003;</span> Your average patient value is $2,500+</div>
+        <div class="fit-item"><span class="fit-check">&#10003;</span> You have a front desk team that can make calls</div>
+        <div class="fit-item"><span class="fit-check">&#10003;</span> You're willing to follow a system and trust the process</div>
+        <div class="fit-item"><span class="fit-check">&#10003;</span> You want predictable patient flow, not random spikes</div>
+      </div>
+      <div class="fit-col no">
+        <div class="fit-label">This isn't for you if...</div>
+        <h3>Not a Fit</h3>
+        <div class="fit-item"><span class="fit-x">&#10007;</span> You're brand new with no established practice</div>
+        <div class="fit-item"><span class="fit-x">&#10007;</span> You don't have staff to follow up on leads</div>
+        <div class="fit-item"><span class="fit-x">&#10007;</span> You want to micromanage every ad and landing page</div>
+        <div class="fit-item"><span class="fit-x">&#10007;</span> You're looking for a magic bullet with zero effort</div>
+        <div class="fit-item"><span class="fit-x">&#10007;</span> You're not willing to invest in growing your practice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPARISON ══ -->
+<section>
+  <div class="container">
+    <div class="narrow reveal">
+      <div class="section-eyebrow" style="text-align:center;">The Difference</div>
+      <div class="section-title" style="text-align:center;">Be Top Local vs. <em>Your Last Agency</em></div>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Typical Agency</th>
+            <th>Be Top Local</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Focus</td>
+            <td><span class="cx">&#10007;</span> Dentists, lawyers, anyone</td>
+            <td><span class="cc">&#10003;</span> Functional &amp; integrative only</td>
+          </tr>
+          <tr>
+            <td>Lead Follow-Up</td>
+            <td><span class="cx">&#10007;</span> "Here are your leads, good luck"</td>
+            <td><span class="cc">&#10003;</span> AI + we train your team to close</td>
+          </tr>
+          <tr>
+            <td>What You Get</td>
+            <td><span class="cx">&#10007;</span> A report full of impressions</td>
+            <td><span class="cc">&#10003;</span> Patients on your schedule</td>
+          </tr>
+          <tr>
+            <td>Tracking</td>
+            <td><span class="cx">&#10007;</span> Clicks and vanity metrics</td>
+            <td><span class="cc">&#10003;</span> Every dollar tracked to patients</td>
+          </tr>
+          <tr>
+            <td>Team Training</td>
+            <td><span class="cx">&#10007;</span> Not their problem</td>
+            <td><span class="cc">&#10003;</span> Scripts, cadence, accountability</td>
+          </tr>
+          <tr>
+            <td>Experience</td>
+            <td><span class="cx">&#10007;</span> Learning on your dime</td>
+            <td><span class="cc">&#10003;</span> 700+ practices. 10+ years.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ROI ══ -->
+<section class="roi-section">
+  <div class="container">
+    <div class="narrow reveal" style="text-align:center;">
+      <div class="section-eyebrow">Average Client ROI</div>
+      <div class="section-title">For Every $1 Invested, <em>Here's What Comes Back</em></div>
+    </div>
+    <div class="roi-grid reveal">
+      <div class="roi-card">
+        <div class="roi-num">4:1</div>
+        <div class="roi-label">Floor</div>
+      </div>
+      <div class="roi-card featured">
+        <div class="roi-num">6-8:1</div>
+        <div class="roi-label">Average</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-num">10:1+</div>
+        <div class="roi-label">Top Performers</div>
+      </div>
+    </div>
+    <p class="roi-note reveal">Tracked from what clients spend to the patient revenue they collect. <strong>Not projections. Real numbers.</strong></p>
+  </div>
+</section>
+
+<!-- ══ TEAM ══ -->
+<section class="team-section" id="about">
+  <div class="container">
+    <div class="team-photo reveal">
+      <img src="btl-team-photo.png" alt="The Be Top Local Team">
+    </div>
+    <div class="team-text reveal">
+      <div class="section-eyebrow">Who We Are</div>
+      <div class="section-title">One Market. <em>One Focus.</em></div>
+      <p>Every person on this team wakes up focused on one thing: getting patients into functional and integrative medicine practices. Account managers, ad buyers, copywriters, AI specialists. That's all we do.</p>
+      <p>10 years of data in one niche beats 2 years of guessing across 50 industries. We know what converts neuropathy patients. We know what landing pages work for knee pain. <strong>Your last agency was figuring that out on your dime. We already did.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="narrow reveal" style="text-align:center;">
+      <div class="section-eyebrow">Questions</div>
+      <div class="section-title">We Know You're <em>Skeptical</em></div>
+      <div class="section-sub" style="text-align:center;">Good. You should be.</div>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">"I've been burned by agencies before."<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Most of our clients have. That's why we only work with functional and integrative practices. We've been doing this for 10+ years across 700+ practices. We track everything from the ad to the patient in your chair. <strong>If it's not working, we both know it.</strong></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"How is this different from the last agency I hired?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Your last agency handed you leads and disappeared. We build the full system: ads, landing pages, AI follow-up, CRM, AND we train your team on how to convert those leads into patients. <strong>We don't just generate leads. We help you close them.</strong></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"My front desk can't handle more leads."<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>The AI handles instant follow-up so leads don't go cold while your team is with patients. But your team still plays a critical role. We give them scripts, a cadence, and training so they know what to say and when. <strong>The AI buys time. Your team closes.</strong></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"How much does this cost?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>We'll cover that on the call. It depends on how many conditions you want to run and where your practice is at. What we can tell you is that our clients typically see 6-8x return on what they invest. <strong>We'll be straight with you about whether the numbers make sense.</strong></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"What kind of ROI should I expect?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Average is 6-8x. Top performers hit 10:1+. Our floor is typically around 4:1. These are tracked numbers from what clients spend to what they collect in patient revenue. <strong>But ROI depends on your team following the system. We bring the leads. You have to close them.</strong></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"Do I have to sign a long-term contract?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>We ask for a commitment because the system takes time to build and optimize. But we're not trapping anyone. Our longest clients have been with us 9-10 years because it works, not because of a contract. <strong>Results keep people. Not fine print.</strong></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="section-eyebrow reveal" style="color: var(--gold-bright);">Your Move</div>
+    <div class="section-title reveal" style="color: #fff;">Ready to Stop Guessing and <em>Start Growing?</em></div>
+    <div class="section-sub reveal">Fill out the application. We'll review it and reach out if we think we can help. If we can't, we'll tell you that too.</div>
+    <div class="reveal">
+      <a href="application-quiz.html" class="btn-primary">See If You Qualify</a>
+      <p class="final-note">Takes 2 minutes. No obligation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="Logo%20Files/Copy%20of%20BeTopLocal.png" alt="Be Top Local"></div>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <p class="footer-copy">&copy; 2026 Be Top Local. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
