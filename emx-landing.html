@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- v1777568950 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Functional & Integrative Clinics Keep Their Neuropathy Schedule Booked Out | Be Top Local</title>
+<meta name="description" content="Be Top Local runs done-for-you Facebook ads for functional and integrative medicine clinics. 10 years, $10M+ ad spend, 700+ practices, $100M+ in new patient revenue. Most clients hit 4:1 to 8:1 ROI on neuropathy ads in 90 days.">
+<link rel="icon" type="image/png" href="btl-bee.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --ink-faint: #B8B8B8;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --surface-cool: #F7F7F5;
+    --border: #E5E5E3;
+    --border-light: #F0F0EE;
+    --red: #BE3A2A;
+    --green: #1B7D42;
+    --green-bg: #E8F5ED;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink-soft);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+  /* ── BRAND ACCENT BAR (top of page) ── */
+  .brand-accent-bar {
+    height: 5px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 102;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 5px; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
+  .nav-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo img { height: 32px; display: block; }
+  .nav-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: var(--gold-subtle);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+  .nav-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(197,160,40,0.2);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(197,160,40,0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(197,160,40,0); }
+  }
+  .nav-cta {
+    padding: 10px 22px;
+    background: var(--ink);
+    color: #fff !important;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--ink) !important;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 130px 0 80px;
+    position: relative;
+    overflow: hidden;
+    background: var(--surface-warm);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 1200px; height: 700px;
+    background: radial-gradient(ellipse, rgba(197,160,40,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .hero-content {
+    max-width: 880px;
+    width: 100%;
+  }
+  .hero-eyebrow-wrap { display: flex; justify-content: center; }
+
+  /* VIDEO */
+  .video-wrap {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .video-frame {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    background: var(--ink);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.25), 0 0 0 1px rgba(197,160,40,0.15);
+  }
+  .video-frame iframe,
+  .video-frame video,
+  .video-frame .wistia_responsive_padding,
+  .video-frame .wistia_embed {
+    position: absolute !important;
+    top: 0; left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+  }
+  /* Placeholder shown until Wistia embed is dropped in */
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background:
+      radial-gradient(ellipse 60% 80% at 30% 30%, rgba(197,160,40,0.15), transparent),
+      var(--ink);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px;
+  }
+  .video-placeholder .play {
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 40px rgba(197,160,40,0.35);
+  }
+  .video-placeholder .play::after {
+    content: '';
+    border-style: solid;
+    border-width: 14px 0 14px 22px;
+    border-color: transparent transparent transparent var(--ink);
+    margin-left: 6px;
+  }
+  .video-placeholder .label {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .video-placeholder .sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .video-caption {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .video-caption strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: var(--gold-subtle);
+    border: 1px solid rgba(197,160,40,0.3);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 22px;
+    letter-spacing: -1px;
+  }
+  .hero h1 em { font-style: italic; font-weight: 700; color: var(--gold); }
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .hero-sub strong { font-weight: 600; color: var(--ink); }
+  .hero-bullets { list-style: none; }
+  .hero-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .hero-bullets li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23111' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8l3.5 3.5L13 5'/%3E%3C/svg%3E");
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* FORM CARD */
+  .form-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 28px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(197,160,40,0.05);
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: left;
+    scroll-margin-top: 100px;
+  }
+
+  /* INLINE CTA (between sections) */
+  .inline-cta {
+    background: var(--ink);
+    color: #fff;
+    padding: 28px 40px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    max-width: 980px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .inline-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+  }
+  .inline-cta-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    flex: 1;
+  }
+  .inline-cta-text em { font-style: italic; color: var(--gold-bright); }
+  .inline-cta-btn {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .inline-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(226,188,46,0.45);
+  }
+  .inline-cta-wrap {
+    padding: 0 28px;
+    margin: 56px 0;
+  }
+  @media (max-width: 740px) {
+    .inline-cta {
+      flex-direction: column;
+      text-align: center;
+      padding: 28px;
+      gap: 18px;
+    }
+  }
+  .form-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 22px;
+    text-align: left;
+  }
+  .form-card-title em { font-style: italic; color: var(--gold); }
+  .form-field { margin-bottom: 12px; }
+  .form-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .form-field input {
+    width: 100%;
+    padding: 17px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--surface-cool);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  .form-field input::placeholder { color: var(--ink-faint); font-weight: 300; }
+  .form-field input:focus {
+    border-color: var(--gold);
+    background: var(--surface);
+    box-shadow: 0 0 0 4px var(--gold-glow);
+  }
+  .form-submit {
+    width: 100%;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, var(--ink) 0%, #2A2A2A 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+  }
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 0 60px rgba(197,160,40,0.2);
+    background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-bright) 50%, var(--gold) 100%);
+    color: var(--ink);
+  }
+  .form-trust {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+  .form-trust strong { color: var(--ink); font-weight: 600; }
+
+  /* PROOF BAR (DARK) */
+  .proof-bar {
+    background: var(--ink);
+    padding: 56px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .proof-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  .proof-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--gold-bright);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .proof-num span { font-size: 28px; vertical-align: top; margin-left: 2px; }
+  .proof-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+  }
+
+  /* SECTION DEFAULTS */
+  section { padding: 72px 0; }
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4.4vw, 46px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+  .section-title em { font-style: italic; font-weight: 700; color: var(--gold); }
+  .section-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+  }
+
+  /* WHY US */
+  .why-us { background: var(--surface-warm); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .why-col {
+    padding: 32px;
+    border-radius: 16px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+  }
+  .why-col.them {
+    background: rgba(190, 58, 42, 0.04);
+    border-color: rgba(190, 58, 42, 0.15);
+  }
+  .why-col.us {
+    background: rgba(197,160,40,0.06);
+    border-color: rgba(197,160,40,0.3);
+    box-shadow: 0 12px 40px rgba(197,160,40,0.08);
+  }
+  .why-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .why-col.them .why-label { color: var(--red); }
+  .why-col.us .why-label { color: var(--gold-deep); }
+  .why-col h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 18px;
+    line-height: 1.2;
+  }
+  .why-list { list-style: none; }
+  .why-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+  .why-list li::before {
+    content: '';
+    flex-shrink: 0;
+    margin-top: 8px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+  }
+  .why-col.them .why-list li::before { background: var(--red); }
+  .why-col.us .why-list li::before { background: var(--gold); }
+
+  /* FEATURED REVIEW (DANIEL ROACH) */
+  .featured-review {
+    background: var(--ink);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-review::before {
+    content: '';
+    position: absolute;
+    top: -300px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(197,160,40,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .featured-review-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .featured-review .section-eyebrow { color: var(--gold-bright); }
+  .featured-review h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 2.8vw, 34px);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 36px;
+    font-style: italic;
+    color: #fff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .featured-review h2 em {
+    font-style: normal;
+    color: var(--gold-bright);
+  }
+  .review-screenshot {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 720px;
+    margin: 0 auto;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  }
+  .review-screenshot img {
+    width: 100%;
+    display: block;
+  }
+  .review-caption {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* REALISTIC NUMBERS */
+  .real-numbers .section-title em { color: var(--gold); }
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .number-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 18px;
+    padding: 36px 28px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .number-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 12px 40px rgba(197,160,40,0.12);
+    transform: translateY(-4px);
+  }
+  .number-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -1.5px;
+  }
+  .number-big em { font-style: italic; color: var(--gold); }
+  .number-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .number-body {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+  .underpromise-tag {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 15px;
+    color: var(--ink-mid);
+    font-style: italic;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+  }
+  .underpromise-tag strong { color: var(--ink); font-style: normal; font-weight: 600; }
+
+  /* CLICKFUNNELS AWARD */
+  .award-section { background: var(--surface-warm); }
+  .award-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .award-img-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+    background: var(--ink);
+  }
+  .award-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .award-content .section-eyebrow { text-align: left; }
+  .award-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.2vw, 38px);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+  }
+  .award-content h2 em { font-style: italic; color: var(--gold); }
+  .award-content p {
+    font-size: 16px;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 14px;
+  }
+  .award-content p strong { font-weight: 600; color: var(--ink); }
+
+  /* GOOGLE REVIEW SCREENSHOTS GRID */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .review-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .review-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 12px 40px rgba(197,160,40,0.12);
+    transform: translateY(-3px);
+  }
+  .review-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .review-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--ink);
+    color: #fff;
+    border-top: 1px solid var(--border);
+  }
+  .review-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--gold-bright);
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+  .review-stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+  .review-link {
+    display: block;
+    text-align: center;
+    margin-top: 32px;
+    color: var(--gold-deep);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  .review-link:hover { color: var(--gold); }
+
+  /* HOW IT WORKS */
+  .how-section { background: var(--surface-warm); }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .how-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 18px;
+    padding: 36px 28px;
+  }
+  .how-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .how-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .how-card p {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* FAQ */
+  .faq-grid {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    user-select: none;
+  }
+  .faq-q::after {
+    content: '+';
+    font-size: 28px;
+    color: var(--gold);
+    font-weight: 300;
+    transition: transform 0.3s;
+    line-height: 1;
+  }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin 0.4s ease;
+    font-size: 16px;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    margin-top: 14px;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px; height: 800px;
+    background: radial-gradient(ellipse, rgba(197,160,40,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .final-cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3.8vw, 44px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+  .final-cta h2 em { font-style: italic; color: var(--gold-bright); }
+  .final-cta p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 36px;
+  }
+  .final-cta-btn {
+    display: inline-block;
+    padding: 22px 48px;
+    background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-bright) 50%, var(--gold) 100%);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 14px;
+    transition: all 0.3s;
+  }
+  .final-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(226,188,46,0.5);
+  }
+  .final-cta-trust {
+    margin-top: 22px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 32px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+  .footer-logo img {
+    height: 26px;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-bright); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid { gap: 28px; }
+    .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .why-grid { grid-template-columns: 1fr; gap: 20px; }
+    .numbers-grid { grid-template-columns: 1fr; }
+    .award-grid { grid-template-columns: 1fr; gap: 32px; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: 1fr; }
+    .nav-badge { display: none; }
+    section { padding: 60px 0; }
+    .hero { padding: 110px 0 60px; }
+    .container { padding: 0 20px; }
+  }
+
+  @media (max-width: 540px) {
+    .nav-cta { padding: 8px 14px; font-size: 11px; }
+    .hero h1 { font-size: 30px; }
+    .form-card { padding: 24px 20px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- GOLD GRADIENT ACCENT BAR (BTL brand signature) -->
+<div class="brand-accent-bar"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="btl-logo.png" alt="Be Top Local"></a>
+    <a href="#book" class="nav-cta">Book A Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow-wrap">
+          <span class="hero-eyebrow">Blueprint EMX Summit · Fort Worth</span>
+        </div>
+        <h1>Our Average Blueprint Clinic Sees A <em>6:1 Return On Their Investment.</em> Don't Just Take Our Word For It.</h1>
+      </div>
+
+      <!-- ═══ DR. ROACH VIDEO TESTIMONIAL ═══ -->
+      <!-- TO EMBED WISTIA: Replace the entire <div class="video-placeholder">...</div>
+           with your Wistia embed code (iframe or wistia_embed div). The .video-frame
+           wrapper handles the 16:9 responsive aspect ratio automatically. -->
+      <div class="video-wrap">
+        <div class="video-frame">
+          <div class="video-placeholder">
+            <div class="play"></div>
+            <div class="label">Dr. Roach Video Testimonial</div>
+            <div class="sub">Wistia Embed Goes Here</div>
+          </div>
+        </div>
+        <div class="video-caption">
+          <strong>Dr. Daniel Roach</strong> · 15 Years In Practice · Blueprint Client
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-card" id="book">
+        <div class="form-card-title">Schedule Your <em>30-Minute</em> Strategy Call</div>
+        <form id="emx-form" onsubmit="handleEMXSubmit(event)" autocomplete="on">
+          <div class="form-field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+          </div>
+          <div class="form-field">
+            <label for="practice">Practice Name</label>
+            <input type="text" id="practice" name="practice" required autocomplete="organization">
+          </div>
+          <button type="submit" class="form-submit">Schedule My Call →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-grid">
+      <div>
+        <div class="proof-num">10<span>+</span></div>
+        <div class="proof-label">Years In Business</div>
+      </div>
+      <div>
+        <div class="proof-num">$10M<span>+</span></div>
+        <div class="proof-label">Ad Spend Managed</div>
+      </div>
+      <div>
+        <div class="proof-num">$100M<span>+</span></div>
+        <div class="proof-label">New Patient Revenue</div>
+      </div>
+      <div>
+        <div class="proof-num">700<span>+</span></div>
+        <div class="proof-label">Practices Served</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div class="container">
+    <div class="section-eyebrow">The Difference</div>
+    <h2 class="section-title">Why Blueprint Neuropathy Programs Pick <em>Us</em>.</h2>
+    <p class="section-sub">
+      You've already burned spend with a generalist agency or two. Here's the gap.
+    </p>
+    <div class="why-grid">
+      <div class="why-col them">
+        <div class="why-label">Generalist Agencies</div>
+        <h3>Treat your neuropathy program like every other local business.</h3>
+        <ul class="why-list">
+          <li>Run the same ad templates for chiropractors, dentists, plumbers, and law firms.</li>
+          <li>No idea how to talk to a 65-year-old neuropathy patient who's already tried gabapentin.</li>
+          <li>Hand off "leads" with no follow-up. Half ghost before the first call.</li>
+          <li>No accountability for booked consults, case starts, or revenue.</li>
+        </ul>
+      </div>
+      <div class="why-col us">
+        <div class="why-label">Be Top Local</div>
+        <h3>Functional and integrative medicine clinics. That's the whole roster.</h3>
+        <ul class="why-list">
+          <li>700+ practices. $10M+ in ad spend. $100M+ in new patient revenue generated.</li>
+          <li>Average client ROI: 6:1 to 8:1. Top performers: 10:1+. Results in the first 30 days.</li>
+          <li>Tracked end-to-end on YOUR numbers, not vanity lead counts.</li>
+          <li>If you're not seeing patients on your schedule, we're not doing our job.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INLINE CTA #1 -->
+<div class="inline-cta-wrap">
+  <div class="inline-cta">
+    <div class="inline-cta-text">Want to see what those numbers could look like for <em>your clinic?</em></div>
+    <a href="#book" class="inline-cta-btn">Schedule My Call →</a>
+  </div>
+</div>
+
+<!-- FEATURED REVIEW - DANIEL ROACH (WRITTEN) -->
+<section class="featured-review">
+  <div class="container">
+    <div class="featured-review-inner">
+      <div class="section-eyebrow">5-Star Google Review</div>
+      <h2>"I've worked with over 25 different marketing agencies. <em>Be Top Local is in a league of their own.</em>"</h2>
+      <div class="review-screenshot">
+        <img src="review-daniel.jpg" alt="Google review from Dr. Daniel Roach: 5 stars, 15 years in practice, 25+ marketing agencies, Be Top Local in a league of their own, neuropathy new patients, schedule consistently booked out">
+      </div>
+      <div class="review-caption">Dr. Daniel Roach · 15 Years In Practice · Blueprint Client</div>
+    </div>
+  </div>
+</section>
+
+<!-- INLINE CTA #2 -->
+<div class="inline-cta-wrap">
+  <div class="inline-cta">
+    <div class="inline-cta-text">Want a schedule that <em>stays booked out</em> like Dr. Roach's?</div>
+    <a href="#book" class="inline-cta-btn">Schedule My Call →</a>
+  </div>
+</div>
+
+<!-- CLICKFUNNELS AWARD -->
+<section class="award-section">
+  <div class="container">
+    <div class="award-grid">
+      <div class="award-img-wrap">
+        <img src="clickfunnels-award.jpg" alt="Be Top Local team accepting the ClickFunnels Two Comma Club X Eight Figure Award">
+      </div>
+      <div class="award-content">
+        <div class="section-eyebrow">Industry Recognition</div>
+        <h2>$10 Million Through One Funnel. <em>Eight-Figure Club.</em></h2>
+        <p>
+          ClickFunnels' Two Comma Club X award goes to a small group of marketers who've actually generated over <strong>$10 million through a single sales funnel.</strong> We earned it building the patient acquisition machine for medical practices.
+        </p>
+        <p>
+          Translation: when we say we've spent the time to figure this out, there's a plaque on the wall to prove it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE REVIEW SCREENSHOTS -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Don't Take My Word For It</div>
+    <h2 class="section-title">Real Google Reviews From <em>Real Doctors</em>.</h2>
+    <p class="section-sub">
+      No anonymous "client of ours" quotes. Real names, real practices, look them up.
+    </p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <img src="review-michelle.jpg" alt="Google review from Michelle Sims: 5 stars, professional and efficient, no pressure tactics, they underpromise and overdeliver">
+        <div class="review-stat">
+          <div class="review-stat-num">8:1</div>
+          <div class="review-stat-label">Average ROI Michelle's<br>Clinic Is Currently Hitting</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <img src="review-ali.jpg" alt="Google review from Ali Salari: 5 stars, Be Top Local dominates, best CPL, 5 years strong, feels like an in-house marketing division">
+      </div>
+      <div class="review-card">
+        <img src="review-patrick.jpg" alt="Google review from Patrick Cucarola: 5 stars, tried so many marketing companies and finally found the one, started seeing leads from day 1">
+      </div>
+      <div class="review-card">
+        <img src="review-justin.jpg" alt="Google review from Justin Bergin: 5 stars, results have been phenomenal in 3 weeks, complete game changer for my business">
+      </div>
+      <div class="review-card">
+        <img src="review-bann.jpg" alt="Google review from M Bann: 5 stars, orthopaedic clinic, 2+ years with BTL, so many patients you will need dedication to handle the volume">
+      </div>
+      <div class="review-card">
+        <img src="review-gordie.jpg" alt="Google review from Gordie Cheyne, chiropractor: 5 stars, very personal, brought us a great deal of new business, does not feel like a big marketing company">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INLINE CTA #3 -->
+<div class="inline-cta-wrap">
+  <div class="inline-cta">
+    <div class="inline-cta-text">Your name <em>could be on this page next.</em></div>
+    <a href="#book" class="inline-cta-btn">Schedule My Call →</a>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="container">
+    <div class="section-eyebrow">No Mystery Box</div>
+    <h2 class="section-title">What Happens When You <em>Book.</em></h2>
+    <p class="section-sub">
+      One 30-minute call. We pull up your numbers, you walk away with a clearer picture of what's possible.
+    </p>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <h3>Pick A Time Next Week</h3>
+        <p>Open slots May 4 through 8. The calendar opens after you fill out the form.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <h3>We Map Your Numbers</h3>
+        <p>Current ad spend, neuropathy patient flow, average case value. We'll show you what 6:1 to 8:1 looks like for your clinic specifically.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <h3>Honest Answer</h3>
+        <p>If it's a fit, we talk next steps. If not, we'll point you somewhere better. Either way you leave with a clearer picture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Common Questions</div>
+    <h2 class="section-title">Things Doctors <em>Always Ask</em>.</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">How long is the call?</div>
+        <div class="faq-a">30 minutes. We respect your time. If we're done in 20, we're done.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if we're not a fit?</div>
+        <div class="faq-a">We'll tell you on the call. We turn away about half the doctors we meet with. If our program isn't right for your clinic, we'll say so. We won't take your money if you're not qualified for what we do.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are you going to lock me into a long contract?</div>
+        <div class="faq-a">No. We're always month-to-month. We don't believe in long-term contracts. Our clients stay because the numbers work, not because they're locked in.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why only functional and integrative medicine clinics?</div>
+        <div class="faq-a">Because that's what we know how to do well. 10 years, 700+ practices, $10M+ in ad spend, exclusively medical. We'd rather be the best at one thing than mediocre at five.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">I've been burned by an agency before. How is this different?</div>
+        <div class="faq-a">Fair question. Two things. First, we don't have a sales team. The people promising you results are the same people running your campaigns. Second, we track end-to-end, not just leads. If you're not seeing booked patients on your schedule, we're not doing our job. Our clients stay because we keep delivering, not because we lock them in.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner">
+      <h2>Don't Fly Home Sunday With <em>The Same Neuropathy Patient Flow Problem.</em></h2>
+      <p>
+        Book a 30-minute call. We'll pull up your numbers and give you an honest read on whether we can help.
+      </p>
+      <a href="#book" class="final-cta-btn">Schedule My Call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="btl-logo.png" alt="Be Top Local"></div>
+      <div>© 2026 Be Top Local · Neuropathy Patient Acquisition For Functional & Integrative Clinics</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="https://www.betoplocal.com">betoplocal.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // FAQ toggle
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  /*
+  ════════════════════════════════════════════════════════════════
+  FORM HANDLER — REPLACE WITH GHL WEBHOOK BEFORE LAUNCH
+  ════════════════════════════════════════════════════════════════
+  Captures fields, redirects to TYP with lead data as URL params
+  so the GHL calendar can pre-fill name/email/phone.
+
+  When ready: paste GHL webhook URL into the fetch() block below.
+  */
+  function handleEMXSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    console.log('EMX Lead Captured:', data);
+
+    // ── GHL WEBHOOK (uncomment + fill in when ready) ──
+    // fetch('YOUR_GHL_WEBHOOK_URL_HERE', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // });
+
+    const params = new URLSearchParams({
+      first_name: (data.name || '').split(' ')[0] || '',
+      last_name: (data.name || '').split(' ').slice(1).join(' ') || '',
+      email: data.email || '',
+      phone: data.phone || '',
+      practice: data.practice || ''
+    }).toString();
+
+    window.location.href = 'emx-thank-you.html?' + params;
+  }
+</script>
+
+</body>
+</html>
