@@ -289,18 +289,35 @@
     background-repeat: no-repeat;
   }
 
-  /* FORM CARD */
-  .form-card {
+  /* CALENDAR CARD */
+  .calendar-card {
     background: var(--surface);
     border: 1.5px solid var(--border);
     border-radius: 20px;
-    padding: 32px 28px;
+    padding: 24px;
     box-shadow: 0 24px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(197,160,40,0.05);
     width: 100%;
-    max-width: 560px;
+    max-width: 880px;
     margin: 0 auto;
     text-align: left;
     scroll-margin-top: 100px;
+  }
+  .calendar-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .calendar-card-title em { font-style: italic; color: var(--gold); }
+  .calendar-card iframe {
+    width: 100%;
+    border: none;
+    min-height: 720px;
+    display: block;
+    border-radius: 12px;
   }
 
   /* INLINE CTA (between sections) */
@@ -364,76 +381,6 @@
       gap: 18px;
     }
   }
-  .form-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1.15;
-    margin-bottom: 22px;
-    text-align: left;
-  }
-  .form-card-title em { font-style: italic; color: var(--gold); }
-  .form-field { margin-bottom: 12px; }
-  .form-field label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--ink-soft);
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  .form-field input {
-    width: 100%;
-    padding: 17px 20px;
-    border: 1.5px solid var(--border);
-    border-radius: 12px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--ink);
-    background: var(--surface-cool);
-    outline: none;
-    transition: all 0.3s ease;
-  }
-  .form-field input::placeholder { color: var(--ink-faint); font-weight: 300; }
-  .form-field input:focus {
-    border-color: var(--gold);
-    background: var(--surface);
-    box-shadow: 0 0 0 4px var(--gold-glow);
-  }
-  .form-submit {
-    width: 100%;
-    padding: 18px 24px;
-    background: linear-gradient(135deg, var(--ink) 0%, #2A2A2A 100%);
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 8px;
-  }
-  .form-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 0 60px rgba(197,160,40,0.2);
-    background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-bright) 50%, var(--gold) 100%);
-    color: var(--ink);
-  }
-  .form-trust {
-    text-align: center;
-    margin-top: 14px;
-    font-size: 13px;
-    color: var(--ink-mid);
-    line-height: 1.5;
-  }
-  .form-trust strong { color: var(--ink); font-weight: 600; }
-
   /* PROOF BAR (DARK) */
   .proof-bar {
     background: var(--ink);
@@ -974,7 +921,8 @@
   @media (max-width: 540px) {
     .nav-cta { padding: 8px 14px; font-size: 11px; }
     .hero h1 { font-size: 30px; }
-    .form-card { padding: 24px 20px; }
+    .calendar-card { padding: 16px; }
+    .calendar-card iframe { min-height: 640px; }
     .footer-inner { flex-direction: column; text-align: center; }
   }
 </style>
@@ -1020,28 +968,15 @@
         </div>
       </div>
 
-      <!-- FORM -->
-      <div class="form-card" id="book">
-        <div class="form-card-title">Schedule Your <em>30-Minute</em> Strategy Call</div>
-        <form id="emx-form" onsubmit="handleEMXSubmit(event)" autocomplete="on">
-          <div class="form-field">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required autocomplete="name">
-          </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email">
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" required autocomplete="tel">
-          </div>
-          <div class="form-field">
-            <label for="practice">Practice Name</label>
-            <input type="text" id="practice" name="practice" required autocomplete="organization">
-          </div>
-          <button type="submit" class="form-submit">Schedule My Call →</button>
-        </form>
+      <!-- CALENDAR (GHL Embed) -->
+      <div class="calendar-card" id="book">
+        <div class="calendar-card-title">Pick A Time For Your <em>30-Minute</em> Strategy Call</div>
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/booking/lvbEH2AYHairst5K8uhh"
+          scrolling="no"
+          id="lvbEH2AYHairst5K8uhh_emx_landing">
+        </iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
       </div>
     </div>
   </div>
@@ -1250,7 +1185,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">I've been burned by an agency before. How is this different?</div>
-        <div class="faq-a">Fair question. Two things. First, we don't have a sales team. The people promising you results are the same people running your campaigns. Second, we track end-to-end, not just leads. If you're not seeing booked patients on your schedule, we're not doing our job. Our clients stay because we keep delivering, not because we lock them in.</div>
+        <div class="faq-a">Fair question. Three reasons. First, we've actually generated thousands of neuropathy patients - not leads, patients. Most agencies promise "30 new patients in month one," then you launch and find out they meant 30 leads. We track both. We deliver patients on the schedule. Second, we set realistic expectations. Our average client hits 6:1 to 8:1 ROI in the first 30 days. We won't promise you 100:1. Third, we're always month-to-month. We don't need long contracts because our average client stays with us over 6 years.</div>
       </div>
     </div>
   </div>
@@ -1297,40 +1232,8 @@
       item.classList.toggle('open');
     });
   });
-
-  /*
-  ════════════════════════════════════════════════════════════════
-  FORM HANDLER — REPLACE WITH GHL WEBHOOK BEFORE LAUNCH
-  ════════════════════════════════════════════════════════════════
-  Captures fields, redirects to TYP with lead data as URL params
-  so the GHL calendar can pre-fill name/email/phone.
-
-  When ready: paste GHL webhook URL into the fetch() block below.
-  */
-  function handleEMXSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    console.log('EMX Lead Captured:', data);
-
-    // ── GHL WEBHOOK (uncomment + fill in when ready) ──
-    // fetch('YOUR_GHL_WEBHOOK_URL_HERE', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data)
-    // });
-
-    const params = new URLSearchParams({
-      first_name: (data.name || '').split(' ')[0] || '',
-      last_name: (data.name || '').split(' ').slice(1).join(' ') || '',
-      email: data.email || '',
-      phone: data.phone || '',
-      practice: data.practice || ''
-    }).toString();
-
-    window.location.href = 'emx-thank-you.html?' + params;
-  }
 </script>
 
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
