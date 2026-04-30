@@ -470,4 +470,19 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-logo"><img src="btl-logo.png" alt="Be Top Local"></
+      <div class="footer-logo"><img src="btl-logo.png" alt="Be Top Local"></div>
+      <div>© 2026 Be Top Local · Neuropathy Patient Acquisition For Functional & Integrative Clinics</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Personalize greeting if first_name was passed via URL params
+  // (Most GHL booking widgets pass first_name in the redirect URL)
+  const params = new URLSearchParams(window.location.search);
+  const firstName = params.get('first_name') || params.get('name');
+  if (firstName && firstName.trim()) {
+    const safeName = firstName.replace(/[^a-zA-Z\s'-]/g, '').trim();
+    if (safeName) {
+      const heading = document.getElementById('hero-greeting');
+      heading.innerHTML = safeName + ",
