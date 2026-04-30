@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Booked | Be Top Local</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="btl-bee.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-glow: rgba(212,175,55,0.2);
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --ink-faint: #B8B8B8;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --surface-cool: #F7F7F5;
+    --border: #E5E5E3;
+    --border-light: #F0F0EE;
+    --green: #1B7D42;
+    --green-bg: #E8F5ED;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink-soft);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+  /* Brand accent bar */
+  .brand-accent-bar {
+    height: 5px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 102;
+  }
+
+  /* Nav */
+  nav {
+    position: relative;
+    margin-top: 5px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 68px;
+  }
+  .nav-logo img { height: 32px; display: block; }
+
+  /* HERO */
+  .hero {
+    padding: 64px 0 56px;
+    background: var(--surface-warm);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 1200px; height: 600px;
+    background: radial-gradient(ellipse, rgba(197,160,40,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .check-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px; height: 72px;
+    background: var(--green-bg);
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    margin-bottom: 24px;
+  }
+  .check-badge svg { width: 36px; height: 36px; }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .hero-sub strong { color: var(--ink); font-weight: 600; }
+
+  /* SECTION DEFAULTS */
+  section { padding: 72px 0; }
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 40px;
+  }
+
+  /* WELCOME VIDEO */
+  .welcome-video { background: var(--surface); }
+  .video-wrap {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .video-frame {
+    position: relative;
+    background: var(--ink);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(197,160,40,0.12);
+  }
+  .video-frame iframe { width: 100%; border: none; display: block; }
+  .video-placeholder {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+  .video-placeholder-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background:
+      radial-gradient(ellipse 60% 80% at 30% 30%, rgba(197,160,40,0.15), transparent),
+      var(--ink);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px;
+  }
+  .video-placeholder-inner .play {
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 40px rgba(197,160,40,0.35);
+  }
+  .video-placeholder-inner .play::after {
+    content: '';
+    border-style: solid;
+    border-width: 14px 0 14px 22px;
+    border-color: transparent transparent transparent var(--ink);
+    margin-left: 6px;
+  }
+  .video-placeholder-inner .label {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .video-placeholder-inner .sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* WHAT TO EXPECT */
+  .expect-section { background: var(--surface-warm); }
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .expect-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 18px;
+    padding: 32px 28px;
+    transition: all 0.3s;
+  }
+  .expect-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 12px 40px rgba(197,160,40,0.1);
+    transform: translateY(-3px);
+  }
+  .expect-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .expect-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  .expect-card p {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* FEATURED PROOF */
+  .proof-section {
+    background: var(--ink);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .proof-section::before {
+    content: '';
+    position: absolute;
+    top: -300px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(197,160,40,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .proof-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .proof-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 24px;
+  }
+  .proof-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.35;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  .proof-quote em {
+    font-style: normal;
+    color: var(--gold-bright);
+  }
+  .proof-attribution {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 24px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px;
+  }
+  .proof-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .proof-role {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding-left: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  /* RESCHEDULE NOTE */
+  .reschedule-note {
+    background: var(--surface-warm);
+    padding: 40px 0;
+    text-align: center;
+  }
+  .reschedule-note p {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .reschedule-note strong { color: var(--ink); font-weight: 600; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 32px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+  .footer-logo img {
+    height: 26px;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .expect-grid { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+    .hero { padding: 48px 0 40px; }
+    .container { padding: 0 20px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- GOLD ACCENT BAR -->
+<div class="brand-accent-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="emx-landing.html" class="nav-logo"><img src="btl-logo.png" alt="Be Top Local"></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="check-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1B7D42" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <div class="hero-eyebrow">Booking Confirmed</div>
+      <h1 id="hero-greeting">You're <em>Booked.</em></h1>
+      <p class="hero-sub">
+        Check your email for the calendar invite and confirmation details. <strong>If you don't see it in 5 minutes, check spam.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WELCOME VIDEO FROM BEN -->
+<!-- ═══════════════════════════════════════════════════════════════
+     TO EMBED BEN'S WELCOME VIDEO:
+     Replace the entire <div class="video-placeholder">...</div> block
+     with the Vidalytics (or other) embed code. The .video-frame wrapper
+     handles styling automatically.
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="welcome-video">
+  <div class="container">
+    <div class="section-eyebrow">A Quick Note From Ben</div>
+    <h2 class="section-title">Watch This <em>Before The Call.</em></h2>
+    <p class="section-sub">
+      90 seconds. What to expect, what to bring, why we're going to make this 30 minutes worth your time.
+    </p>
+    <div class="video-wrap">
+      <div class="video-frame">
+        <div class="video-placeholder">
+          <div class="video-placeholder-inner">
+            <div class="play"></div>
+            <div class="label">Welcome Video From Ben</div>
+            <div class="sub">Vidalytics Embed Goes Here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect-section">
+  <div class="container">
+    <div class="section-eyebrow">On The Call</div>
+    <h2 class="section-title">Here's What <em>Happens.</em></h2>
+    <p class="section-sub">
+      30 minutes. We work through your numbers, you walk away with a clearer picture of what's possible.
+    </p>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <div class="expect-num">01</div>
+        <h3>We Pull Up Your Numbers</h3>
+        <p>Current ad spend, neuropathy patient flow, average case value. Have these handy so we can move fast.</p>
+      </div>
+      <div class="expect-card">
+        <div class="expect-num">02</div>
+        <h3>Project Your ROI</h3>
+        <p>We'll show you what 6:1 to 8:1 looks like for your specific clinic based on what we've done for similar Blueprint practices.</p>
+      </div>
+      <div class="expect-card">
+        <div class="expect-num">03</div>
+        <h3>Honest Answer</h3>
+        <p>If we're a fit, we talk next steps. If we're not, we tell you. We turn away about half the doctors we meet with.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROOF / KEEP THEM WARM -->
+<section class="proof-section">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="proof-eyebrow">Why It's Worth Your 30 Minutes</div>
+      <p class="proof-quote">
+        "In my 15 years in practice, I've worked with over 25 different marketing agencies. <em>Be Top Local is in a league of their own.</em> My schedule stays consistently booked out, so I can focus on patient care instead of worrying about marketing."
+      </p>
+      <div class="proof-attribution">
+        <span class="proof-name">Dr. Daniel Roach</span>
+        <span class="proof-role">15 Years In Practice · Blueprint Client</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESCHEDULE NOTE -->
+<div class="reschedule-note">
+  <div class="container">
+    <p>
+      <strong>Need to reschedule?</strong> Your confirmation email has the reschedule link. Or just reply to that email and we'll get it sorted.
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="btl-logo.png" alt="Be Top Local"></div>
+      <div>© 2026 Be Top Local · Neuropathy Patient Acquisition For Functional & Integrative Clinics</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Personalize greeting if first_name was passed via URL params
+  // (Most GHL booking widgets pass first_name in the redirect URL)
+  const params = new URLSearchParams(window.location.search);
+  const firstName = params.get('first_name') || params.get('name');
+  if (firstName && firstName.trim()) {
+    const safeName = firstName.replace(/[^a-zA-Z\s'-]/g, '').trim();
+    if (safeName) {
+      const heading = document.getElementById('hero-greeting');
+      heading.innerHTML = safeName + ", You're <em>Booked.</em>";
+    }
+  }
+</script>
+
+</body>
+</html>
