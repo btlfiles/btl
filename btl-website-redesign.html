@@ -823,13 +823,8 @@
   }
 
   /* ══ ANIMATIONS ══ */
-  /* JS-detected fade-in. Default to visible so content always shows if JS fails. */
+  /* Reveal is a no-op now. Content is always visible. */
   .reveal { opacity: 1; transform: none; }
-  html.js-ready .reveal {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
-  }
-  html.js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ══ RESPONSIVE ══ */
   @media (max-width: 1000px) {
@@ -1122,4 +1117,5 @@
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
-        <button c
+        <button class="faq-q">"I've been burned by agencies before."<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Most of our clients have. That's exactly why we only work with functional &amp; integrated medical clinics. <strong>10+ years, 700+ practices, every dol
