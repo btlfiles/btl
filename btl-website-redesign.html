@@ -1118,4 +1118,78 @@
     <div class="faq-list reveal">
       <div class="faq-item">
         <button class="faq-q">"I've been burned by agencies before."<span class="faq-toggle">+</span></button>
-        <div class="faq-a"><p>Most of our clients have. That's exactly why we only work with functional &amp; integrated medical clinics. <strong>10+ years, 700+ practices, every dol
+        <div class="faq-a"><p>Most of our clients have. That's exactly why we only work with functional &amp; integrated medical clinics. <strong>10+ years, 700+ practices, every dollar tracked from ad spend to patient revenue.</strong> If something isn't working, we both see it in the data. No hiding.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"Other agencies are promising me 20-30 new patients a month."<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Do the math. At a $5K average case value, 20-30 patients a month is $100K-$150K in new patient revenue. Even at $5K/mo in agency fees that's a 20-30x ROI promise. <strong>That doesn't happen reliably anywhere.</strong> They're almost always counting leads or "appointments scheduled" (half no-show). We track to actual patient revenue collected. We'd rather tell you the truth about 8 real patients than lie about 30 leads.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"How is this different from the last agency I hired?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Your last agency probably launched ads and disappeared. Most agencies are running one or two creatives, hoping it works, and only touching the campaigns when you complain. <strong>We're in your account daily.</strong> Split testing creative, copy, and audiences constantly. We sell the system, not just ads.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"How much does this cost?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Our marketing system starts at <strong>$5,000/mo and includes ad spend.</strong> No hidden fees. No surprises. Average client returns 6-8x on what they invest. We'll walk through the numbers for your specific market on the call.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"How fast will I see results?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Leads start coming in within a day or two of launch. <strong>You should be closing patients in your first 30 days.</strong> Month 2 and 3 we keep tightening the campaigns and results improve. Anyone telling you it takes 90 days to "warm up" is full of shit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"Do I have to sign a long-term contract?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Nope. <strong>No long-term contracts.</strong> Our longest clients have been with us 9-10 years because the results keep coming, not because of fine print. If we stop performing, you can leave.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">"What if I'm not a good fit?"<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>We'll tell you. We turn down practices we don't think we can help. <strong>That's why the application takes 2 minutes.</strong> If we don't think we're the right partner, we'll say so. No pitch, no pressure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final-cta">
+  <div class="container final-cta-inner">
+    <div class="section-eyebrow center">Your Move</div>
+    <h2 class="section-title center">Predictable Patient Flow Starts <em>Here.</em></h2>
+    <p class="section-sub center">Apply now. We'll review and reach out if we think we can help. If we can't, we'll tell you that too.</p>
+    <div>
+      <a href="application-quiz.html" class="btn-primary">See If You Qualify</a>
+      <p class="hero-cta-note">Takes 2 minutes. No obligation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="btl-logo.png" alt="Be Top Local"></div>
+      <ul class="footer-links">
+        <li><a href="#system">How It Works</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="application-quiz.html">Apply</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+      </ul>
+    </div>
+    <p class="footer-copy">&copy; 2026 Be Top Local. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
