@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Terms of Service | Be Top Local</title>
+<meta name="description" content="Be Top Local terms of service.">
+<link rel="icon" type="image/png" href="btl-bee.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --border: #E5E5E3;
+    --border-light: #F0F0EE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink-soft);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 28px; }
+
+  .brand-accent-bar {
+    height: 5px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 102;
+  }
+
+  nav {
+    position: fixed; top: 5px; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 28px;
+    display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo img { height: 32px; width: auto; display: block; }
+  .nav-cta {
+    padding: 10px 22px; background: var(--ink);
+    color: #fff; border-radius: 10px;
+    font-weight: 600; font-size: 13px;
+    letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--ink); }
+
+  .page-hero {
+    padding: 140px 0 60px;
+    background: var(--surface-warm);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 56px);
+    font-weight: 800; line-height: 1.05;
+    color: var(--ink); letter-spacing: -1px;
+  }
+  .page-hero h1 em { color: var(--gold); font-style: italic; }
+  .page-revised {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+  }
+
+  .legal-content { padding: 64px 0 96px; }
+  .legal-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 48px 0 16px;
+    line-height: 1.25;
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin: 28px 0 12px;
+    line-height: 1.3;
+  }
+  .legal-content p {
+    font-size: 16px;
+    color: var(--ink-mid);
+    margin-bottom: 20px;
+  }
+  .legal-content strong { color: var(--ink-soft); font-weight: 600; }
+  .legal-content ul {
+    margin: 0 0 20px 24px;
+    padding: 0;
+  }
+  .legal-content li {
+    font-size: 16px;
+    color: var(--ink-mid);
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  .legal-content a {
+    color: var(--gold-deep);
+    text-decoration: underline;
+    text-decoration-color: rgba(197,160,40,0.4);
+    transition: text-decoration-color 0.2s;
+  }
+  .legal-content a:hover { text-decoration-color: var(--gold); }
+
+  .caps-block {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    background: var(--surface-warm);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    line-height: 1.7;
+  }
+
+  .contact-box {
+    margin-top: 32px;
+    padding: 28px 32px;
+    background: var(--surface-warm);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+  }
+  .contact-box p { margin-bottom: 8px; }
+  .contact-box p:last-child { margin-bottom: 0; }
+
+  footer {
+    background: var(--ink); padding: 0 0 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto; padding: 32px 28px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo img {
+    height: 28px; width: auto;
+    filter: brightness(0) invert(1); opacity: 0.85;
+  }
+  .footer-links { display: flex; gap: 28px; list-style: none; }
+  .footer-links a {
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-bright); }
+  .footer-copy {
+    font-size: 11px; color: rgba(255,255,255,0.2);
+    margin-top: 24px; text-align: center;
+  }
+
+  @media (max-width: 700px) {
+    .page-hero { padding: 110px 0 48px; }
+    .legal-content { padding: 48px 0 72px; }
+    .legal-content h2 { font-size: 22px; margin: 36px 0 14px; }
+    .footer-inner { flex-direction: column; gap: 18px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-accent-bar"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" style="text-decoration:none;"><img src="btl-logo.png" alt="Be Top Local"></a>
+    <a href="/apply" class="nav-cta">Apply Now</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-eyebrow">Legal</div>
+    <h1>Terms of <em>Service</em></h1>
+    <p class="page-revised">Last Revised: April 1, 2021</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="container">
+    <p>These Terms of Service ("Terms") constitute a binding agreement between you and Be Top Local, LLC, a Utah Limited Liability Company ("Be Top Local," "we," or "us") with respect to your use of betoplocal.com and the services available on such platform (collectively, the "Services").</p>
+
+    <div class="caps-block">
+      By accessing or using the Services in any manner (whether automated or otherwise), you (a) acknowledge that you have read, understand, and agree to these Terms and our <a href="/privacy">Privacy Policy</a>, which is incorporated herein by reference, and (b) affirm that you are at least 18 years of age (or have reached the age of majority in the jurisdiction where you reside). If you do not agree to these Terms or our Privacy Policy, do not use the Services.
+    </div>
+
+    <h2>1. Scope of and Restrictions on Use</h2>
+    <p>Subject to these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Services for internal business purposes, including any graphics, text, instructions, images, audio files and/or other sounds, videos, and other materials you may view on, access through, or are otherwise related to the Services (collectively, the "Content"). Except as otherwise provided in these Terms, the Content may not be copied, downloaded, or stored in a retrieval system for any other purpose, nor may it be redistributed, reused, or modified for any purpose, without our express written permission. You agree not to:</p>
+    <ul>
+      <li>Collect information from the Services using an automated software tool or manually on a mass basis;</li>
+      <li>Use automated means to access the Services, or gain unauthorized access to the Services or to any account or computer system connected to the Services;</li>
+      <li>Reverse engineer, disassemble, decompile, translate, or otherwise seek to obtain or derive the source code, underlying ideas, algorithms, file formats or non-public APIs;</li>
+      <li>Rent, lease, copy, transfer, sublicense or provide access to the Services to unauthorized third parties;</li>
+      <li>Obtain, or attempt to obtain, access to areas of the Site or our systems that are not intended for access by you;</li>
+      <li>"Flood" the Services with requests or otherwise overburden, disrupt, or harm the Services or our systems;</li>
+      <li>Restrict or inhibit other users from accessing or using the Services;</li>
+      <li>Publicly disseminate information regarding the performance of the Services;</li>
+      <li>Modify or delete any copyright, trademark, or other proprietary rights notices that appear on the Content;</li>
+      <li>Incorporate the Services (or any portion thereof) into, or use it with or to provide, any site, product or service not specifically contemplated herein; or</li>
+      <li>Access or use the Services or Content for any unlawful purpose or otherwise beyond the scope of the rights granted herein.</li>
+    </ul>
+
+    <h2>2. Ownership</h2>
+    <p>The Services (including the Content) are owned by us and are protected under copyright, trademark, and other applicable United States and international laws and treaties. Without limiting the foregoing, the trademarks, service marks, and logos displayed are registered and unregistered marks of Be Top Local. You acknowledge and agree that, as between you and Be Top Local, we are and shall remain the sole owner of the Services and the Content, including, without limitation, all patents, copyrights, trademarks, trade secrets, and other intellectual property and proprietary rights therein and thereto.</p>
+
+    <h2>3. Account Registration and Use</h2>
+    <p>Access to and use of certain Services may require you to register for an account. You agree to provide true, accurate, current, and complete information about yourself as prompted by the applicable registration or log-in form, and you are responsible for keeping such information up to date. You are responsible and liable for all activities conducted through your account, regardless of who conducts those activities. You may not share your account with anyone or allow anyone else to access or use your account. You are responsible for maintaining the confidentiality of your account information, including your username and password. You agree to immediately notify us of any unauthorized use of your account, or any other breach of security. We are not liable for any loss or damage arising from your failure to protect your username or password.</p>
+
+    <h2>4. Submitted Ideas</h2>
+    <p>While we appreciate your interest in the Services and our business, we do not want and cannot accept any ideas or information users consider confidential and/or proprietary. This is to avoid the possibility of future misunderstandings when projects independently developed by or on behalf of Be Top Local might seem to others to be similar to users' own creative ideas, suggestions, and/or materials. All comments, suggestions, ideas, drawings, concepts, or other information or materials disclosed or offered to us by you via the Services or in response to solicitations on the Site shall be deemed to be non-confidential and non-proprietary.</p>
+
+    <h2>5. Electronic Communications</h2>
+    <p>The communications between you and Be Top Local via the Services use electronic means. For contractual purposes, you consent to receive communications from us in electronic form, and you agree that all terms and conditions, agreements, notices, disclosures, and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing.</p>
+
+    <h3>Appointment Reminders</h3>
+    <ul>
+      <li>We send appointment reminders to users who booked an appointment with our clinic.</li>
+      <li>You can cancel the SMS service at any time. Simply text "STOP" to the shortcode. Upon sending "STOP," we will confirm your unsubscribe status via SMS. Following this confirmation, you will no longer receive SMS messages from us. To rejoin, sign up as you did initially, and we will resume sending SMS messages to you.</li>
+      <li>If you experience issues with the messaging program, reply with the keyword HELP for more assistance, or reach out directly to <a href="mailto:csm@betoplocal.com">csm@betoplocal.com</a>.</li>
+      <li>Carriers are not liable for delayed or undelivered messages.</li>
+      <li>As always, message and data rates may apply for messages sent to you from us and to us from you. Message frequency varies. For questions about your text plan or data plan, contact your wireless provider.</li>
+      <li>For privacy-related inquiries, please refer to our <a href="/privacy">Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>6. Privacy Policy</h2>
+    <p>You acknowledge and agree that all information collected by us is subject to our <a href="/privacy">Privacy Policy</a>. By using the Services, you consent to all actions we take with respect to your information in compliance with our Privacy Policy.</p>
+
+    <h2>7. Modifications; Suspension</h2>
+    <h3>Changes to Terms</h3>
+    <p>Be Top Local may revise and update these Terms from time to time in our sole discretion. The date these Terms were last updated is set forth at the top of this page. Your continued use of the Services following the posting of revised Terms means that you accept and agree to the changes.</p>
+    <h3>Changes to the Services</h3>
+    <p>Be Top Local reserves the right to make changes to, suspend, or discontinue (temporarily or permanently) the Services or any portion thereof (including any Content) at any time. You agree that we will not be liable to you or to any third party for any such change, suspension, or discontinuance. Such changes shall be effective immediately upon notice to you, which may be given by any means including, without limitation, posting on our website or by email. Any use of the Services by you after such notice shall constitute your acceptance of such changes, revisions, or modifications.</p>
+    <h3>Suspension/Termination of Access</h3>
+    <p>Be Top Local has the right to deny access to, and to suspend or terminate your access to, the Services or to any features or portions thereof, at any time and for any reason, including if you violate these Terms. In the event that we suspend or terminate your access to the Services, you will continue to be bound by the Terms that were in effect as of the date of your suspension or termination.</p>
+
+    <h2>8. Your Obligations</h2>
+    <h3>Customer Authorization</h3>
+    <p>You agree to: (a) provide all required disclosures to your customers and obtain all required consents (including but not limited to applicable informed consent from your customers/patients), based on applicable laws; and (b) obtain all necessary rights, releases, consents and authorizations to allow personal information to be collected, used and disclosed (including but not limited to customer/patient consent to be contacted through electronic means, including telephone, by Be Top Local).</p>
+    <h3>Compliance with Laws</h3>
+    <p>You represent and warrant that you are and will remain in full compliance with all applicable state and federal laws, rules, and regulations, and federal healthcare plan (e.g., Medicare) rules and conditions. In particular, and without limitation, you warrant and represent that you will not use the Services in a manner that would violate any obligation with respect to the Telephone Consumer Protection Act of 1991 (TCPA), the Health Insurance Portability and Accountability Act of 1996 (HIPAA), the Gramm-Leach-Bliley Act of 1999 (GLBA), the Stark Law, the Anti-Kickback Statute, and any other applicable federal, state, or international law and amendments thereto.</p>
+    <h3>Campaigns and Promotions</h3>
+    <p>If you use our advertising campaigns and promotions, including those in which a prospective customer or patient pre-pays for a service or signs up to receive services through Be Top Local and such fee is retained by Be Top Local as compensation for advertising (collectively, "Campaigns") in conjunction with the Services, you warrant and represent that such Campaigns will not violate any federal, state or local laws, rules or regulations that relate to your business or govern the legality of such Campaigns. You understand and acknowledge that certain Campaigns may violate state or federal laws and that Be Top Local does not provide legal advice or offer any interpretation or representation about the legality of such Campaigns. You represent and warrant that you will consult with your own legal counsel to ensure the legality of any Campaigns, prior to offering such Campaigns using our Services. You agree to assume full legal responsibility for any Campaign you utilize in conjunction with the Services and waive and forever discharge Be Top Local for any claims related to your use of the Campaign and Services.</p>
+    <h3>Pre-Paid Marketing Services</h3>
+    <p>If you use our pre-paid marketing services you understand and acknowledge that such services may only be used for advertising cash-pay clinical services that are not covered by health insurance, Medicaid, or Medicare. You may not seek reimbursement of the services from a prospective customer or patient beyond the fee such person pays to Be Top Local.</p>
+    <h3>Support Services</h3>
+    <p>We may provide certain standard support services as part of the Services. Any support services are subject to these Terms and any applicable support policies. We may also provide onboarding, deployment and other services. The scope, pricing and other terms for these additional services will be set forth separately. Our ability to deliver the Services will depend on your reasonable and timely cooperation and the accuracy and completeness of any information needed from you to deliver the Services.</p>
+
+    <h2>9. HIPAA Requirements</h2>
+    <p><em>The provisions of this section only apply if Client is a Covered Entity, as that term is defined under HIPAA.</em></p>
+    <h3>Business Associate Agreement</h3>
+    <p>The Parties acknowledge and agree that to the extent we are a subcontractor of yours that creates, receives, maintains or transmits Protected Health Information on your behalf, we are a Business Associate of yours and the Parties agree to comply with HIPAA and to be bound by the Business Associate Agreement entered into between the Parties.</p>
+    <h3>Authorization to Disclose PHI</h3>
+    <p>If you are a Covered Entity as that term is defined under HIPAA, any disclosure of PHI to third parties must be authorized by the patient or legal guardian, or otherwise legally allowed under the Federal Privacy Regulations. You agree that it is your sole responsibility to ensure that any PHI released to us, including photographs or images, as part of the Services to be provided hereunder, is done so in full compliance with the Federal Privacy Regulations. If a patient of yours revokes their consent to disclosure of their PHI, you will immediately notify us of such revocation, and to the extent possible and under our control, we will remove any related PHI from use related to the Services.</p>
+    <h3>Authority</h3>
+    <p>We are granted the right to view, access, handle, control, store, utilize and distribute Protected Health Information for the purposes outlined and authorized under the Agreement and the Business Associate Agreement.</p>
+    <h3>Use of Services in Compliant Manner</h3>
+    <p>You agree that you are solely responsible for ensuring that you use our Services, including any communication with your patients allowed for therein, in a manner that complies with HIPAA. You are solely responsible for properly training and supervising your staff to ensure our Services are utilized in a HIPAA compliant manner. Additionally, you are solely responsible for the storage and security of PHI that is locally captured, stored or accessible on your property and/or hardware or on your devices those of your agents.</p>
+
+    <h2>10. Service Fees and Payment</h2>
+    <p>You agree to pay all fees in accordance with your payment selection. Note that certain payment methods, such as credit or debit card, may have additional fees. Payments are non-refundable and non-creditable. Late payments may incur interest charges at the rate of 1%, compounded monthly, or the maximum lawful amounts, whichever is less. If we send for collection and/or initiate legal action to collect overdue amounts, you shall be liable for all cost and expenses of such action, including reasonable attorney's fees, court costs, and expenses. Additionally, after payment becomes overdue, we shall have the right to immediately suspend your access to the Services. Our subscriptions renew on an automatic basis unless and until you cancel your subscription at least thirty (30) days prior to the end of the then-current term.</p>
+
+    <h2>11. Confidential Information</h2>
+    <p>We may disclose to you and/or you may otherwise receive or have access to sensitive, confidential, and/or proprietary information of Be Top Local (collectively, "Confidential Information"), including, but not limited to, business and marketing plans, technology and technical information, and know-how or business information relating to business processes, methods, or marketing strategies. Except as required to perform your obligations under and in accordance with these Terms, you shall not (a) disclose Confidential Information to any person or entity, or (b) use Confidential Information (whether for your own benefit or the benefit of any other person or entity), without the express prior written consent of Be Top Local. You may not use any Confidential Information for the purpose of soliciting, or to permit others to solicit, Be Top Local customers to subscribe to any other services or promote the sale of any products which compete, either directly or indirectly, with Be Top Local or any of the Services. You acknowledge and agree that Be Top Local may be required to provide to governmental agencies or other third parties information in its possession regarding you or the business you conduct with Be Top Local.</p>
+
+    <h2>12. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold Be Top Local and its officers, directors, employees, agents, licensors, and service providers harmless from and against any claims, liabilities, losses, damages, judgments, awards, costs, and expenses (including reasonable attorneys' fees) arising out of or resulting from your use of the Services and/or any Content, or any violation of these Terms or applicable law (including but not limited to statutory or regulatory fines or penalties imposed or alleged against Be Top Local for violations of TCPA, HIPAA, or other applicable law related in any manner to these Terms). We reserve the right, at our own expense, to assume the exclusive defense and control of any action subject to indemnification by you, and in such event you agree to cooperate with us in defending such action. Your indemnification, defense, and hold harmless obligations will survive the termination of your use of the Services and/or these Terms.</p>
+
+    <h2>13. Third Party Materials</h2>
+    <p>The Services may display, include, or make available third-party content (including data, information, applications and other products services and/or materials) or provide links to third-party websites or services (collectively, "Third Party Materials"). You acknowledge and agree that Be Top Local is not responsible for any Third-Party Materials, including their accuracy, completeness, timeliness, validity, legality, decency, quality, or any other aspect thereof. We do not assume and will not have any liability to you or any other person or entity for any Third-Party Materials. Third Party Materials and links thereto are provided solely as a convenience to you, and you access and use them at entirely at your own risk and subject to such third parties' terms and conditions.</p>
+
+    <h2>14. Third Party Platforms</h2>
+    <p>Be Top Local may provide the Services to you through third-party websites, operating systems, platforms, and portals (collectively, "Third Party Platforms"). Additional terms and conditions may apply to you with respect to your use of Third-Party Platforms, which are not under Be Top Local's control. We do not assume any responsibility or liability for your use of such Third-Party Platforms.</p>
+
+    <h2>15. Disclaimer; Limitation of Liability</h2>
+    <div class="caps-block">
+      <strong>Disclaimer of Warranties.</strong> The Services and the Content are provided to you on an "as is" and "as available" basis, without warranties of any kind, and Be Top Local hereby disclaims all warranties, whether express, implied, statutory, or otherwise, including but not limited to any implied warranties of merchantability, fitness for a particular purpose, and non-infringement. Neither Be Top Local nor any person associated with Be Top Local makes any representation or warranty with respect to the completeness, security, reliability, quality, accuracy, or availability of the Services or any Content. Without limiting the foregoing, neither Be Top Local nor anyone associated with Be Top Local represents or warrants that the Services or the Content will be accurate, reliable, error-free, or uninterrupted, that defects will be corrected, that the Services, Content, or the servers that make them available are free of viruses or other harmful components, or that the Services or the Content will otherwise meet your needs or expectations.
+    </div>
+    <div class="caps-block">
+      <strong>Limitation of Liability.</strong> To the fullest extent permitted by law, in no event will Be Top Local or its officers, directors, employees, agents, licensors, or service providers be liable for any indirect, incidental, consequential, special, punitive, or exemplary damages arising from or related to your use of or inability to use the Services or the Content, including, but not limited to, personal injury or death, loss of revenue, loss of profits, loss of business, loss of use, or loss of data, whether caused by tort (including negligence), breach of contract, or otherwise, even if foreseeable. Use of the Services is at your sole risk. Be Top Local's maximum aggregate liability to you for losses or damages that you suffer in connection with these Terms or the Services or any Content is limited to the greater of (a) the amount paid, if any, by you to Be Top Local in connection with the Services in the twelve (12) months prior to the action giving rise to liability, or (b) U.S. $100.00. The foregoing limitations shall apply even if your remedies under these Terms of Use fail of their essential purpose.
+    </div>
+    <p><strong>Exclusions.</strong> Some jurisdictions do not allow the exclusion or limitation of certain warranties or consequential damages, so some of the exclusions and/or limitations in this Section may not apply to you.</p>
+
+    <h2>16. General</h2>
+    <h3>Governing Law; Jurisdiction and Venue</h3>
+    <p>These Terms and any dispute or claim arising out of or related to these Terms, their subject matter, their formation (in each case, including non-contractual disputes or claims) or use of the Services shall be governed by and construed in accordance with the laws of the State of Utah, other than such laws and case law that would result in the application of the laws of a jurisdiction other than the State of Utah. Any action arising out of or relating to this Agreement or your use of the Services must be commenced in the state or federal courts located in Salt Lake City, Utah, United States of America (and you consent to the jurisdiction of those courts).</p>
+    <h3>Waiver and Severability</h3>
+    <p>Our failure to exercise or enforce any right or provision of these Terms will not constitute a waiver of such right or provision. If any provision of these Terms is held by a court of competent jurisdiction to be invalid, illegal, or unenforceable for any reason, such provision shall be eliminated or limited to the minimum extent possible, and the remaining provisions of these Terms will continue in full force and effect.</p>
+    <h3>Assignment</h3>
+    <p>We may assign or transfer any or all of the rights and obligations described in these Terms. You may not assign these Terms or any of your rights and duties hereunder without the prior written consent of Be Top Local. These Terms shall be binding upon and inure to the benefit of the parties hereto and their respective successors and assigns.</p>
+    <h3>Entire Agreement; Amendment</h3>
+    <p>These Terms, together with our <a href="/privacy">Privacy Policy</a> and any additional terms and conditions that are referenced herein or otherwise may apply to the Services, constitute the sole and entire agreement between you and Be Top Local with respect to the Services, and supersede all prior and contemporaneous understandings, agreements, representations, and warranties, both written and oral, with respect to the Services.</p>
+    <h3>Equitable Relief</h3>
+    <p>You acknowledge and agree that any breach or threatened breach of these Terms may cause immediate and irreparable harm to Be Top Local which would not be adequately compensated by monetary damages and that Be Top Local shall, in addition to any and all other rights and remedies that may be available at law (which Be Top Local does not waive by the exercise of any rights hereunder), be entitled to injunctive relief, specific performance, and/or other equitable relief as a remedy for any such breach or anticipated breach, without the necessity of posting a bond or other security.</p>
+    <h3>Notices</h3>
+    <p>Any notice, request, approval, authorization, consent, demand or other communication required or permitted pursuant to these Terms shall be in writing and shall be deemed given on the earliest of: (a) actual receipt, irrespective of the method of delivery; (b) the time of transmission from Be Top Local if sent via email, as date stamped by Be Top Local's systems; (c) on the delivery day following dispatch if sent by express mail (or similar next day air courier service); or (d) on the sixth day after mailing by registered or certified United States mail, return receipt requested, postage prepaid and addressed to the last address provided by a party.</p>
+    <h3>Notice to California Residents</h3>
+    <p>If you are a California resident, in accordance with Cal. Civ. Code §1789.3, you may report complaints to the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs by contacting them in writing at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by telephone at (800) 952-5210.</p>
+
+    <h2>17. Questions</h2>
+    <div class="contact-box">
+      <p>If you have any questions about the Services or these Terms:</p>
+      <p><strong>Phone:</strong> 801-506-6909</p>
+      <p><strong>Email:</strong> <a href="mailto:csm@betoplocal.com">csm@betoplocal.com</a></p>
+      <p><strong>Address:</strong> 12884 S. Frontrunner Blvd., Suite 140, Draper, UT 84020</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="btl-logo.png" alt="Be Top Local"></div>
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/apply">Apply</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/terms">Terms</a></li>
+    </ul>
+  </div>
+  <p class="footer-copy">&copy; 2026 Be Top Local. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

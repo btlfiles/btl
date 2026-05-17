@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Privacy Policy | Be Top Local</title>
+<meta name="description" content="Be Top Local privacy policy. How we collect, use, and protect your information.">
+<link rel="icon" type="image/png" href="btl-bee.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C5A028;
+    --gold-bright: #E2BC2E;
+    --gold-deep: #9A7B10;
+    --gold-subtle: #FAF6E8;
+    --ink: #111111;
+    --ink-soft: #2A2A2A;
+    --ink-mid: #555555;
+    --ink-muted: #888888;
+    --surface: #FFFFFF;
+    --surface-warm: #FDFBF6;
+    --border: #E5E5E3;
+    --border-light: #F0F0EE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--surface);
+    color: var(--ink-soft);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 28px; }
+
+  /* Brand accent bar */
+  .brand-accent-bar {
+    height: 5px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 102;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 5px; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 28px;
+    display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo img { height: 32px; width: auto; display: block; }
+  .nav-cta {
+    padding: 10px 22px; background: var(--ink);
+    color: #fff; border-radius: 10px;
+    font-weight: 600; font-size: 13px;
+    letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--ink); }
+
+  /* Hero */
+  .page-hero {
+    padding: 140px 0 60px;
+    background: var(--surface-warm);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .page-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 56px);
+    font-weight: 800; line-height: 1.05;
+    color: var(--ink); letter-spacing: -1px;
+  }
+  .page-hero h1 em { color: var(--gold); font-style: italic; }
+  .page-revised {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+  }
+
+  /* Content */
+  .legal-content {
+    padding: 64px 0 96px;
+  }
+  .legal-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 48px 0 16px;
+    line-height: 1.25;
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content p {
+    font-size: 16px;
+    color: var(--ink-mid);
+    margin-bottom: 20px;
+  }
+  .legal-content strong { color: var(--ink-soft); font-weight: 600; }
+  .legal-content ul {
+    margin: 0 0 20px 24px;
+    padding: 0;
+  }
+  .legal-content li {
+    font-size: 16px;
+    color: var(--ink-mid);
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  .legal-content a {
+    color: var(--gold-deep);
+    text-decoration: underline;
+    text-decoration-color: rgba(197,160,40,0.4);
+    transition: text-decoration-color 0.2s;
+  }
+  .legal-content a:hover { text-decoration-color: var(--gold); }
+
+  .contact-box {
+    margin-top: 32px;
+    padding: 28px 32px;
+    background: var(--surface-warm);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+  }
+  .contact-box p { margin-bottom: 8px; }
+  .contact-box p:last-child { margin-bottom: 0; }
+
+  /* Footer */
+  footer {
+    background: var(--ink); padding: 0 0 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto; padding: 32px 28px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo img {
+    height: 28px; width: auto;
+    filter: brightness(0) invert(1); opacity: 0.85;
+  }
+  .footer-links { display: flex; gap: 28px; list-style: none; }
+  .footer-links a {
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-bright); }
+  .footer-copy {
+    font-size: 11px; color: rgba(255,255,255,0.2);
+    margin-top: 24px; text-align: center;
+  }
+
+  @media (max-width: 700px) {
+    .page-hero { padding: 110px 0 48px; }
+    .legal-content { padding: 48px 0 72px; }
+    .legal-content h2 { font-size: 22px; margin: 36px 0 14px; }
+    .footer-inner { flex-direction: column; gap: 18px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-accent-bar"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" style="text-decoration:none;"><img src="btl-logo.png" alt="Be Top Local"></a>
+    <a href="/apply" class="nav-cta">Apply Now</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-eyebrow">Legal</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <p class="page-revised">Last Revised: March 29, 2021</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="container">
+    <p>Be Top Local ("Be Top," "we," or "us") respects your privacy. This Privacy Policy describes the types of information we may collect from you when you visit betoplocal.com or use our other products and services that include an authorized link to this Privacy Policy (collectively, the "Services"), how we use the information we collect, with whom we share it, how we protect it, and the choices we offer you regarding our collection and use of such information.</p>
+
+    <h2>Information We Collect</h2>
+    <p><strong>How We Collect Information About You.</strong> We may collect personal information about you, meaning information that can uniquely identify you, from various sources, including: directly from you when you use the Services, such as when you subscribe to a newsletter or fill out a form; social networks through which you may interact with us; our service providers and other third parties; and automatically when you use the Services.</p>
+    <p><strong>Information We May Collect.</strong> The personal information we collect about you may include, without limitation, your name, clinic name, email address, and phone number.</p>
+    <p><strong>Automatic Collection.</strong> In addition, we may collect certain information by automated means, such as cookies. A "cookie" is a text file that websites send to a visitor's device to uniquely identify the visitor's browser or to store information or settings in the browser. We may also use third-party analytics tools (such as Google Analytics) that collect information about the use of the Services and user traffic. We have implemented Remarketing with Google AdWords, Google Display Network Impression Reporting, and Demographics and Interests Reporting. The information we collect by automatic means may include, without limitation: IP address, the type of device, operating system, web browser, dates and time of use of the Services, and website navigation patterns. The information we collect automatically is statistical data and does not include personal information. It helps us to improve and personalize our Services, including by enabling us to identify and authenticate users.</p>
+    <p><strong>Your Choices.</strong> If you wish to adjust your cookies settings, most browsers will tell you how to stop accepting new cookies, how to be notified when you receive a new cookie, and how to disable existing cookies. Please note, however, that without cookies you may not be able to take full advantage of all the features of the Services. You may also opt out of the aggregation and analysis of data collected about you on our website by Google Analytics by visiting <a href="https://tools.google.com/dlpage/gaoptout">https://tools.google.com/dlpage/gaoptout</a>. Google's advertising guidelines can be found at <a href="https://support.google.com/adwordspolicy/answer/1316548">https://support.google.com/adwordspolicy/answer/1316548</a>.</p>
+
+    <h2>How We Respond to Do Not Track Signals</h2>
+    <p>Your web browser may let you choose your preference as to whether you want to allow the collection of information about your online activities over time and across different websites or online services. At this time, the Services do not respond to the preferences you may have set in your web browser regarding such collection of your information, and the Services may continue to collect information in the manner described in this Privacy Policy.</p>
+
+    <h2>How We Use the Information We Collect</h2>
+    <p>We may use information we obtain about you to:</p>
+    <ul>
+      <li>Process orders you place and complete other transactions you have requested using the Services, and provide you with products and services you request;</li>
+      <li>Send you information or materials you request;</li>
+      <li>Provide lead information to clinics and clients in order to contact leads regarding medical services;</li>
+      <li>Communicate with you about our products, services, offers, and promotions;</li>
+      <li>Respond to your questions and comments and provide customer support;</li>
+      <li>Operate, evaluate, and improve our business and the products and services we offer;</li>
+      <li>Analyze and enhance our marketing communications and strategies;</li>
+      <li>Analyze trends and statistics regarding use of the Services and transactions conducted using the Services;</li>
+      <li>Protect against and prevent fraud, unauthorized transactions, claims, and other liabilities, and manage risk exposure, including by identifying potential hackers and other unauthorized users;</li>
+      <li>Enforce our <a href="/terms">Terms of Service</a> and other agreements; and</li>
+      <li>Comply with applicable legal requirements and industry standards.</li>
+    </ul>
+    <p>All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties, excluding aggregators and providers of the Text Message services.</p>
+    <p>No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing to subcontractors in support services, such as customer service is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+
+    <h2>Disclosure of Information</h2>
+    <p>We may disclose aggregated information about our users and information that does not identify any individual user, without restriction. We may disclose personal information about you:</p>
+    <ul>
+      <li>To service providers and other third parties we use to support our business and who are bound by contractual obligations to keep personal information confidential and use it only for the purposes for which we disclose it to them;</li>
+      <li>To comply with any court order, law, or legal process, including to respond to any government or regulatory request;</li>
+      <li>To enforce or apply our <a href="/terms">Terms of Service</a> and other agreements;</li>
+      <li>If we believe disclosure is necessary or appropriate to protect our rights, property, or safety of users of the Services or others; and</li>
+      <li>With your consent.</li>
+    </ul>
+    <p>We also reserve the right to transfer your personal information to a buyer or other transferee in the event of a merger, divestiture, restructuring, reorganization, dissolution, sale, or other transfer of some or all of our assets. Should such a sale, merger, or transfer occur, we will use reasonable efforts to direct the transferee to use your personal information in a manner that is consistent with our Privacy Policy.</p>
+
+    <h2>Data Security</h2>
+    <p>Your personal information is contained behind secured networks and is only accessible by authorized individuals who are required to keep the information confidential. In addition, all credit information you supply is encrypted via Secure Socket Layer (SSL) technology. All transactions are processed through a gateway provider and are not stored or processed on our servers. We implement a variety of security measures when a user enters, submits, or accesses their information to maintain the safety of your personal information. Please note that the electronic transmission of information is not completely secure. We cannot guarantee that the security measures we have in place to safeguard personal information will never be defeated or fail, or that such measures will always be sufficient or effective. Any transmission of personal information is at your own risk.</p>
+
+    <h2>Your California Privacy Rights</h2>
+    <p>California Civil Code Section § 1798.83 permits users of our Services who are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes. To make such a request, please contact us.</p>
+
+    <h2>Children Under the Age of 18</h2>
+    <p>The Services are not directed to, and we do not knowingly collect or solicit personal information from, children under the age of 18. If we learn we have collected or received personal information from a child under the age of 18, we will delete that information. If you believe we might have any information from or about a child under the age of 18, please contact us.</p>
+
+    <h2>Changes to Our Privacy Policy</h2>
+    <p>We reserve the right to update or change this Privacy Policy at any time. If we make a material change to our Privacy Policy, we will provide notice to you by posting on our website that our privacy practices have changed and provide a link to the updated Privacy Policy. You then have an opportunity to opt out of such new or different use. The date this Privacy Policy was last revised is at the top of this page. We encourage you to review this Privacy Policy periodically to check for any updates or changes.</p>
+
+    <h2>Data Transfers</h2>
+    <p>We are based in the United States. When we obtain information about you, we may transfer, process, and store such information outside of the country in which you reside, including in the United States. By using the Services, you consent to the transfer to and processing and storage of your information in countries outside of your country of residence, which may have different data protection laws than those in the country where you reside.</p>
+
+    <h2>Protected Health Information Under HIPAA</h2>
+    <p>This Privacy Policy does not cover any information we collect which constitutes Protected Health Information (PHI) as that term is defined under the Health Insurance Portability and Accountability Act of 1996 (HIPAA). The use and disclosure of any information collected that constitutes PHI is governed separately by a Business Associate Agreement entered into between Be Top Local and your healthcare provider which has engaged Be Top Local for services.</p>
+
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+      <p>If you have any questions about this Privacy Policy or our information practices:</p>
+      <p><strong>Phone:</strong> 801-506-6909</p>
+      <p><strong>Email:</strong> <a href="mailto:csm@betoplocal.com">csm@betoplocal.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="btl-logo.png" alt="Be Top Local"></div>
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/apply">Apply</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/terms">Terms</a></li>
+    </ul>
+  </div>
+  <p class="footer-copy">&copy; 2026 Be Top Local. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
