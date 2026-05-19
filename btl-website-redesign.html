@@ -633,24 +633,33 @@
     margin-bottom: 28px;
   }
 
-  .condition-tags {
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
-    max-width: 900px; margin: 0 auto;
+  .conditions-statement {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 700; line-height: 1.4;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    max-width: 760px; margin: 0 auto 36px;
+    letter-spacing: -0.3px;
+  }
+  .conditions-statement em {
+    color: var(--gold-bright); font-style: italic; font-weight: 800;
   }
 
-  .condition-tag {
-    padding: 12px 24px;
-    background: rgba(255,255,255,0.04);
-    border: 1.5px solid rgba(255,255,255,0.1);
-    border-radius: 100px;
-    font-size: 14px; font-weight: 600;
-    color: rgba(255,255,255,0.85);
-    transition: all 0.3s;
+  .conditions-list {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 600; font-style: italic;
+    line-height: 1.6;
+    color: #fff;
+    text-align: center;
+    max-width: 900px; margin: 0 auto;
+    letter-spacing: -0.3px;
   }
-  .condition-tag:hover {
-    border-color: var(--gold);
-    background: rgba(197,160,40,0.1);
-    color: var(--gold-bright);
+  .conditions-list .dot {
+    color: var(--gold); font-style: normal;
+    margin: 0 6px; opacity: 0.7;
+    font-weight: 400;
   }
 
   /* ══ REFRAME BLOCK ══ */
@@ -1072,18 +1081,11 @@
 <!-- ══ CONDITIONS BAR ══ -->
 <div class="conditions-bar">
   <div class="container">
-    <div class="section-eyebrow center">Conditions We Run Campaigns For</div>
-    <div class="condition-tags">
-      <span class="condition-tag">Neuropathy</span>
-      <span class="condition-tag">Knee Pain</span>
-      <span class="condition-tag">Back Pain</span>
-      <span class="condition-tag">Weight Loss</span>
-      <span class="condition-tag">Hormone Therapy</span>
-      <span class="condition-tag">Regenerative Medicine</span>
-      <span class="condition-tag">Erectile Dysfunction</span>
-      <span class="condition-tag">Auto Immune</span>
-      <span class="condition-tag">+ More</span>
-    </div>
+    <div class="section-eyebrow center">What We Run Campaigns For</div>
+    <p class="conditions-statement">We don't run generic "medical marketing." We run <em>condition-specific</em> campaigns for:</p>
+    <p class="conditions-list">
+      Neuropathy <span class="dot">·</span> Knee Pain <span class="dot">·</span> Back Pain <span class="dot">·</span> Weight Loss <span class="dot">·</span> Hormone Therapy <span class="dot">·</span> Regenerative Medicine <span class="dot">·</span> Erectile Dysfunction <span class="dot">·</span> Auto Immune <span class="dot">·</span> and more
+    </p>
   </div>
 </div>
 
@@ -1134,7 +1136,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">"How fast will I see results?"<span class="faq-toggle">+</span></button>
-        <div class="faq-a"><p>Leads start coming in within a day or two of launch. <strong>You should be closing patients in your first 30 days.</strong> Month 2 and 3 we keep tightening the campaigns and results improve. Anyone telling you it takes 90 days to "warm up" is full of shit.</p></div>
+        <div class="faq-a"><p>Leads start coming in within a day or two of launch. <strong>You should be closing patients in your first 30 days.</strong> Month 2 and 3 we keep tightening the campaigns and results improve. Anyone telling you it takes 90 days to "warm up" is lying.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">"Do I have to sign a long-term contract?"<span class="faq-toggle">+</span></button>
